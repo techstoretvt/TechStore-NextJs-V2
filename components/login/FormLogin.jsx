@@ -43,8 +43,8 @@ const redirect_uri_git = process.env.REDIRECT_URI_GIT;
 
 const FormLogin = ({ params, props }) => {
     //variable
-    const [email, setEmail] = useState('admin@gmail.com');
-    const [pass, setPass] = useState('Thoai@12345');
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
     const [errMessEmail, setErrMessEmail] = useState('');
     const [errMessPass, setErrMessPass] = useState('');
     const [errMess, setErrMess] = useState('');
