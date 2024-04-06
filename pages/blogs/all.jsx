@@ -260,6 +260,7 @@ const AllBlog = () => {
     <>
       <Head>
         <title>Bài viết | {nameWeb}</title>
+        <meta name="description" content={`Bài viết của cửa hàng trực tuyến ${nameWeb}`} />
       </Head>
       <LoadingBar
         color="#5885E6"
@@ -461,12 +462,12 @@ const AllBlog = () => {
                                 {item["blogs-blogShares-parent"]?.product[
                                   "imageProduct-product"
                                 ]?.length >= 5 && (
-                                  <div className={styles.more_image}>
-                                    {item["blogs-blogShares-parent"]?.product[
-                                      "imageProduct-product"
-                                    ]?.length - 5}
-                                  </div>
-                                )}
+                                    <div className={styles.more_image}>
+                                      {item["blogs-blogShares-parent"]?.product[
+                                        "imageProduct-product"
+                                      ]?.length - 5}
+                                    </div>
+                                  )}
                               </div>
                               <div className={styles.content}>
                                 <Link

@@ -291,6 +291,28 @@ const getContentEventPromotionById = async (data) => {
     }
 }
 
+const getAllIdProduct = async (data) => {
+    try {
+        return await axios.get(`/api/v2/get-all-id-product`);
+    } catch (error) {
+        console.log("🚀 ~ file: appService.js:287 ~ getContentEventPromotionById ~ error:", error)
+        return {
+            errCode: -1
+        }
+    }
+}
+
+const getAllIdBlog = async (data) => {
+    try {
+        return await axios.get(`/api/v2/get-all-id-blog`);
+    } catch (error) {
+        console.log("🚀 ~ file: appService.js:287 ~ getContentEventPromotionById ~ error:", error)
+        return {
+            errCode: -1
+        }
+    }
+}
+
 
 
 export {
@@ -318,5 +340,7 @@ export {
     getListBlogHome,
     getEventPromotionById,
     getListEventPromotion,
-    getContentEventPromotionById
+    getContentEventPromotionById,
+    getAllIdProduct,
+    getAllIdBlog
 }

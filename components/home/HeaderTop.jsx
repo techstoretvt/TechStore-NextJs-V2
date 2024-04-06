@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { sdtContact } from '../../utils/constants'
 
 import styles from "../../styles/home/HeaderTop.module.scss";
 
@@ -14,7 +15,7 @@ const HeaderTop = () => {
           <div className={styles["left"]}>
             Hotline:{" "}
             <b>
-              <a href="tel:+945910084">0945910084</a>
+              <a href={`tel:+${sdtContact}`}>{sdtContact}</a>
             </b>{" "}
             (8h - 12h, 13h30 - 17h)
           </div>

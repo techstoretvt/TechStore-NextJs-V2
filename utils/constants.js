@@ -1,12 +1,12 @@
-const nameWeb = 'DH20TIN02'
+const nameWeb = 'Thoại Store'
 
-const emailContact = 'dh20tin02@gmail.com'
+const emailContact = 'thoaitran2565@gmail.com'
 
 const sdtContact = '0987654321'
 
 const addressContact = 'Trường đại học Nam Cần Thơ, thành phố Cần Thơ'
 
-const copyBy = 'namcanthodnc'
+const copyBy = 'tranvanthoai'
 
 export {
     nameWeb,

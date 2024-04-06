@@ -102,6 +102,7 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
   const [domloaded, setDomloaded] = useState(false);
 
   useEffect(() => {
+    console.log(router.query);
     // getBlog()
     handleCheckLikeBlog();
     handleCheckSaveBlog();
@@ -526,7 +527,8 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
   return (
     <>
       <Head>
-        <title>Chi tiết bài viết | {nameWeb}</title>
+        <title>{blog?.title} | {nameWeb}</title>
+        <meta name="description" content={blog?.contentHTML} />
       </Head>
       <HeaderBottom hideSearch={false} />
       <LoadingBar

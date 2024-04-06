@@ -14,6 +14,7 @@ import classNames from "classnames";
 import Swal from "sweetalert2";
 import Background from "../../components/background";
 
+
 // import { getProductById } from '../../services/graphql'
 import {
   addCartProduct,
@@ -74,10 +75,10 @@ export async function getStaticProps(context) {
     let avgStart = evaluateRes?.avgStar?.toFixed(1) ?? null;
     let amountPage = evaluateRes?.amoutFiller
       ? (Math.floor(
-          (evaluateRes?.amoutFiller - 1) / variables.countPageEvaluate
-        ) +
-          1) *
-        10
+        (evaluateRes?.amoutFiller - 1) / variables.countPageEvaluate
+      ) +
+        1) *
+      10
       : 0;
     // console.log(evaluateRes);
 
@@ -280,7 +281,7 @@ const DetailProduct = ({
       setListEvaluate(res.data);
       setAmountPage(
         (Math.floor((res.amoutFiller - 1) / variables.countPageEvaluate) + 1) *
-          10
+        10
       );
     } else {
       setListEvaluate(null);
@@ -368,7 +369,7 @@ const DetailProduct = ({
     // console.log('list img', listImage);
 
     listImage.sort(compare);
-    return listImage?.map((item) => {
+    return listImage?.map((item, index) => {
       return (
         <div key={item.STTImage}>
           <Image
@@ -382,7 +383,7 @@ const DetailProduct = ({
             data-height={10000}
             width={600}
             height={200}
-            alt="Your Image Alt Text"
+            alt={`Ảnh ${item.nameProduct} ${index + 1}`}
           ></Image>
         </div>
       );
@@ -701,9 +702,8 @@ const DetailProduct = ({
 
   const timeEvaluate = (item) => {
     let date = new Date(item.createdAt);
-    return `${date.getHours()}:${date.getMinutes()} -- ${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`;
+    return `${date.getHours()}:${date.getMinutes()} -- ${date.getDate()}/${date.getMonth() + 1
+      }/${date.getFullYear()}`;
   };
 
   const classifyEvaluate = (item) => {
@@ -801,8 +801,8 @@ const DetailProduct = ({
     <>
       <Head>
         <title>{title}</title>
-        <meta property="title" content="Tiêu đề của trang web" />
-
+        <meta property="title" content={title} />
+        <meta name="description" content={`Sản phẩm: ${name} tại cửa hàng trực tuyến ${nameWeb} đã được kiểm duyệt chặt chẽ và bảo hành trên toàn quốc.`} />
         {product && <meta property="image" content={metaImage} />}
       </Head>
       <LoadingBar

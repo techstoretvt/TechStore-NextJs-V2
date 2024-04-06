@@ -9,6 +9,7 @@ import { useMediaQuery } from "react-responsive";
 import { sendEmailfromContact } from "../../services/userService";
 import { toast } from "react-toastify";
 import Background from "../../components/background";
+import { nameWeb } from '../../utils/constants'
 import {
   sdtContact,
   emailContact,
@@ -46,7 +47,8 @@ const ContactPage = () => {
   return (
     <>
       <Head>
-        <title>Liên hệ</title>
+        <title>Liên hệ | {nameWeb}</title>
+        <meta name="description" content={`Thông tin liên hệ tại cửa hàng trực tuyến ${nameWeb}, gửi những câu hỏi hoặc thắc mắc của bạn đến ngay với chúng tôi.`} />
       </Head>
       <HeaderBottom hideSearch={false} />
       <div className={styles.ContactPage_container}>
