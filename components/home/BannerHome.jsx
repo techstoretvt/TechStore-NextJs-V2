@@ -21,6 +21,7 @@ const BannerHome = () => {
                         alt='Anh dien thoai'
                         width={200}
                         height={200}
+                        loading="eager"
                     />
                 </div>
                 <div className={styles.right} >

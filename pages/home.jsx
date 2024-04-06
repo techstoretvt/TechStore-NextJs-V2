@@ -10,6 +10,7 @@ const PromotionProduct = dynamic(
   () => import("../components/home/PromotionProduct"),
   {
     loading: () => "Loading...",
+    ssr: false
   }
 );
 
@@ -17,10 +18,12 @@ const NewCollection = dynamic(
   () => import("../components/home/NewCollection"),
   {
     loading: () => "Loading...",
+    ssr: false
   }
 );
 
 import HeaderHome from "../components/home/HeaderHome";
+
 import SliderImageHome from "../components/home/SliderImageHome";
 
 import ExhibitionImage from "../components/home/ExhibitionImage";
