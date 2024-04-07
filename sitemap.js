@@ -18,14 +18,14 @@ export default async function sitemap({ id }) {
 
   //get idProduct
   let allIdProduct = await getAllIdProduct();
-  let dataIdProduct = allIdProduct.map(idProduct => ({
+  let dataIdProduct = allIdProduct.data.map(idProduct => ({
     url: domain + '/product/' + idProduct.id,
     lastModified: idProduct.createdAt,
   }))
 
   //get idBlog
   let allIdBlog = await getAllIdBlog();
-  let dataIdBlog = allIdBlog.map(idBog => ({
+  let dataIdBlog = allIdBlog.data.map(idBog => ({
     url: domain + '/blogs/detail-blog/' + idBog.id,
     lastModified: idBog.createdAt,
   }))

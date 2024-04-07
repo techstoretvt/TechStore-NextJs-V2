@@ -26,6 +26,7 @@ import {
   getListProductMayLike,
   getEvaluateById,
   getProductById,
+  getAllIdProduct,
 } from "../../services/appService";
 // import { handleRefreshToken } from '../../store/actions/userAction'
 import actionTypes from "../../store/actions/actionTypes";
@@ -117,16 +118,19 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   // Tạo ra một mảng các đối tượng path
   const paths = [
-    {
-      params: { id: "999f009d-5e42-44fe-a204-63f32ec04d9b" },
-    },
-    {
-      params: { id: "e93c6669-3a7e-45c8-8c39-e0bce6b3d027" },
-    },
-    {
-      params: { id: "7423f787-765a-4af8-beb0-48537ca6b0ec" },
-    },
+
   ];
+
+  let allIdProduct = await fetch(
+    `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v2/get-all-id-product`
+  );
+  allIdProduct = await allIdProduct.json();
+
+  allIdProduct.data.forEach(idProduct => {
+    paths.push({
+      params: { id: idProduct.id }
+    })
+  })
 
   // Trả về mảng path đã tạo
   return { paths, fallback: true };

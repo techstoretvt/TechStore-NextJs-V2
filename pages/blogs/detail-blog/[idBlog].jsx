@@ -15,7 +15,8 @@ import {
   getBlogById,
   getCommentBlogByIdBlog,
   increateViewBlogById,
-} from "../../../services/appService";
+  getAllIdBlog
+} from '../../../services/appService';
 import {
   saveBlogCollection,
   checkLikeBlogById,
@@ -74,10 +75,19 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   // Tạo ra một mảng các đối tượng path
   const paths = [
-    {
-      params: { idBlog: "8908f926-42e6-4f27-977a-f12544c2279b" },
-    },
+
   ];
+
+  let allIdBlog = await fetch(
+    `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v2/get-all-id-blog`
+  );
+  allIdBlog = await allIdBlog.json();
+
+  allIdBlog.data.forEach(idBog => {
+    paths.push({
+      params: { idBlog: idBog.id },
+    })
+  })
 
   // Trả về mảng path đã tạo
   return { paths, fallback: true };
