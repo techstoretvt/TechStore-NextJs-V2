@@ -50,7 +50,7 @@ const Evaluate = () => {
     useEffect(() => {
         checkLogin(accessToken, refreshToken, dispatch).then((res) => {
             if (!res) {
-                router.push('/home');
+                router.push('/');
             }
         });
     }, []);
@@ -420,9 +420,9 @@ const Evaluate = () => {
                                     detailBill?.product?.nameProduct
                                         .charAt(0)
                                         .toUpperCase() +
-                                        detailBill?.product?.nameProduct.slice(
-                                            1
-                                        )}
+                                    detailBill?.product?.nameProduct.slice(
+                                        1
+                                    )}
                             </div>
                             <div className={styles.classify}>
                                 Phân loại hàng:
@@ -433,10 +433,10 @@ const Evaluate = () => {
                                     }}
                                 >
                                     {detailBill &&
-                                    detailBill?.classifyProduct
-                                        ?.nameClassifyProduct !== 'default'
+                                        detailBill?.classifyProduct
+                                            ?.nameClassifyProduct !== 'default'
                                         ? detailBill?.classifyProduct
-                                              ?.nameClassifyProduct
+                                            ?.nameClassifyProduct
                                         : 'Không có'}
                                 </span>
                             </div>

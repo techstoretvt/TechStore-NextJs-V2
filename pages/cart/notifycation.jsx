@@ -21,7 +21,7 @@ const Notifycation = () => {
       {/* <div className={styles.Notifycation_container}>
             <div style={{ textAlign: 'center' }}>Đơn hàng đã được tạo thành công.</div>
             <div>
-                <Link href={'/home'} style={{ textAlign: 'center' }}>Trang Chủ</Link>
+                <Link href={'/'} style={{ textAlign: 'center' }}>Trang Chủ</Link>
                 <Link href={'/cart'} style={{ textAlign: 'center' }}>Tiếp tục mua sắm</Link>
                 <Link href={'/user/purchase'} style={{ textAlign: 'center' }}>Xem đơn hàng</Link>
             </div>

@@ -87,19 +87,19 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Hỗ trợ khách hàng</div>
                         <ul>
                             <li>
-                                <Link href={'/home'}>Tìm kiếm</Link>
+                                <Link href={'/'}>Tìm kiếm</Link>
                             </li>
                             <li>
-                                <Link href={'/home'}>Giới thiệu</Link>
+                                <Link href={'/'}>Giới thiệu</Link>
                             </li>
                             <li>
-                                <Link href={'/home'}>Chính sách đổi trả</Link>
+                                <Link href={'/'}>Chính sách đổi trả</Link>
                             </li>
                             <li>
-                                <Link href={'/home'}>Chính sách bảo mật</Link>
+                                <Link href={'/'}>Chính sách bảo mật</Link>
                             </li>
                             <li>
-                                <Link href={'/home'}>Điều khoản dịch vụ</Link>
+                                <Link href={'/'}>Điều khoản dịch vụ</Link>
                             </li>
                             <li>
                                 <Link href={'/portal/contact'}>Liên hệ</Link>
@@ -110,7 +110,7 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Liên kết</div>
                         <ul>
                             <li>
-                                <Link href={'/home'}>Sản phẩm khuyến mãi</Link>
+                                <Link href={'/'}>Sản phẩm khuyến mãi</Link>
                             </li>
                             <li>
                                 <Link
@@ -141,20 +141,20 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Chính sách</div>
                         <ul>
                             <li>
-                                <Link href={'/home'}>Chính sách đổi trả</Link>
+                                <Link href={'/'}>Chính sách đổi trả</Link>
                             </li>
                             <li>
-                                <Link href={'/home'}>Chính sách bán hàng</Link>
+                                <Link href={'/'}>Chính sách bán hàng</Link>
                             </li>
                             <li>
-                                <Link href={'/home'}>Chính sách giao hàng</Link>
+                                <Link href={'/'}>Chính sách giao hàng</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div className={styles['FooterHome-bottom']}>
                     Copyright © 2022 {nameWeb}.{' '}
-                    <Link href={'/home'}>Powered by {copyBy}</Link>
+                    <Link href={'/'}>Powered by {copyBy}</Link>
                 </div>
             </div>
         </div>

@@ -283,7 +283,7 @@ const HeaderBottom = (props) => {
         userLogout(dispatch);
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        window.location.href = '/home';
+        window.location.href = '/';
     };
 
     const renderPriceCartSmall = (item) => {
@@ -532,7 +532,7 @@ const HeaderBottom = (props) => {
                     })}
                 >
                     <div className={styles['header-logo']}>
-                        <Link href={'/home'}>
+                        <Link href={'/'}>
                             {props?.smaillIcon !== true ? (
                                 <Image
                                     className={classNames(
@@ -748,106 +748,106 @@ const HeaderBottom = (props) => {
                                         >
                                             {listCarts && listCarts?.length > 0
                                                 ? listCarts.map((item) => {
-                                                      return (
-                                                          <div
-                                                              key={item.id}
-                                                              className={
-                                                                  styles.cartItem
-                                                              }
-                                                          >
-                                                              <div
-                                                                  className={
-                                                                      styles.cartItem_left
-                                                                  }
-                                                                  style={{
-                                                                      backgroundImage: `url(${item.product['imageProduct-product'][0].imagebase64})`,
-                                                                  }}
-                                                                  onClick={() => {
-                                                                      router.push(
-                                                                          `/product/${item.product.id}?name=${item.product.nameProduct}`
-                                                                      );
-                                                                  }}
-                                                              ></div>
-                                                              <div
-                                                                  className={
-                                                                      styles.cartItem_right
-                                                                  }
-                                                              >
-                                                                  <div
-                                                                      className={
-                                                                          styles.cartItem_name
-                                                                      }
-                                                                      onClick={() => {
-                                                                          router.push(
-                                                                              `/product/${item.product.id}?name=${item.product.nameProduct}`
-                                                                          );
-                                                                      }}
-                                                                  >
-                                                                      {
-                                                                          item
-                                                                              .product
-                                                                              .nameProduct
-                                                                      }
-                                                                  </div>
-                                                                  <div
-                                                                      className={
-                                                                          styles.cartItem_classify
-                                                                      }
-                                                                  >
-                                                                      {item
-                                                                          .classifyProduct
-                                                                          .nameClassifyProduct !==
-                                                                          'default' &&
-                                                                          item
-                                                                              .classifyProduct
-                                                                              .nameClassifyProduct}
-                                                                  </div>
-                                                                  <div
-                                                                      className={
-                                                                          styles.cartItem_wrap
-                                                                      }
-                                                                  >
-                                                                      <div
-                                                                          className={
-                                                                              styles.cartItem_amount
-                                                                          }
-                                                                      >
-                                                                          Số
-                                                                          lượng:{' '}
-                                                                          <b>
-                                                                              {
-                                                                                  item.amount
-                                                                              }
-                                                                          </b>{' '}
-                                                                      </div>
-                                                                      <div
-                                                                          className={
-                                                                              styles.cartItem_price
-                                                                          }
-                                                                      >
-                                                                          {renderPriceCartSmall(
-                                                                              item
-                                                                          )}
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                              <div
-                                                                  className={
-                                                                      styles.close
-                                                                  }
-                                                              >
-                                                                  <i
-                                                                      className="fa-solid fa-xmark"
-                                                                      onClick={() =>
-                                                                          handleDeleteProductInCart(
-                                                                              item.id
-                                                                          )
-                                                                      }
-                                                                  ></i>
-                                                              </div>
-                                                          </div>
-                                                      );
-                                                  })
+                                                    return (
+                                                        <div
+                                                            key={item.id}
+                                                            className={
+                                                                styles.cartItem
+                                                            }
+                                                        >
+                                                            <div
+                                                                className={
+                                                                    styles.cartItem_left
+                                                                }
+                                                                style={{
+                                                                    backgroundImage: `url(${item.product['imageProduct-product'][0].imagebase64})`,
+                                                                }}
+                                                                onClick={() => {
+                                                                    router.push(
+                                                                        `/product/${item.product.id}?name=${item.product.nameProduct}`
+                                                                    );
+                                                                }}
+                                                            ></div>
+                                                            <div
+                                                                className={
+                                                                    styles.cartItem_right
+                                                                }
+                                                            >
+                                                                <div
+                                                                    className={
+                                                                        styles.cartItem_name
+                                                                    }
+                                                                    onClick={() => {
+                                                                        router.push(
+                                                                            `/product/${item.product.id}?name=${item.product.nameProduct}`
+                                                                        );
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        item
+                                                                            .product
+                                                                            .nameProduct
+                                                                    }
+                                                                </div>
+                                                                <div
+                                                                    className={
+                                                                        styles.cartItem_classify
+                                                                    }
+                                                                >
+                                                                    {item
+                                                                        .classifyProduct
+                                                                        .nameClassifyProduct !==
+                                                                        'default' &&
+                                                                        item
+                                                                            .classifyProduct
+                                                                            .nameClassifyProduct}
+                                                                </div>
+                                                                <div
+                                                                    className={
+                                                                        styles.cartItem_wrap
+                                                                    }
+                                                                >
+                                                                    <div
+                                                                        className={
+                                                                            styles.cartItem_amount
+                                                                        }
+                                                                    >
+                                                                        Số
+                                                                        lượng:{' '}
+                                                                        <b>
+                                                                            {
+                                                                                item.amount
+                                                                            }
+                                                                        </b>{' '}
+                                                                    </div>
+                                                                    <div
+                                                                        className={
+                                                                            styles.cartItem_price
+                                                                        }
+                                                                    >
+                                                                        {renderPriceCartSmall(
+                                                                            item
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                className={
+                                                                    styles.close
+                                                                }
+                                                            >
+                                                                <i
+                                                                    className="fa-solid fa-xmark"
+                                                                    onClick={() =>
+                                                                        handleDeleteProductInCart(
+                                                                            item.id
+                                                                        )
+                                                                    }
+                                                                ></i>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })
                                                 : 'Không có sản phẩm nào trong giỏ hàng'}
                                         </div>
                                         <div className={styles.footer}>
@@ -888,16 +888,16 @@ const HeaderBottom = (props) => {
                             <div className={styles['icon-account']}>
                                 {(currentUser === '' ||
                                     currentUser === null) && (
-                                    <Link
-                                        href={'/account/login'}
-                                        className={styles['no-login']}
-                                    >
-                                        <span></span>
-                                        <div className={styles['text']}>
-                                            Đăng nhập
-                                        </div>
-                                    </Link>
-                                )}
+                                        <Link
+                                            href={'/account/login'}
+                                            className={styles['no-login']}
+                                        >
+                                            <span></span>
+                                            <div className={styles['text']}>
+                                                Đăng nhập
+                                            </div>
+                                        </Link>
+                                    )}
                                 {currentUser && (
                                     <>
                                         <button className={styles['login']}>

@@ -153,7 +153,7 @@ const FormRegister = () => {
                             `email-verify-${res.data.keyVerify}`,
                             function (data) {
                                 setIsLoadingOverLay(true);
-                                router.push('/home');
+                                router.push('/');
                             }
                         );
                         setIsOpenModel(true);

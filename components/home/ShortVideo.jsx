@@ -33,8 +33,8 @@ const ShortVideo = ({ listShortVideoData = [] }) => {
                                     <Image
                                         alt=""
                                         src={item.urlImage}
-                                        width={400}
-                                        height={600}
+                                        width={150}
+                                        height={250}
                                     />
                                 </Link>
                             ))}

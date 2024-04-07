@@ -78,7 +78,7 @@ const NewBlog = () => {
         checkLogin(accessToken, refreshToken, dispatch).then((res) => {
             if (!res) {
                 // alert('ko login')
-                router.push('/home');
+                router.push('/');
             }
         });
     }, []);
@@ -150,7 +150,7 @@ const NewBlog = () => {
 
             setListImage(arrImage);
         } else {
-            router.push('/home');
+            router.push('/');
         }
     };
 
@@ -1087,7 +1087,7 @@ const NewBlog = () => {
                                                             <label
                                                                 className={
                                                                     styles[
-                                                                        'switch'
+                                                                    'switch'
                                                                     ]
                                                                 }
                                                             >
@@ -1103,7 +1103,7 @@ const NewBlog = () => {
                                                                 <span
                                                                     className={
                                                                         styles[
-                                                                            'slider'
+                                                                        'slider'
                                                                         ]
                                                                     }
                                                                 ></span>
@@ -1172,7 +1172,7 @@ const NewBlog = () => {
                                                                 <div
                                                                     className={
                                                                         styles[
-                                                                            'loading'
+                                                                        'loading'
                                                                         ]
                                                                     }
                                                                 >
@@ -1188,7 +1188,7 @@ const NewBlog = () => {
                                                     <div
                                                         id={
                                                             styles[
-                                                                'container-stars'
+                                                            'container-stars'
                                                             ]
                                                         }
                                                     >
@@ -1222,7 +1222,7 @@ const NewBlog = () => {
                                                     <div
                                                         id={
                                                             styles[
-                                                                'container-stars'
+                                                            'container-stars'
                                                             ]
                                                         }
                                                     >

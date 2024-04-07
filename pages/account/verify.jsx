@@ -75,7 +75,7 @@ const VerifyForm = (props) => {
                 <div className={styles["message"]}>{title}</div>
                 {/* <div className='go-home'>
                                 Bạn sẽ được chuyển đến
-                                <Link to={'/home'}>Trang Chủ</Link>
+                                <Link to={'/'}>Trang Chủ</Link>
                                 sau 5 giây
                             </div> */}
               </div>

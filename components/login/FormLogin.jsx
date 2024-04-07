@@ -105,7 +105,7 @@ const FormLogin = ({ params, props }) => {
                     data: '',
                 });
             } else {
-                router.push('/home');
+                router.push('/');
             }
         } else if (res && res.errCode !== 0) {
             setErrMess(res?.errMessage);
@@ -154,7 +154,7 @@ const FormLogin = ({ params, props }) => {
                         data: '',
                     });
                 } else {
-                    router.push('/home');
+                    router.push('/');
                 }
             } else if (res && res.errCode === 2) {
                 updateTokensFaild(dispatch);
@@ -240,7 +240,7 @@ const FormLogin = ({ params, props }) => {
                     data: '',
                 });
             } else {
-                router.push('/home');
+                router.push('/');
             }
         }
         if (res && res.errCode !== 0) {
@@ -284,7 +284,7 @@ const FormLogin = ({ params, props }) => {
                     data: '',
                 });
             } else {
-                router.push('/home');
+                router.push('/');
             }
         }
         if (res && res.errCode !== 0) {

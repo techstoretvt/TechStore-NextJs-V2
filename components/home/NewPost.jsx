@@ -44,7 +44,7 @@ const NewPost = ({ listBlogHomeData }) => {
                                     />
                                 </Link>
                                 <Link
-                                    href={'/home'}
+                                    href={'/'}
                                     className={styles['name']}
                                     title="Điểm qua các loại tivi có mặt trên thị trường hiện nay"
                                 >
@@ -86,7 +86,7 @@ const NewPost = ({ listBlogHomeData }) => {
                                                     }
                                                 >
                                                     <Link
-                                                        href={'/home'}
+                                                        href={'/'}
                                                         className={
                                                             styles['name']
                                                         }

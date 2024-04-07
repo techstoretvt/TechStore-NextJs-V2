@@ -1,15 +1,17 @@
-import React, { useEffect, useRef } from "react";
-import Script from "next/script";
-import { FacebookProvider, CustomChat } from "react-facebook";
+import React, { useEffect } from "react";
+import dynamic from 'next/dynamic';
+const { FacebookProvider, CustomChat } = dynamic(
+  () => import('react-facebook'),
+  { loading: () => <p>Loading...</p> }
+);
 
 const id = "116661344652051";
 const appid = "1131387264234227";
 
 const FacebookChat = () => {
-  const scriptRef = useRef();
 
   useEffect(() => {
-    return () => {};
+    return () => { };
   }, []);
 
   return (

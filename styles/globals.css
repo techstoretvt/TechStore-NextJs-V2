@@ -4,10 +4,21 @@
   --background-white: #ffffff;
   --text-color-black: #737373;
   --text-color-white: #d2d2d2;
-  --text-title-color: #ddeb14; /* màu tiểu đề */
-  --bg-primary-color: #192934; /* màu của model và nền*/
-  --shadow-color: #2b85c1; /* màu bóng của model và nền*/
-  --icon-color: #10ce7f; /* màu bóng của model và nền*/
+  --text-title-color: #ddeb14;
+  /* màu tiểu đề */
+  --bg-primary-color: #192934;
+  /* màu của model và nền*/
+  --shadow-color: #2b85c1;
+  /* màu bóng của model và nền*/
+  --icon-color: #10ce7f;
+  /* màu bóng của model và nền*/
+}
+
+@font-face {
+  font-family: 'Miriam Libre';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/miriamlibre/v8/DdTh798HsHwubBAqfkcBTL_v89r3e1bK1TH6Hw.woff2) format('woff2');
 }
 
 * {
