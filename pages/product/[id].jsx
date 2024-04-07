@@ -373,6 +373,7 @@ const DetailProduct = ({
           <Image
             className={styles.item}
             loading={index === 0 ? "eager" : "lazy"}
+            priority={index === 0 ? true : false}
             // style={{ backgroundImage: `url(${item.imagebase64})` }}
             data-fancybox="gallery"
             data-src={item.imagebase64}

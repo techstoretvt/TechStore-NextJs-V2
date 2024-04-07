@@ -24,6 +24,7 @@ const BannerHome = () => {
                         src={imagePhone}
                         alt='Anh dien thoai'
                         loading="eager"
+                        priority
                     />
                 </div>
                 <div className={styles.right} >
