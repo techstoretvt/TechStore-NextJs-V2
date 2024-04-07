@@ -1,6 +1,8 @@
 import styles from '../../styles/home/BannerHome.module.scss'
 import Image from 'next/image';
 
+import imagePhone from '../../public/images/home/banner/iphone.webp'
+
 const BannerHome = () => {
 
     return (
@@ -19,10 +21,8 @@ const BannerHome = () => {
                 // data-aos-easing="ease-in-sine"
                 >
                     <Image
-                        src={'/images/home/banner/iphone.webp'}
+                        src={imagePhone}
                         alt='Anh dien thoai'
-                        width={1000}
-                        height={1000}
                         loading="eager"
                     />
                 </div>

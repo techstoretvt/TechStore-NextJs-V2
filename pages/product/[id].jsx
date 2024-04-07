@@ -7,7 +7,7 @@ import FooterHome from "../../components/home/FooterHome";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { use, useState } from "react";
+import { useState } from "react";
 import Rating from "@mui/material/Rating";
 import { toast } from "react-toastify";
 import classNames from "classnames";
@@ -33,15 +33,13 @@ import actionTypes from "../../store/actions/actionTypes";
 
 import Fancybox from "../../components/product/Fancybox";
 import MayLike from "../../components/product/MayLike";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Head from "next/head";
-import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // import Rating from "@mui/material/Rating";
-import { Pagination } from "antd";
 import { variables, checkWord } from "../../services/common";
-import { Empty, QRCode } from "antd";
+import { Empty, QRCode, Pagination } from "antd";
 import Image from "next/image";
 import LoadingBar from "react-top-loading-bar";
 import {
@@ -374,6 +372,7 @@ const DetailProduct = ({
         <div key={item.STTImage}>
           <Image
             className={styles.item}
+            loading={index === 0 ? "eager" : "lazy"}
             // style={{ backgroundImage: `url(${item.imagebase64})` }}
             data-fancybox="gallery"
             data-src={item.imagebase64}
@@ -381,8 +380,8 @@ const DetailProduct = ({
             data-thumb={item.imagebase64}
             data-width={10000}
             data-height={10000}
-            width={600}
-            height={200}
+            width={300}
+            height={300}
             alt={`Ảnh ${item.nameProduct} ${index + 1}`}
           ></Image>
         </div>
