@@ -32,7 +32,7 @@ export default async function sitemap({ id }) {
 
   return [
     {
-      url: domain + '/home',
+      url: domain,
       lastModified: new Date(),
       priority: 1,
     },

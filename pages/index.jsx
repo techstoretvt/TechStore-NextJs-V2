@@ -1,336 +1,190 @@
-import Head from 'next/head';
-import styles from '../styles/StartServer.module.scss';
-import { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
-import { checkStartServer } from '../services/appService';
-import Link from 'next/link';
-import { initNotifications, notify } from '@mycv/f8-notification';
-import { useRouter } from 'next/router';
-import { nameWeb } from '../utils/constants';
+import Head from "next/head";
+// import Link from 'next/link'
+import dynamic from "next/dynamic";
+import LazyLoad from "react-lazyload";
+import styles from "../styles/home/HomePage.module.scss";
+import LoadingBar from "react-top-loading-bar";
+import { nameWeb } from '../utils/constants'
 
-const StartServer = () => {
-    const [numberResult, setNumberResult] = useState(1234);
-    const [count, setCount] = useState(0);
-    const [arrNumber, setArrNumber] = useState([]);
-    const [valueInput, setValueInput] = useState('');
-    const [isPlay, setIsPlay] = useState(false);
-    const [isStartServer, setIsStartServer] = useState(false);
-    const router = useRouter();
+const PromotionProduct = dynamic(
+  () => import("../components/home/PromotionProduct"),
+  {
+    loading: () => "Loading...",
+    ssr: false
+  }
+);
 
-    useEffect(() => {
-        handleCheckStartServer();
-        initNotifications({ cooldown: 3000 });
-    }, []);
+const NewCollection = dynamic(
+  () => import("../components/home/NewCollection"),
+  {
+    loading: () => "Loading...",
+    ssr: false
+  }
+);
 
-    const handleCheckStartServer = async () => {
-        let res = await checkStartServer();
-        if (res?.errCode === 0) {
-            setIsStartServer(true);
-            notify(`Server ${nameWeb} đã hoạt động`, {
-                body: 'Bạn đã có thể truy cập vào website :)',
-            });
-            router.push('/home');
-        }
-    };
+import HeaderHome from "../components/home/HeaderHome";
 
-    const checkArr = (arr) => {
-        let dem = 0;
-        for (let i = 0; i < arr?.length; i++) {
-            dem = 0;
-            for (let j = 0; j < arr?.length; j++) {
-                if (arr[i] === arr[j]) dem++;
-            }
-            if (dem > 1) return false;
-        }
-        return true;
-    };
+import SliderImageHome from "../components/home/SliderImageHome";
 
-    const handleOnchangeInput = (e) => {
-        try {
-            let number = e.target.value * 1;
-            if (typeof number === 'number' && number < 10000) {
-                let arrTam = number.toString().split('');
-                if (checkArr(arrTam)) setValueInput(number);
-            } else if (number === 0) {
-                setValueInput('');
-            } else {
-                setValueInput('');
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
+import ExhibitionImage from "../components/home/ExhibitionImage";
+// import PromotionProduct from '../components/home/PromotionProduct'
+import Category from "../components/home/Category";
+import TopSellingProduct from "../components/home/TopSellingProduct";
+import ExhibitionImage2 from "../components/home/ExhibitionImage2";
+// import NewCollection from '../components/home/NewCollection'
+import ExhibitionImage3 from "../components/home/ExhibitionImage3";
+import AdvanceProduct from "../components/home/AdvanceProduct";
+import GenuineFlycam from "../components/home/GenuineFlycam";
+import NewPost from "../components/home/NewPost";
+import TopSearch from "../components/home/TopSearch";
+import FooterHome from "../components/home/FooterHome";
+import BannerHome from "../components/home/BannerHome";
+import ShortVideo from "../components/home/ShortVideo";
+// import FacebookChat from "../components/home/ChatFacebook";
+import Background from "../components/background";
 
-    const handleSubmit = () => {
-        if (valueInput === '' || valueInput < 1000) return;
-        if (count <= 15) {
-            console.log(count);
-            if (valueInput === numberResult) {
-                //success
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Win',
-                    text: numberResult,
-                });
-                //reload
-                setIsPlay(false);
-                setValueInput('');
-                setCount(0);
-                return;
-            }
-            if (count === 14) {
-                setIsPlay(false);
-                Swal.fire({
-                    // icon: 'success',
-                    title: 'Game Over',
-                    text: numberResult,
-                });
-            }
-            let arrTam = [...arrNumber];
-            arrTam.push(valueInput);
-            setArrNumber(arrTam);
-            setValueInput('');
-            setCount((pre) => pre + 1);
-        } else {
-            setCount(0);
-            setIsPlay(false);
-            setValueInput('');
-        }
-    };
+// import IphonePage from '../components/home/IphonePage'
+// import initializeAOS from '../utils/aos'
 
-    const checkDocument = (item) => {
-        let arrResult = numberResult.toString().split('');
-        let arrValue = item.toString().split('');
-        let dem = 0;
-        for (let i = 0; i < arrValue.length; i++) {
-            if (arrResult.includes(arrValue[i])) dem++;
-        }
-        return dem;
-    };
+// import { getPromotionProduct, getTopSellProduct, getProductFlycam } from '../services/appService'
+import { useEffect, useState } from "react";
+typeof window === "undefined";
 
-    const checkPositon = (item) => {
-        let arrResult = numberResult.toString().split('');
-        let arrValue = item.toString().split('');
+export async function getStaticProps(context) {
+  try {
+    // let resPromotionProduct = await getPromotionProduct();
+    // console.log('resPromotionProduct', resPromotionProduct);
+    // let resTopSellProduct = await getTopSellProduct();
+    // console.log('resTopSellProduct', resTopSellProduct);
+    // let resProductFlycam = await getProductFlycam();
+    // console.log('resProductFlycam', resProductFlycam);
 
-        let dem = 0;
-        for (let i = 0; i < arrValue?.length; i++) {
-            if (arrResult[i] === arrValue[i]) dem++;
-        }
-        return dem;
-    };
-
-    const handlePlay = () => {
-        setIsPlay(true);
-        setValueInput('');
-        setCount(0);
-        setArrNumber([]);
-        let number = generateRandomNumber();
-        setNumberResult(number);
-    };
-
-    function generateRandomNumber() {
-        let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; // Tất cả các chữ số có thể được sử dụng
-        let result = ''; // Chuỗi kết quả
-
-        // Lặp 4 lần để chọn ngẫu nhiên một chữ số và loại bỏ nó khỏi mảng digits
-        for (let i = 0; i < 4; i++) {
-            const randomIndex = Math.floor(Math.random() * digits.length); // Chọn ngẫu nhiên một chỉ mục trong mảng digits
-            const digit = digits[randomIndex]; // Lấy giá trị chữ số tại chỉ mục này
-            result += digit.toString(); // Thêm giá trị chữ số này vào chuỗi kết quả
-            digits.splice(randomIndex, 1); // Loại bỏ chữ số đã chọn khỏi mảng digits
-        }
-
-        return result * 1; // Trả về số ngẫu nhiên với 4 chữ số không trùng nhau
-    }
-
-    return (
-        <>
-            <Head>
-                <title>TechStore Start</title>
-                <meta
-                    name="viewport"
-                    content="width=device-width,user-scalable=no"
-                />
-            </Head>
-            <div className={styles.StartServer_container}>
-                <div className={styles.loader}>
-                    {/* <div className={styles["loader"]}>
-            <div className={styles["dots"]}>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-            </div>
-            <div className={styles["dots"]}>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-            </div>
-            <div className={styles["dots"]}>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-            </div>
-            <div className={styles["dots"]}>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-            </div>
-            <div className={styles["dots"]}>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-            </div>
-            <div className={styles["dots"]}>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-              <div className={styles["dot"]}></div>
-            </div>
-          </div> */}
-                    <div className="">
-                        {isStartServer ? (
-                            <>
-                                <Link href={'/home'}>
-                                    Server đã khởi động, đang chuyển sang trang
-                                    chủ
-                                </Link>
-                            </>
-                        ) : (
-                            'Server đang khởi động'
-                        )}
-                    </div>
-                </div>
-                {/* <div className={styles.wrap_game}>
-          <div className={styles.header}>
-            Game Đoán Số
-          </div>
-          {isPlay ? (
-            <div className={styles.content}>
-              <div className={styles.left}>
-                <div className={styles.row}>
-                  <div className={styles.stt}>STT</div>
-                  <div className={styles.number + " " + styles.title}>
-                    Number
-                  </div>
-                  <div className={styles.count}>Đúng</div>
-                  <div className={styles.position}>Vị trí</div>
-                </div>
-                {arrNumber.map((item, index) => {
-                  return (
-                    <div key={index} className={styles.row}>
-                      <div className={styles.stt}>{index + 1}</div>
-                      <div className={styles.number}>{item}</div>
-                      <div className={styles.count}>{checkDocument(item)}</div>
-                      <div className={styles.position}>
-                        {checkPositon(item)}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className={styles.right}>
-                <input
-                  value={valueInput}
-                  onChange={handleOnchangeInput}
-                  placeholder="Nhập số..."
-                  type="text"
-                  maxLength={4}
-                />
-                <button onClick={handleSubmit}>OK</button>
-              </div>
-            </div>
-          ) : (
-            <div className={styles.btn_play} onClick={() => handlePlay()}>
-              CHƠI
-            </div>
-          )}
-        </div> */}
-            </div>
-        </>
+    let resPromotionProduct = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v1/get-product-promotion-home`
     );
-};
+    resPromotionProduct = await resPromotionProduct.json();
+    // console.log("resPromotionProduct", resPromotionProduct);
 
-export default StartServer;
+    let resTopSellProduct = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/vi/get-top-sell-product`
+    );
+    resTopSellProduct = await resTopSellProduct.json();
+    // console.log("resTopSellProduct", resTopSellProduct);
+
+    let resProductFlycam = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v1/get-product-type-flycam`
+    );
+    resProductFlycam = await resProductFlycam.json();
+    // console.log("resProductFlycam", resProductFlycam);
+
+    let listTypeProductRes = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/get-all-type-product`
+    );
+    listTypeProductRes = await listTypeProductRes.json();
+
+    let newCollectionRes = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/vi/get-new-collection-product?typeProduct=điện thoại`
+    );
+    newCollectionRes = await newCollectionRes.json();
+
+    let listBlogHomeRes = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v1/get-list-blog-home`
+    );
+    listBlogHomeRes = await listBlogHomeRes.json();
+
+    let listShortVideoRes = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v1/get-list-short-video`
+    );
+    listShortVideoRes = await listShortVideoRes.json();
+
+    let listEventRes = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL_BUILD}/api/v1/get-list-event-promotion-home`
+    );
+    listEventRes = await listEventRes.json();
+
+    return {
+      props: {
+        PromotionProducts: resPromotionProduct?.data || [],
+        TopSellProducts: resTopSellProduct?.data || [],
+        ProductFlycams: resProductFlycam?.data || [],
+        listTypeProductData: listTypeProductRes?.data ?? [],
+        newCollectionData: newCollectionRes?.data ?? [],
+        listBlogHomeData: listBlogHomeRes?.data ?? [],
+        listShortVideoData: listShortVideoRes?.data ?? [],
+        listEventData: listEventRes?.data ?? [],
+      },
+      revalidate: 60,
+    };
+  } catch (e) {
+    console.log("lỗi phải static", e);
+    return {
+      props: {
+        PromotionProducts: [],
+        TopSellProducts: [],
+        ProductFlycams: [],
+        listTypeProductData: [],
+        newCollectionData: [],
+      },
+    };
+  }
+}
+
+export default function Home({
+  PromotionProducts = [],
+  TopSellProducts = [],
+  ProductFlycams = [],
+  listTypeProductData,
+  newCollectionData,
+  listBlogHomeData = [],
+  listShortVideoData,
+  listEventData,
+}) {
+  useEffect(() => { }, []);
+
+  const [progress, setProgress] = useState(100);
+  return (
+    <>
+      <Head>
+        <title>Trang chủ | {nameWeb}</title>
+        <meta name="description" content={`Trang chủ cửa hàng trực tuyến ${nameWeb} chuyên bán sỉ lẻ điện thoại và thiết bị điện tử`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <LoadingBar
+        color="#5885E6"
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
+      <div className={styles["homePage-container"] + " scoll-bar"}>
+        <HeaderHome isTop={true} link_social={true} />
+        <BannerHome />
+        <SliderImageHome listEventData={listEventData} />
+
+        <LazyLoad offset={500}>
+          <Category listTypeProductData={listTypeProductData} />
+        </LazyLoad>
+        <PromotionProduct PromotionProducts={PromotionProducts} />
+        <LazyLoad offset={500}>
+          <ExhibitionImage />
+        </LazyLoad>
+        <TopSellingProduct TopSellProducts={TopSellProducts} />
+        <LazyLoad offset={500}>
+          <ExhibitionImage2 />
+        </LazyLoad>
+        <NewCollection newCollectionData={newCollectionData} />
+        <LazyLoad offset={500}>
+          <ExhibitionImage3 />
+        </LazyLoad>
+        <AdvanceProduct newCollectionData={newCollectionData} />
+        <GenuineFlycam ProductFlycams={ProductFlycams} />
+        <NewPost listBlogHomeData={listBlogHomeData} />
+        <ShortVideo listShortVideoData={listShortVideoData} />
+        <TopSearch />
+        <FooterHome />
+        {/* <FacebookChat /> */}
+
+        <Background />
+      </div>
+    </>
+  );
+}
