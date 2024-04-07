@@ -1,4 +1,4 @@
-const nameWeb = 'ThoaiTranStore'
+const nameWeb = 'ThoaiDevStore'
 
 const emailContact = 'thoaitran2565@gmail.com'
 

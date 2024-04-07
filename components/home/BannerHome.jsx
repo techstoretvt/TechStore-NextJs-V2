@@ -13,15 +13,17 @@ const BannerHome = () => {
 
 
             <div className={styles.content} >
-                <div className={styles.left} data-aos="fade-right"
-                    data-aos-offset="-110" data-aos-once={false}
-                    data-aos-easing="ease-in-sine" >
+                <div className={styles.left}
+                // data-aos="fade-right"
+                // data-aos-offset="-110" data-aos-once={false}
+                // data-aos-easing="ease-in-sine"
+                >
                     <Image
                         src={'/images/home/banner/iphone.webp'}
                         alt='Anh dien thoai'
-                        width={200}
-                        height={200}
-                        loading="lazy"
+                        width={1000}
+                        height={1000}
+                        loading="eager"
                     />
                 </div>
                 <div className={styles.right} >
