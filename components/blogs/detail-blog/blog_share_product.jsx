@@ -75,10 +75,12 @@ const BlogShareProduct = ({ blog }) => {
         <div className={styles.BlogShareDefault_container}>
             <div className={styles.header}>
                 <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.left}
+                    aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                     style={renderAvatarUser(blog?.User)}
                 ></Link>
                 <div className={styles.right}>
-                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}
+                        aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}>
                         {blog?.User?.firstName + ' ' + blog?.User?.lastName}
                     </Link>
                     <div className={styles.time}>
@@ -94,7 +96,9 @@ const BlogShareProduct = ({ blog }) => {
                     blogShare &&
                     <>
                         <div className={styles.header}>
-                            <Link href={`/blogs/blog-user/${blogShare?.User?.id}`} className={styles.left}
+                            <Link href={`/blogs/blog-user/${blogShare?.User?.id}`}
+                                aria-label={`Xem bài viết của user: ${blogShare?.User?.firstName}`}
+                                className={styles.left}
                                 style={renderAvatarUser(blogShare?.User)}
                             ></Link>
                             <div className={styles.right}>
@@ -111,7 +115,9 @@ const BlogShareProduct = ({ blog }) => {
                         ></div>
                         <div className={styles.media}>
                             <div className={styles.nameProduct}>
-                                <Link href={`/product/${blogShare['blogs-blogShares-parent']?.product?.id}`} className={styles.text}>
+                                <Link href={`/product/${blogShare['blogs-blogShares-parent']?.product?.id}`} className={styles.text}
+                                    aria-label={`Xem chi tiết sản phẩm: ${blogShare['blogs-blogShares-parent']?.product?.nameProduct}`}
+                                >
                                     {
                                         blogShare['blogs-blogShares-parent']?.product?.nameProduct
                                     }
@@ -158,7 +164,9 @@ const BlogShareProduct = ({ blog }) => {
                                 </Fancybox>
                             </div>
                         </div>
-                        <Link href={`/blogs/detail-blog/${blogShare?.id}`} style={{ marginTop: '10px', width: 'fit-content' }}>
+                        <Link href={`/blogs/detail-blog/${blogShare?.id}`}
+                            aria-label={`Xem bài viết: ${blogShare?.title}`}
+                            style={{ marginTop: '10px', width: 'fit-content' }}>
                             Xem bài viết
                         </Link>
                     </>

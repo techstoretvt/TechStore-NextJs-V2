@@ -7,8 +7,12 @@ const ExhibitionImage = () => {
         <div className={styles['ExhibitionImage-container']} >
             <div className={styles['ExhibitionImage-content']}>
                 <div className={styles.left} data-aos="fade-down-right" data-aos-offset="300" >
-                    <Link href={'/search?keyword=điện thoại&brand=samsung'} className={styles.img1 + ' ' + 'light-effect light-effect-flash'}></Link>
-                    <Link href={'/search?keyword=điện thoại&brand=apple'} className={styles.img2 + ' ' + 'light-effect light-effect-flash'}></Link>
+                    <Link href={'/search?keyword=điện thoại&brand=samsung'}
+                        aria-label={`Xem danh mục: điện thoại samsung`}
+                        className={styles.img1 + ' ' + 'light-effect light-effect-flash'}></Link>
+                    <Link href={'/search?keyword=điện thoại&brand=apple'}
+                        aria-label={`Xem danh mục: điện thoại apple`}
+                        className={styles.img2 + ' ' + 'light-effect light-effect-flash'}></Link>
                 </div>
                 <div className={styles.center} data-aos="zoom-in" data-aos-duration="3000" >
                     {/* <h2>Welcome to the website</h2> */}
@@ -17,8 +21,12 @@ const ExhibitionImage = () => {
                     </p> */}
                 </div>
                 <div className={styles.right} data-aos="fade-down-left" data-aos-offset="300" >
-                    <Link href={'/search?keyword=laptop&brand=acus'} className={styles.img1 + ' ' + 'light-effect light-effect-flash'}></Link>
-                    <Link href={'/search?keyword=điện thoại&brand=xiaomi'} className={styles.img2 + ' ' + 'light-effect light-effect-flash'}></Link>
+                    <Link href={'/search?keyword=laptop&brand=acus'}
+                        aria-label={`Xem danh mục: laptop asus`}
+                        className={styles.img1 + ' ' + 'light-effect light-effect-flash'}></Link>
+                    <Link href={'/search?keyword=điện thoại&brand=xiaomi'}
+                        aria-label={`Xem danh mục: laptop xiaomi`}
+                        className={styles.img2 + ' ' + 'light-effect light-effect-flash'}></Link>
                 </div>
             </div>
         </div>

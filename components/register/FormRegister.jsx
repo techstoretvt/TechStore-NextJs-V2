@@ -354,7 +354,7 @@ const FormRegister = () => {
 
                             <div className={styles['forward-login']}>
                                 Bạn đã có tài khoản?
-                                <Link href={'/account/login'}>Đăng nhập</Link>
+                                <Link aria-label={`Đăng nhập`} href={'/account/login'}>Đăng nhập</Link>
                             </div>
                             <a
                                 id="forward"

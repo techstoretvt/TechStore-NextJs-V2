@@ -50,6 +50,7 @@ const NewCollection = ({ newCollectionData = [] }) => {
                 <div className={styles['NewCollection-bottom']}>
                     <Link
                         href={'/search?promotion=true'}
+                        aria-label={`Sản phẩm khuyến mãi`}
                         className={styles['left']}
                         data-aos="fade-right"
                     >
@@ -101,9 +102,9 @@ const NewCollection = ({ newCollectionData = [] }) => {
                 <div className={styles['NewCollection-btn']}>
                     <div className={styles['wrap-btn']}>
                         <Link
-                            href={`/search?keyword=${
-                                arrType[typeProduct - 1]
-                            }&facet=${arrType[typeProduct - 1]}`}
+                            aria-label={`Tìm kiếm`}
+                            href={`/search?keyword=${arrType[typeProduct - 1]
+                                }&facet=${arrType[typeProduct - 1]}`}
                             className={styles['btn']}
                         >
                             <span>

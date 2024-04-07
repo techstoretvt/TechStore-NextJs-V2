@@ -138,6 +138,7 @@ const PromotionProduct = ({ PromotionProducts = [] }) => {
                 <div className={styles['PromotionProduct-bottom']}>
                     <Link
                         href={'/search?promotion=true'}
+                        aria-label={`Sản phẩm khuyến mãi`}
                         className={styles['btn']}
                     >
                         <span>Xem tất cả SẢN PHẨM KHUYẾN MÃI</span>

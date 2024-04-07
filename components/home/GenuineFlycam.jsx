@@ -178,14 +178,17 @@ const GenuineFlycam = ({ ProductFlycams }) => {
                                                     <div className={styles['GenuineFlycam-item']}>
                                                         <Link
                                                             style={{ backgroundImage: `url(${item['imageProduct-product'][0]?.imagebase64})` }}
+                                                            aria-label={`Flycam`}
                                                             href={linkProduct} className={styles['left']}
                                                             draggable="false"
                                                         >
 
                                                         </Link>
                                                         <div className={styles['right']}>
-                                                            <Link href={linkProduct} className={styles['name']} title={item.nameProduct}
+                                                            <Link href={linkProduct} className={styles
+                                                            ['name']} title={item.nameProduct}
                                                                 draggable="false"
+                                                                aria-label={`Flycam`}
                                                             >
                                                                 {item.nameProduct}
                                                             </Link>

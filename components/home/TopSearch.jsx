@@ -12,7 +12,9 @@ const TopSearch = () => {
                         <div className={styles['title']}>
                             Xu hướng tìm kiếm
                         </div>
-                        <Link href={'/search?promotion=true'} className={styles['btn']}>
+                        <Link href={'/search?promotion=true'} className={styles['btn']}
+                            aria-label={`tìm kiếm`}
+                        >
                             <div className={styles['btn-name']}>
                                 Khuyến mãi
                             </div>
@@ -23,7 +25,7 @@ const TopSearch = () => {
                     </div>
                 </div>
                 <div data-aos="fade-left" className={styles['TopSearch-right']}>
-                    <Link href={'/search?keyword=điện thoại'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=điện thoại'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/dienthoai.webp'}
                             width={200}
@@ -35,7 +37,7 @@ const TopSearch = () => {
                             Điện thoại
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=tai nghe'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=tai nghe'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/tainghe.webp'}
                             width={200}
@@ -47,7 +49,7 @@ const TopSearch = () => {
                             Tai nghe
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=chuột máy tính'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=chuột máy tính'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/chuot.webp'}
                             width={200}
@@ -59,7 +61,7 @@ const TopSearch = () => {
                             Chuột
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=bàn phím'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=bàn phím'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/banphim.webp'}
                             width={200}
@@ -71,7 +73,7 @@ const TopSearch = () => {
                             Bàn phím
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=đồng hồ'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=đồng hồ'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/dongho.webp'}
                             width={200}
@@ -83,7 +85,7 @@ const TopSearch = () => {
                             Đồng hồ
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=loa'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=loa'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/loa.webp'}
                             width={200}
@@ -95,7 +97,7 @@ const TopSearch = () => {
                             Loa
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=màn hình máy tính'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=màn hình máy tính'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/manhinh.webp'}
                             width={200}
@@ -107,7 +109,7 @@ const TopSearch = () => {
                             Màn hình máy tính
                         </div>
                     </Link>
-                    <Link href={'/search?keyword=sạc dự phòng'} className={styles['TopSearch-item']}>
+                    <Link href={'/search?keyword=sạc dự phòng'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/pin.webp'}
                             width={200}

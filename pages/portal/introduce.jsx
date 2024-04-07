@@ -33,7 +33,7 @@ const Example = () => {
         </ul>
         <p>
           Bạn có thể chỉnh sửa hoặc xoá bài viết này tại
-          <Link href={"/home"} className={styles.thea}>
+          <Link href={"/"} aria-label={`trang chủ`} className={styles.thea}>
             {" "}
             đây{" "}
           </Link>

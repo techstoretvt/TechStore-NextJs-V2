@@ -115,15 +115,21 @@ const LayoutBlogDefault = ({ id, idRoot }) => {
                                     </Fancybox>
                                 </div>
                                 <div className={styles.footer}>
-                                    <Link href={`/blogs/detail-blog/${blog.id}`} className={styles.see}>
+                                    <Link href={`/blogs/detail-blog/${blog.id}`} className={styles.see}
+                                        aria-label={`Xem chi tiết bài viết ${blog?.title}`}
+                                    >
                                         Xem Bài viết
                                     </Link>
-                                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                                    <Link href={`/blogs/blog-user/${blog?.User?.id}`}
+                                        aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
+                                        className={styles.name}>
                                         {
                                             blog?.User?.firstName + ' ' + blog?.User?.lastName
                                         }
                                     </Link>
-                                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.avatar}
+                                    <Link href={`/blogs/blog-user/${blog?.User?.id}`}
+                                        aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
+                                        className={styles.avatar}
                                         style={renderAvatarUser(blog?.User)}
                                     ></Link>
                                 </div>

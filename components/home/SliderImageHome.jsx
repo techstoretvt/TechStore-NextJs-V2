@@ -61,6 +61,7 @@ const SliderImageHome = ({ listEventData }) => {
                                         {listEvent?.map((item, index) => (
                                             <Link
                                                 href={`/promotion/${item.id}`}
+                                                aria-label={`Sự kiện khuyến mãi}`}
                                                 key={index}
                                                 className={
                                                     styles['slider-item']
@@ -75,7 +76,7 @@ const SliderImageHome = ({ listEventData }) => {
                                                         isScreen600 ? 300 : 900
                                                     }
                                                     alt=""
-                                                    // quality={100}
+                                                // quality={100}
                                                 />
                                             </Link>
                                         ))}

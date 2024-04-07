@@ -25,6 +25,7 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['icons']}>
                             <div className={styles['icon']}>
                                 <Link
+                                    aria-label={`Liên hệ qua Facebook`}
                                     href={
                                         'https://www.facebook.com/tranv.thoai.7'
                                     }
@@ -35,6 +36,7 @@ const FooterHome = ({ unShow }) => {
                             </div>
                             <div className={styles['icon']}>
                                 <Link
+                                    aria-label={`Liên hệ qua twitter`}
                                     href={'https://twitter.com/vanthoai2565'}
                                     target="_blank"
                                 >
@@ -43,6 +45,7 @@ const FooterHome = ({ unShow }) => {
                             </div>
                             <div className={styles['icon']}>
                                 <Link
+                                    aria-label={`Liên hệ qua instagram`}
                                     href={
                                         'https://www.instagram.com/tranv.thoai.7/'
                                     }
@@ -53,6 +56,7 @@ const FooterHome = ({ unShow }) => {
                             </div>
                             <div className={styles['icon']}>
                                 <Link
+                                    aria-label={`Liên hệ qua youtube`}
                                     href={
                                         'https://www.youtube.com/channel/UCkZnl8TbflRwT5qaBBtthmA'
                                     }
@@ -68,6 +72,7 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['address']}>
                             <i className="fa-solid fa-location-dot"></i>
                             <Link
+                                aria-label={`Tới trang liên hệ`}
                                 href={'/portal/contact'}
                                 style={{ display: 'inline-block' }}
                             >
@@ -87,19 +92,19 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Hỗ trợ khách hàng</div>
                         <ul>
                             <li>
-                                <Link href={'/'}>Tìm kiếm</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Tìm kiếm</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Giới thiệu</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Giới thiệu</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Chính sách đổi trả</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Chính sách đổi trả</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Chính sách bảo mật</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Chính sách bảo mật</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Điều khoản dịch vụ</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Điều khoản dịch vụ</Link>
                             </li>
                             <li>
                                 <Link href={'/portal/contact'}>Liên hệ</Link>
@@ -110,7 +115,7 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Liên kết</div>
                         <ul>
                             <li>
-                                <Link href={'/'}>Sản phẩm khuyến mãi</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Sản phẩm khuyến mãi</Link>
                             </li>
                             <li>
                                 <Link
@@ -141,20 +146,20 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Chính sách</div>
                         <ul>
                             <li>
-                                <Link href={'/'}>Chính sách đổi trả</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Chính sách đổi trả</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Chính sách bán hàng</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Chính sách bán hàng</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Chính sách giao hàng</Link>
+                                <Link href={'/'} aria-label={`Liên kết`}>Chính sách giao hàng</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div className={styles['FooterHome-bottom']}>
                     Copyright © 2022 {nameWeb}.{' '}
-                    <Link href={'/'}>Powered by {copyBy}</Link>
+                    <Link href={'/'} aria-label={`Liên kết`}>Powered by {copyBy}</Link>
                 </div>
             </div>
         </div>

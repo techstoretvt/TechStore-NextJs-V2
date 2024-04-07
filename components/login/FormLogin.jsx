@@ -314,7 +314,7 @@ const FormLogin = ({ params, props }) => {
                                             styles['redirect-to-register']
                                         }
                                     >
-                                        <Link href={'/account/register'}>
+                                        <Link href={'/account/register'} aria-label={`Đăng ký tài khoản`}>
                                             Đăng ký
                                         </Link>
                                     </div>

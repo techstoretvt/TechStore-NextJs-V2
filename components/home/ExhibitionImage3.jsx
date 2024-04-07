@@ -6,10 +6,14 @@ const ExhibitionImage3 = () => {
     return (
         <div className={styles['ExhibitionImage3-container']} >
             <div className={styles['ExhibitionImage3-content']}>
-                <Link href={'/search?keyword=tủ lạnh'} className={styles['ExhibitionImage3-img'] + ' ' + styles['img-1'] + ' ' + 'light-effect light-effect-flash'} data-aos="fade-right" data-aos-offset="300">
+                <Link href={'/search?keyword=tủ lạnh'}
+                    aria-label={`Xem danh mục: tủ lạnh`}
+                    className={styles['ExhibitionImage3-img'] + ' ' + styles['img-1'] + ' ' + 'light-effect light-effect-flash'} data-aos="fade-right" data-aos-offset="300">
 
                 </Link>
-                <Link href={'/search?keyword=tủ lạnh'} className={styles['ExhibitionImage3-img'] + ' ' + styles['img-2'] + ' ' + 'light-effect light-effect-flash'} data-aos="fade-left" data-aos-offset="300">
+                <Link href={'/search?keyword=tủ lạnh'}
+                    aria-label={`Xem danh mục: tủ lạnh`}
+                    className={styles['ExhibitionImage3-img'] + ' ' + styles['img-2'] + ' ' + 'light-effect light-effect-flash'} data-aos="fade-left" data-aos-offset="300">
 
                 </Link>
             </div>

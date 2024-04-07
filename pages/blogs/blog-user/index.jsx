@@ -30,7 +30,7 @@ import { nameWeb } from "../../../utils/constants";
 
 const BtnMoreBlog = ({ id }) => {
   return (
-    <Link href={`/blogs/detail-blog/${id}`} className={styles.BtnMoreBlog}>
+    <Link href={`/blogs/detail-blog/${id}`} aria-label={`chi tiết bài viết`} className={styles.BtnMoreBlog}>
       <button className={styles["cta"]}>
         <span className={styles["span"]}>Xem bài viết</span>
         <span className={styles["second"]}>
@@ -573,7 +573,7 @@ const BlogUser = () => {
                 </button>
               </div>
             </div>
-            <Link href={"/blogs/all"} className={styles.more}>
+            <Link href={"/blogs/all"} className={styles.more} aria-label={`bài viết`}>
               Xem các bài viết mới
             </Link>
             <Link href={"/blogs/save-blog"} className={styles.more}>
@@ -595,7 +595,7 @@ const BlogUser = () => {
                           style={{ backgroundColor: item.backgroundColor }}
                         >
                           {item.editImage !== "true" &&
-                          item.editVideo !== "true" ? (
+                            item.editVideo !== "true" ? (
                             <>
                               <BlogDefault
                                 blog={item}

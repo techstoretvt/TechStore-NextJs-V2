@@ -75,10 +75,12 @@ const BlogShareDefault = ({ blog }) => {
         <div className={styles.BlogShareDefault_container}>
             <div className={styles.header}>
                 <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.left}
+                    aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                     style={renderAvatarUser(blog?.User)}
                 ></Link>
                 <div className={styles.right}>
-                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}
+                        aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}>
                         {blog?.User?.firstName + ' ' + blog?.User?.lastName}
                     </Link>
                     <div className={styles.time}>
@@ -94,11 +96,15 @@ const BlogShareDefault = ({ blog }) => {
                     blogShare &&
                     <>
                         <div className={styles.header}>
-                            <Link href={`/blogs/blog-user/${blogShare?.User?.id}`} className={styles.left}
+                            <Link href={`/blogs/blog-user/${blogShare?.User?.id}`}
+                                className={styles.left}
+                                aria-label={`Xem bài viết của user: ${blogShare?.User?.firstName}`}
                                 style={renderAvatarUser(blogShare?.User)}
                             ></Link>
                             <div className={styles.right}>
-                                <Link href={`/blogs/blog-user/${blogShare?.User?.id}`} className={styles.name}>
+                                <Link href={`/blogs/blog-user/${blogShare?.User?.id}`} className={styles.name}
+                                    aria-label={`Xem bài viết của user: ${blogShare?.User?.firstName}`}
+                                >
                                     {blogShare?.User?.firstName + ' ' + blogShare?.User?.lastName}
                                 </Link>
                                 <div className={styles.time}>
@@ -163,7 +169,9 @@ const BlogShareDefault = ({ blog }) => {
                                 }
                             </Fancybox>
                         </div>
-                        <Link href={`/blogs/detail-blog/${blogShare?.id}`} style={{ marginTop: '20px', width: 'fit-content' }}>
+                        <Link href={`/blogs/detail-blog/${blogShare?.id}`}
+                            aria-label={`Xem chi tiết bài viết: ${blogShare?.title}`}
+                            style={{ marginTop: '20px', width: 'fit-content' }}>
                             Xem bài viết
                         </Link>
                     </>

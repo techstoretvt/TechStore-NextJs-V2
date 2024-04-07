@@ -351,6 +351,7 @@ const CartPage = () => {
           <div className={styles.left}>
             <Link
               href={`/product/${item.product.id}?name=${item.product.nameProduct}`}
+              aria-label={`${item.product.nameProduct}`}
               className={styles.name}
             >
               {item.product.nameProduct.charAt(0).toUpperCase() +
@@ -432,6 +433,7 @@ const CartPage = () => {
           <div className={styles.left}>
             <Link
               href={`/product/${item.product.id}?name=${item.product.nameProduct}`}
+              aria-label={`${item?.product?.nameProduct}`}
               className={styles.name}
             >
               {item.product.nameProduct.charAt(0).toUpperCase() +
@@ -516,6 +518,7 @@ const CartPage = () => {
             <div className={styles.left}>
               <Link
                 href={`/product/${item.product.id}?name=${item.product.nameProduct}`}
+                aria-label={`${item?.product?.nameProduct}`}
                 className={styles.name}
               >
                 {item.product.nameProduct.charAt(0).toUpperCase() +
@@ -598,6 +601,7 @@ const CartPage = () => {
             <div className={styles.left}>
               <Link
                 href={`/product/${item.product.id}?name=${item.product.nameProduct}`}
+                aria-label={`${item?.product?.nameProduct}`}
                 className={styles.name}
               >
                 {item.product.nameProduct.charAt(0).toUpperCase() +
@@ -1062,6 +1066,7 @@ const CartPage = () => {
                         <div className={styles.image}>
                           <Link
                             href={`/product/${item.product.id}?name=${item.product.nameProduct}`}
+                            aria-label={`${item?.product?.nameProduct}`}
                             className={styles.img}
                             style={{
                               backgroundImage: `url(${getImageProduct(item)})`,

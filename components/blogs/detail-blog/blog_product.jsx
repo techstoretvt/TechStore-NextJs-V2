@@ -56,10 +56,12 @@ const BlogProduct = ({ blog }) => {
         <div className={styles.BlogProduct_container}>
             <div className={styles.header}>
                 <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.left}
+                    aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                     style={renderAvatarUser(blog?.User)}
                 ></Link>
                 <div className={styles.right}>
                     <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                        aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                         {blog?.User?.firstName + ' ' + blog?.User?.lastName}
                     </Link>
                     <div className={styles.time}>
@@ -72,7 +74,9 @@ const BlogProduct = ({ blog }) => {
             ></div>
             <div
                 className={styles.nameProduct}>
-                <Link href={`/product/${blog['blogs-blogShares-parent']?.product?.id}?name=${blog['blogs-blogShares-parent']?.product?.nameProduct}`} className={styles.text}>
+                <Link href={`/product/${blog['blogs-blogShares-parent']?.product?.id}?name=${blog['blogs-blogShares-parent']?.product?.nameProduct}`} className={styles.text}
+                    aria-label={`Xem chi tiết sản phẩm: ${blog['blogs-blogShares-parent']?.product?.nameProduct}`}
+                >
                     {
                         blog['blogs-blogShares-parent']?.product?.nameProduct
                     }

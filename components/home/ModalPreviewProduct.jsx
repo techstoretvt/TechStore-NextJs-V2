@@ -487,6 +487,7 @@ const ModalPreviewProduct = ({ product, isOpen, closeModal }) => {
                                 <div className={styles.more}>
                                     <Link
                                         href={`/product/${product?.id}?name=${product?.nameProduct}`}
+                                        aria-label={`Chi tiết sản phẩm`}
                                     >
                                         Xem chi tiết sản phẩm
                                     </Link>

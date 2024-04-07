@@ -40,7 +40,7 @@ const NotFoundPage = () => {
                 </p>
               </div>
               <div className={styles["error__nav e-nav"]}>
-                <Link href="/home" className={styles["e-nav__link"]}></Link>
+                <Link href="/" aria-label={`trang chủ`} className={styles["e-nav__link"]}></Link>
               </div>
             </div>
           </section>

@@ -95,7 +95,9 @@ const LayoutBlogProduct = ({ id, idRoot }) => {
                                 }
                             </Fancybox>
                         </div>
-                        <Link href={`/product/${blog['blogs-blogShares-parent']?.product?.id}`} className={styles.nameProduct}>
+                        <Link href={`/product/${blog['blogs-blogShares-parent']?.product?.id}`}
+                            aria-label={`Xem chi tiết sản phẩm: ${blog['blogs-blogShares-parent']?.product?.nameProduct}`}
+                            className={styles.nameProduct}>
                             {
                                 blog['blogs-blogShares-parent']?.product?.nameProduct
                             }
@@ -103,13 +105,17 @@ const LayoutBlogProduct = ({ id, idRoot }) => {
                         <div className={styles.footer}>
                             <Link
                                 href={`/blogs/detail-blog/${blog?.id}`}
+                                aria-label={`Xem chi tiết bài viết ${blog?.title}`}
                                 className={styles.see}> Xem Bài viết</Link>
-                            <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                            <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}
+                                aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
+                            >
                                 {
                                     blog?.User?.firstName + ' ' + blog?.User?.lastName
                                 }
                             </Link>
                             <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.avatar}
+                                aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                                 style={renderAvatarUser(blog?.User)}
                             ></Link>
                         </div>

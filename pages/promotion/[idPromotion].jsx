@@ -198,7 +198,7 @@ const DetailPromotion = ({ eventPromotionData }) => {
             )}
           </div>
           <div className={styles.center}>
-            <Link href={"/home"} className={styles.more}>
+            <Link href={"/"} aria-label={`trang chủ`} className={styles.more}>
               Xem tất cả
             </Link>
             <div className={styles.listProduct}>

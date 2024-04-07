@@ -105,6 +105,7 @@ const BlogShareDefault = ({ blog, handleDeleteBlog, editContentBlog, hideMenu })
                                         label:
                                             <Link
                                                 href={`/blogs/detail-blog/${blog?.id}`}
+                                                aria-label={`Xem chi tiết bài viết ${blog?.title}`}
                                             >Xem chi tiết</Link>,
                                         key: '0',
                                     },

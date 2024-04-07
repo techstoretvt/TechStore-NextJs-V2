@@ -93,11 +93,14 @@ const BlogDefault = ({ blog, handleDeleteBlog, hideMenu, getListBlog }) => {
                                         label:
                                             <Link
                                                 href={`/blogs/detail-blog/${blog?.id}`}
+                                                aria-label={`Xem chi tiết bài viết ${blog?.title}`}
                                             >Xem chi tiết</Link>,
                                         key: '0',
                                     },
                                     {
-                                        label: <Link href={`/blogs/${blog?.id}`}>Chỉnh sửa bài viết</Link>,
+                                        label: <Link href={`/blogs/${blog?.id}`}
+                                            aria-label={`Chỉnh sửa bài viết ${blog?.title}`}
+                                        >Chỉnh sửa bài viết</Link>,
                                         key: '1',
                                     },
                                     {

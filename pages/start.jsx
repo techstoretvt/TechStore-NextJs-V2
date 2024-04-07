@@ -270,7 +270,7 @@ const StartServer = () => {
                   {
                      isStartServer ?
                         <>
-                           <Link href={'/'}>Server đã sẵn sàn</Link>
+                           <Link href={'/'} aria-label={`trang chủ`}>Server đã sẵn sàn</Link>
                         </> :
                         "Server đang khởi động"
                   }

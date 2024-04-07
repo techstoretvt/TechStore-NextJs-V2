@@ -64,10 +64,10 @@ const HeaderBottom = (props) => {
     const isScreen500 = useMediaQuery({ query: '(max-width: 500px)' });
     const [listItemMenu, setListItemMenu] = useState([
         getItem('Tài khoảng', 'sub1', <i className="fa-solid fa-bars"></i>, [
-            getItem(<Link href={'/account/login'}>Đăng nhập</Link>, 'sub5-1'),
-            getItem(<Link href={'/blogs/all'}>Trang bài viết</Link>, 'sub5-2'),
+            getItem(<Link aria-label={`Đăng nhập`} href={'/account/login'}>Đăng nhập</Link>, 'sub5-1'),
+            getItem(<Link aria-label={`Xem Blog`} href={'/blogs/all'}>Trang bài viết</Link>, 'sub5-2'),
             getItem(
-                <Link href={'/short-video/foryou'}>Xem video</Link>,
+                <Link aria-label={`Short video`} href={'/short-video/foryou'}>Xem video</Link>,
                 'sub5-3'
             ),
         ]),
@@ -154,7 +154,7 @@ const HeaderBottom = (props) => {
                     <i className="fa-solid fa-bars"></i>,
                     [
                         getItem(
-                            <Link href={'/blogs/all'}>Trang bài viết</Link>,
+                            <Link href={'/blogs/all'} aria-label={`Xem Bài viết`}>Trang bài viết</Link>,
                             'sub2-1'
                         ),
                         getItem(
@@ -162,7 +162,7 @@ const HeaderBottom = (props) => {
                             'sub2-2'
                         ),
                         getItem(
-                            <Link href={'/user/blog-user'}>
+                            <Link aria-label={`Bài viết của tôi`} href={'/user/blog-user'}>
                                 Bài viết của tôi
                             </Link>,
                             'sub2-3'
@@ -182,7 +182,7 @@ const HeaderBottom = (props) => {
                     <i className="fa-solid fa-bars"></i>,
                     [
                         getItem(
-                            <Link href={'/short-video/foryou'}>Xem video</Link>,
+                            <Link aria-label={`Short video`} href={'/short-video/foryou'}>Xem video</Link>,
                             'sub3-1'
                         ),
                         getItem(
@@ -210,7 +210,7 @@ const HeaderBottom = (props) => {
                             'sub4-1'
                         ),
                         getItem(
-                            <Link href={'/cart'}>Giỏ hàng của tôi</Link>,
+                            <Link aria-label={`Giỏ hàng`} href={'/cart'}>Giỏ hàng của tôi</Link>,
                             'sub4-2'
                         ),
                     ]
@@ -532,7 +532,7 @@ const HeaderBottom = (props) => {
                     })}
                 >
                     <div className={styles['header-logo']}>
-                        <Link href={'/'}>
+                        <Link href={'/'} aria-label={`Liên kết`}>
                             {props?.smaillIcon !== true ? (
                                 <Image
                                     className={classNames(
@@ -891,6 +891,7 @@ const HeaderBottom = (props) => {
                                         <Link
                                             href={'/account/login'}
                                             className={styles['no-login']}
+                                            aria-label={`Đăng nhập`}
                                         >
                                             <span></span>
                                             <div className={styles['text']}>
@@ -1069,6 +1070,7 @@ const HeaderBottom = (props) => {
                 {props.link_social && (
                     <div className={styles.link_social}>
                         <Link
+                            aria-label={`Short video`}
                             href={'/short-video/foryou'}
                             className={styles.social_item}
                         >
@@ -1082,6 +1084,7 @@ const HeaderBottom = (props) => {
                         </Link>
                         <Link
                             href={'/blogs/all'}
+                            aria-label={`Bài viết`}
                             className={styles.social_item}
                         >
                             <div className={styles.left}>

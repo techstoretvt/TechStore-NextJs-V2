@@ -25,7 +25,7 @@ const NewPost = ({ listBlogHomeData }) => {
                 <div data-aos="zoom-in-up" className={styles['NewPost-main']}>
                     <div className={styles['top']}>
                         <div className={styles['title']}>Bài Viết Mới Nhất</div>
-                        <Link href={'/blogs/all'} className={styles['more']}>
+                        <Link href={'/blogs/all'} className={styles['more']} aria-label={`Bài viết`}>
                             Xem Thêm
                         </Link>
                     </div>
@@ -34,6 +34,7 @@ const NewPost = ({ listBlogHomeData }) => {
                             <div className={styles['content-left']}>
                                 <Link
                                     href={`/blogs/detail-blog/${listBlogs[0]?.id}`}
+                                    aria-label={`${listBlogs[0]?.title}`}
                                     className={styles['image']}
                                 >
                                     <Image
@@ -45,6 +46,7 @@ const NewPost = ({ listBlogHomeData }) => {
                                 </Link>
                                 <Link
                                     href={'/'}
+                                    aria-label={`Liên kết`}
                                     className={styles['name']}
                                     title="Điểm qua các loại tivi có mặt trên thị trường hiện nay"
                                 >
@@ -68,6 +70,7 @@ const NewPost = ({ listBlogHomeData }) => {
                                             >
                                                 <Link
                                                     href={`/blogs/detail-blog/${item?.id}`}
+                                                    aria-label={`${item?.title}`}
                                                     className={styles['image']}
                                                 >
                                                     <Image
@@ -87,6 +90,7 @@ const NewPost = ({ listBlogHomeData }) => {
                                                 >
                                                     <Link
                                                         href={'/'}
+                                                        aria-label={`Liên kết`}
                                                         className={
                                                             styles['name']
                                                         }

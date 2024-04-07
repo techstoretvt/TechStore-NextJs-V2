@@ -273,7 +273,7 @@ const StartServer = () => {
           <div className="">
             {isStartServer ? (
               <>
-                <Link href={'/'}>
+                <Link href={'/'} aria-label={`trang chủ`}>
                   Server đã khởi động, đang chuyển sang trang
                   chủ
                 </Link>

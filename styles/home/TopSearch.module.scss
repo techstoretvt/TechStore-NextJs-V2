@@ -29,7 +29,7 @@
                 .btn {
                     position: relative;
                     width: fit-content;
-                    background-color: orange;
+                    background-color: rgba(255, 166, 0, 0.683);
                     padding: 5px 10px;
                     color: #fff;
                     border-radius: 4px;
@@ -47,6 +47,7 @@
                         position: relative;
                         font-size: 1.4rem;
                         z-index: 1;
+                        color: #fff;
                     }
 
                     .btn-bg {

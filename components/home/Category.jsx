@@ -74,7 +74,9 @@ const Category = ({ listTypeProductData }) => {
                         {
                             listTypeProduct?.length > 0 &&
                             listTypeProduct.map(item => (
-                                <Link key={item.id} href={`/search?keyword=${item.nameTypeProduct}&facet=${item.nameTypeProduct}`} className={styles['item-wrap']}>
+                                <Link key={item.id} href={`/search?keyword=${item.nameTypeProduct}&facet=${item.nameTypeProduct}`}
+                                    aria-label={`Xem danh mục: ${item.nameTypeProduct}`}
+                                    className={styles['item-wrap']}>
                                     <Image
                                         src={item.imageTypeProduct}
                                         className={styles['img']}

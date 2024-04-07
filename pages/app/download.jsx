@@ -31,7 +31,7 @@ export default function dowload() {
                             {item.sub}
                         </div>
                         <div className={styles.wrapFile}>
-                            <a href={item.file} className={styles.btnDownload}>
+                            <a href={item.file} aria-label="Trang danh sách ứng dụng có thể tải xuống" className={styles.btnDownload}>
                                 Tải xuống
                             </a>
                         </div>

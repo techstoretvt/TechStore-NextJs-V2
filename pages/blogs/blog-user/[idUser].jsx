@@ -102,9 +102,9 @@ const BlogUser = ({ listBlogData = [], countData = 0 }) => {
     setCurrentPage(page);
   };
 
-  const handleDeleteBlog = async (idBlog) => {};
+  const handleDeleteBlog = async (idBlog) => { };
 
-  const editContentBlog = async (idBlog, contentOld) => {};
+  const editContentBlog = async (idBlog, contentOld) => { };
 
   return (
     <>
@@ -138,6 +138,7 @@ const BlogUser = ({ listBlogData = [], countData = 0 }) => {
 
                         <Link
                           href={`/blogs/detail-blog/${item.id}`}
+                          aria-label={`${item?.title}`}
                           className={styles.more}
                         >
                           <button className={styles["btn"]}>
@@ -161,6 +162,7 @@ const BlogUser = ({ listBlogData = [], countData = 0 }) => {
                         />
                         <Link
                           href={`/blogs/detail-blog/${item.id}`}
+                          aria-label={`${item?.title}`}
                           className={styles.more}
                         >
                           <button className={styles["btn"]}>
@@ -188,6 +190,7 @@ const BlogUser = ({ listBlogData = [], countData = 0 }) => {
                           />
                           <Link
                             href={`/blogs/detail-blog/${item.id}`}
+                            aria-label={`${item?.title}`}
                             className={styles.more}
                           >
                             <button className={styles["btn"]}>
@@ -211,6 +214,7 @@ const BlogUser = ({ listBlogData = [], countData = 0 }) => {
                           />
                           <Link
                             href={`/blogs/detail-blog/${item.id}`}
+                            aria-label={`${item?.title}`}
                             className={styles.more}
                           >
                             <button className={styles["btn"]}>

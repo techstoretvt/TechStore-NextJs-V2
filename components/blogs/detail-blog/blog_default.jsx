@@ -59,10 +59,12 @@ const BlogDefault = ({ blog }) => {
         <div className={styles.BlogDefault_container}>
             <div className={styles.header}>
                 <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.left}
+                    aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                     style={renderAvatarUser(blog?.User)}
                 ></Link>
                 <div className={styles.right}>
                     <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                        aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
                         {blog?.User?.firstName + ' ' + blog?.User?.lastName}
                     </Link>
                     <div className={styles.time}>
