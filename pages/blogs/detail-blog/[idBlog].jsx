@@ -529,6 +529,7 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
       <Head>
         <title>{blog?.title} | {nameWeb}</title>
         <meta name="description" content={blog?.contentHTML} />
+        <meta charset="UTF-8"></meta>
       </Head>
       <HeaderBottom hideSearch={false} />
       <LoadingBar

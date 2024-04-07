@@ -24,7 +24,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/index.jsx",
-    "sitemap.js"
+    "sitemap.js",
+    "robots.js"
   ],
   "exclude": [
     "node_modules"

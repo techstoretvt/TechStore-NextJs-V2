@@ -804,6 +804,7 @@ const DetailProduct = ({
         <meta property="title" content={title} />
         <meta name="description" content={`Sản phẩm: ${name} tại cửa hàng trực tuyến ${nameWeb} đã được kiểm duyệt chặt chẽ và bảo hành trên toàn quốc.`} />
         {product && <meta property="image" content={metaImage} />}
+        <meta charset="UTF-8"></meta>
       </Head>
       <LoadingBar
         color="#5885E6"

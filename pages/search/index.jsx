@@ -27,10 +27,8 @@ const SearchPage = () => {
   const router = useRouter();
   const { keyword, facet, brand, status, rating, minP, maxP, page, promotion } =
     router.query;
-  const date = new Date();
-  const title = `${router.query.keyword ?? "Sản phẩm"} tốt nhất tháng ${
-    date.getMonth() + 1
-  } | ${nameWeb}`;
+  // const date = new Date();
+  const title = `${router.query.keyword ?? "Sản phẩm"} tốt nhất đã được kiểm duyệt tại ${nameWeb} | ${nameWeb}`;
   const [listTrademark, setListTrademark] = useState([]);
   const [listTypeProduct, setListTypeProduct] = useState([]);
   const [minPrice, setMinPrice] = useState("");
@@ -504,6 +502,11 @@ const SearchPage = () => {
     <>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={`Chào mừng bạn đến với ${{ nameWeb }} - nơi mà việc tìm kiếm sản phẩm mà bạn mong muốn trở nên dễ dàng và thú vị hơn bao giờ hết!
+        Với một kho hàng đa dạng và phong phú, chúng tôi tự hào cung cấp một loạt sản phẩm điện tử và điện thoại từ các thương hiệu hàng đầu trên thị trường. Từ những chiếc điện thoại thông minh tiên tiến đến những thiết bị điện tử độc đáo và tiện ích, bạn sẽ dễ dàng tìm thấy những sản phẩm phù hợp với nhu cầu và sở thích của mình.
+        Hãy khám phá không gian mua sắm trực tuyến của chúng tôi, nơi mà bạn có thể lựa chọn từ hàng trăm sản phẩm mới nhất, được sắp xếp một cách dễ dàng và logic. Với tính năng tìm kiếm thông minh và bộ lọc tiện ích, việc tìm ra sản phẩm ưa thích của bạn chưa bao giờ đơn giản như vậy.
+        Chúng tôi cam kết mang lại trải nghiệm mua sắm trực tuyến tuyệt vời nhất, với sự tiện lợi, đa dạng và chất lượng hàng đầu. Hãy bắt đầu hành trình mua sắm của bạn tại ${nameWeb} ngay hôm nay và trải nghiệm sự khác biệt!`} />
+        <meta charset="UTF-8"></meta>
       </Head>
       <LoadingBar
         color="#5885E6"

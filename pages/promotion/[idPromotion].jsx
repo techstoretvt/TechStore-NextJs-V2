@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import ModalPreviewProduct from "../../components/home/ModalPreviewProduct";
 import CircleLoader from "react-spinners/CircleLoader";
 import Background from "../../components/background";
+import { nameWeb } from "../../utils/constants";
 
 export async function getStaticProps(context) {
   try {
@@ -153,7 +154,7 @@ const DetailPromotion = ({ eventPromotionData }) => {
   return (
     <>
       <Head>
-        <title>Ten su kien</title>
+        <title>{eventPromotion?.title ? eventPromotion?.title : "Sự kiện khuyến mãi"} | {nameWeb}</title>
       </Head>
       <HeaderBottom />
       <div

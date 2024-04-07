@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 import ImageUploading from 'react-images-uploading';
 import classNames from 'classnames';
+import { nameWeb } from '../../utils/constants';
 
 const NhanDang = () => {
     const image = useRef();
@@ -102,9 +103,9 @@ const NhanDang = () => {
                     if (num > 15) {
                         console.log(
                             results[0].label +
-                                '<br>Confidence: ' +
-                                num.toFixed(2) +
-                                '%'
+                            '<br>Confidence: ' +
+                            num.toFixed(2) +
+                            '%'
                         );
                         setListNameVideo((prev) => {
                             let arr = [...prev];
@@ -126,7 +127,8 @@ const NhanDang = () => {
     return (
         <>
             <Head>
-                <title>Nhận dạng hình ảnh</title>
+                <title>Nhận dạng hình ảnh | {nameWeb}</title>
+                <meta name="description" content={`Chia sẻ các model AI được thiết kế bới ${nameWeb}`} />
             </Head>
             <Script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js" />
             <Script src="https://unpkg.com/ml5@latest/dist/ml5.min.js" />

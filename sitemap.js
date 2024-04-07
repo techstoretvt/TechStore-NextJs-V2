@@ -34,26 +34,31 @@ export default async function sitemap({ id }) {
     {
       url: domain,
       lastModified: new Date(),
+      changeFrequency: 'yearly',
       priority: 1,
     },
     {
       url: domain + '/portal/contact',
       lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: domain + '/account/login',
       lastModified: new Date(),
+      changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: domain + '/blogs/all',
       lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.5,
     },
     {
       url: domain + '/short-video/foryou',
       lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.5,
     },
     ...dataIdProduct,
