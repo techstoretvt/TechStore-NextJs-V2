@@ -617,7 +617,7 @@ const HeaderBottom = (props) => {
                                     className={styles['btn-search']}
                                     onClick={handleClickBtnSearch}
                                 >
-                                    <button className={styles['btn']}>
+                                    <button className={styles['btn']} aria-label="Search">
                                         <i className="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </div>

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import dynamic from 'next/dynamic';
-const { FacebookProvider, CustomChat } = dynamic(
+import { FacebookProvider } from 'react-facebook';
+const { CustomChat } = dynamic(
   () => import('react-facebook'),
   { loading: () => <p>Loading...</p> }
 );
