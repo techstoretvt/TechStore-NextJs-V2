@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 
 function RedirectLink() {
     const router = useRouter();
-    console.log(router);
 
     useEffect(() => {
         if (router?.query?.url) {
