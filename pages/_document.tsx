@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { nameWeb } from "../utils/constants";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Document() {
   return (
@@ -14,6 +15,11 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {
+          process.env.REACT_APP_BACKEND_URL !== 'http://localhost:4000' &&
+          <SpeedInsights />
+        }
+        {/* <SpeedInsights /> */}
       </body>
     </Html>
   );
