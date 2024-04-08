@@ -31,6 +31,7 @@ const FacebookChat = dynamic(
 // import FacebookChat from '../components/home/ChatFacebook'
 
 
+
 const client = new ApolloClient({
   uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`,
   cache: new InMemoryCache(),
@@ -40,7 +41,6 @@ const client = new ApolloClient({
 
 export default function App({ Component, pageProps }: AppProps) {
   const isScreen500 = useMediaQuery({ query: '(max-width: 500px)' });
-
 
 
   useEffect(() => {
@@ -94,6 +94,8 @@ export default function App({ Component, pageProps }: AppProps) {
             pauseOnHover
             theme="light"
           />
+
+
 
           <FacebookChat />
           <Script src="https://kit.fontawesome.com/a19bb8670a.js" />
