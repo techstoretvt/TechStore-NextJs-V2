@@ -978,8 +978,8 @@
 
                     >.left {
                         >.avatar {
-                            width: 60px;
-                            height: 60px;
+                            width: 40px;
+                            height: 40px;
                             background-color: #25479b;
                             border-radius: 50%;
                             background-size: cover;
@@ -990,6 +990,7 @@
                     >.right {
                         >.nameUser {
                             height: 30px;
+                            font-size: 12px;
                         }
 
                         >.star {
@@ -997,7 +998,7 @@
                         }
 
                         >.time_and_classify {
-                            font-size: 14px;
+                            font-size: 10px;
                             color: #989898;
                         }
 

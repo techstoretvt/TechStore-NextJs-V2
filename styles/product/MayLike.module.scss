@@ -16,7 +16,9 @@
 
         >.bottom {
             min-height: 200px;
-            margin-top: 10px;
+            margin: 10px auto;
+            width: min(1000px, 100%);
+
 
             >.wrap {
                 display: flex;
