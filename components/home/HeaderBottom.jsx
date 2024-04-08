@@ -8,12 +8,11 @@ import actionTypes from '../../store/actions/actionTypes';
 
 import styles from '../../styles/home/HeaderBottom.module.scss';
 import { useRouter } from 'next/router';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     getListCartUser,
     deleteProductInCart,
     GetUserLogin,
-    GetUserLoginRefreshToken,
     getListNotifyAll,
     seenNotifyOfUser,
 } from '../../services/userService';
@@ -22,7 +21,6 @@ import Autocomplete from 'react-autocomplete';
 
 import { createNewKeyword } from '../../services/appService';
 import { getListKeyword } from '../../services/graphql';
-import { decode_token_exp } from '../../services/common';
 import Image from 'next/image';
 import { Empty } from 'antd';
 import { decode_token } from '../../services/common';
@@ -47,12 +45,207 @@ function getItem(label, key, icon, children, type) {
 
 const lenghtKeyword = 7;
 
+
+const itemsNavbar = [
+    {
+        label: (
+            <Link href="/blogs/all" rel="noopener noreferrer" aria-label={`Bài viết`}>
+                Bài viết
+            </Link>
+        ),
+        key: 'Blog',
+    },
+    {
+        label: (
+            <Link href="/short-video/foryou" rel="noopener noreferrer" aria-label={`Video ngắn`}>
+                Video ngắn
+            </Link>
+        ),
+        key: 'ShortVideo',
+    },
+    {
+        label: (
+            <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại" rel="noopener noreferrer" aria-label={`Điện thoại chính hãng`}>
+                Điện thoại
+            </Link>
+        ),
+        key: 'DienThoai',
+        children: [
+            {
+                label: (
+                    <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại&brand=nokia" rel="noopener noreferrer" aria-label={`Điện thoại Nokia`}>
+                        Nokia
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại&brand=samsung" rel="noopener noreferrer" aria-label={`Điện thoại Samsung`}>
+                        Samsung
+                    </Link>
+                ),
+                key: 'setting:2',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại&brand=oppo" rel="noopener noreferrer" aria-label={`Điện thoại Oppo`}>
+                        Oppo
+                    </Link>
+                ),
+                key: 'setting:2',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại&brand=xiaomi" rel="noopener noreferrer" aria-label={`Điện thoại Xiaomi`}>
+                        Xiaomi
+                    </Link>
+                ),
+                key: 'setting:2',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại&brand=vivo" rel="noopener noreferrer" aria-label={`Điện thoại Vivo`}>
+                        Vivo
+                    </Link>
+                ),
+                key: 'setting:2',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=điện%20thoại&facet=điện%20thoại&brand=huawei" rel="noopener noreferrer" aria-label={`Điện thoại Huawei`}>
+                        Huawei
+                    </Link>
+                ),
+                key: 'setting:2',
+            },
+        ],
+    },
+    {
+        label: (
+            <Link href="/search?keyword=laptop&facet=laptop" rel="noopener noreferrer" aria-label={`Laptop chính hãng`}>
+                Laptop
+            </Link>
+        ),
+        key: 'Laptop',
+        children: [
+            {
+                label: (
+                    <Link href="/search?keyword=laptop&facet=laptop&brand=dell" rel="noopener noreferrer" aria-label={`Laptop Dell`}>
+                        Dell
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=laptop&facet=laptop&brand=hp" rel="noopener noreferrer" aria-label={`Laptop Hp`}>
+                        Hp
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=laptop&facet=laptop&brand=lenovo" rel="noopener noreferrer" aria-label={`Laptop Lenovo`}>
+                        Lenovo
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=laptop&facet=laptop&brand=asus" rel="noopener noreferrer" aria-label={`Laptop Asus`}>
+                        Asus
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=laptop&facet=laptop&brand=msi" rel="noopener noreferrer" aria-label={`Laptop Msi`}>
+                        Msi
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+        ]
+    },
+    {
+        label: (
+            <Link href="/search?keyword=màn%20hình%20máy%20tính&facet=màn%20hình%20máy%20tính" rel="noopener noreferrer" aria-label={`Màn hình chính hãng`}>
+                Màn hình máy tính
+            </Link>
+        ),
+        key: 'ManHinh',
+        children: [
+            {
+                label: (
+                    <Link href="/search?keyword=màn%20hình%20máy%20tính&facet=màn%20hình%20máy%20tính&brand=hp" rel="noopener noreferrer" aria-label={`Màn hình Hp`}>
+                        Hp
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=màn%20hình%20máy%20tính&facet=màn%20hình%20máy%20tính&brand=lg" rel="noopener noreferrer" aria-label={`Màn hình LG`}>
+                        LG
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=màn%20hình%20máy%20tính&facet=màn%20hình%20máy%20tính&brand=dell" rel="noopener noreferrer" aria-label={`Màn hình Dell`}>
+                        Dell
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+            {
+                label: (
+                    <Link href="/search?keyword=màn%20hình%20máy%20tính&facet=màn%20hình%20máy%20tính&brand=samsung" rel="noopener noreferrer" aria-label={`Màn hình Samsung`}>
+                        Samsung
+                    </Link>
+                ),
+                key: 'setting:1',
+            },
+        ]
+    },
+    {
+        label: (
+            <Link href="/search?promotion=true" rel="noopener noreferrer" aria-label={`Sản phẩm khuyến mãi`}>
+                Khuyến mãi
+            </Link>
+        ),
+        key: 'Blog',
+    },
+    {
+        label: (
+            <Link href="/portal/contact" rel="noopener noreferrer" aria-label={`Liên hệ chúng tôi`}>
+                Liên hệ
+            </Link>
+        ),
+        key: 'Blog',
+    },
+    {
+        label: (
+            <Link href="/app/download" rel="noopener noreferrer" aria-label={`Chia sẻ ứng dụng`}>
+                Ứng dụng
+            </Link>
+        ),
+        key: 'Blog',
+    },
+
+];
+
+
 const HeaderBottom = (props) => {
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.user.currentUser);
     const router = useRouter();
     const accessToken = useSelector((state) => state.user.accessToken);
-    const refreshToken = useSelector((state) => state.user.refreshToken);
     const listCarts = useSelector((state) => state.user.listCarts);
     const [showMenuMobile, setShowMenuMobile] = useState(false);
     const [valueInput, setValueInput] = useState('');
@@ -546,9 +739,11 @@ const HeaderBottom = (props) => {
                                             ? '/images/logo/logo-full.webp'
                                             : '/images/logo/logo-icon.webp'
                                     }
+
                                     width={50}
                                     height={50}
                                     alt=""
+                                    loading='eager'
                                 />
                             ) : (
                                 <Image
@@ -680,7 +875,7 @@ const HeaderBottom = (props) => {
                                                                 src={
                                                                     item.urlImage
                                                                 }
-                                                                width={600}
+                                                                width={200}
                                                                 height={200}
                                                                 alt="anh thong bao"
                                                             ></Image>
@@ -1068,37 +1263,39 @@ const HeaderBottom = (props) => {
                     </div>
                 </div>
                 {props.link_social && (
-                    <div className={styles.link_social}>
-                        <Link
-                            aria-label={`Short video`}
-                            href={'/short-video/foryou'}
-                            className={styles.social_item}
-                        >
-                            <div className={styles.left}>
-                                <i
-                                    className="fa-solid fa-clapperboard"
-                                    style={{ color: '#93AEE9' }}
-                                ></i>
-                            </div>
-                            <div className={styles.right}>Short video</div>
-                        </Link>
-                        <Link
-                            href={'/blogs/all'}
-                            aria-label={`Bài viết`}
-                            className={styles.social_item}
-                        >
-                            <div className={styles.left}>
-                                <i
-                                    className="fa-solid fa-newspaper"
-                                    style={{ color: '#93AEE9' }}
-                                ></i>
-                            </div>
-                            <div className={styles.right}>Blog</div>
-                        </Link>
+                    // <div className={styles.link_social}>
+                    //     <Link
+                    //         aria-label={`Short video`}
+                    //         href={'/short-video/foryou'}
+                    //         className={styles.social_item}
+                    //     >
+                    //         <div className={styles.left}>
+                    //             <i
+                    //                 className="fa-solid fa-clapperboard"
+                    //                 style={{ color: '#93AEE9' }}
+                    //             ></i>
+                    //         </div>
+                    //         <div className={styles.right}>Short video</div>
+                    //     </Link>
+                    //     <Link
+                    //         href={'/blogs/all'}
+                    //         aria-label={`Bài viết`}
+                    //         className={styles.social_item}
+                    //     >
+                    //         <div className={styles.left}>
+                    //             <i
+                    //                 className="fa-solid fa-newspaper"
+                    //                 style={{ color: '#93AEE9' }}
+                    //             ></i>
+                    //         </div>
+                    //         <div className={styles.right}>Blog</div>
+                    //     </Link>
+                    // </div>
+                    <div>
+                        <Menu mode="horizontal" items={itemsNavbar} theme="dark" />
                     </div>
                 )}
             </div>
-            {/* <FacebookChat /> */}
         </>
     );
 };

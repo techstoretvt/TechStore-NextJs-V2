@@ -1,19 +1,38 @@
 import React from 'react';
 
 import styles from '../../styles/app/dowload.module.scss';
+import { nameWeb } from '../../utils/constants'
 
 const listFile = [
     {
-        title: 'Downdoad TechStoreTvT',
+        title: `${nameWeb} trên mobile`,
         sub: 'Mở bằng trình duyệt để tải',
         file: '/files/app.apk',
         version: "1.0"
     },
     {
-        title: 'Downdoad Music App',
+        title: 'Ứng dụng nghe nhạc trên mobile',
         sub: 'Mở bằng trình duyệt để tải',
         file: '/files/music-app.apk',
         version: '3/11'
+    },
+    {
+        title: 'Ứng dụng nghe nhạc trên desktop',
+        sub: 'Mở bằng trình duyệt để tải',
+        file: '',
+        version: 'Chưa tải lên'
+    },
+    {
+        title: 'Website demo video call',
+        sub: 'Mở bằng trình duyệt để xem',
+        file: 'https://webrtc-react-five.vercel.app/',
+        version: '8/4/2024'
+    },
+    {
+        title: 'Mô hình nhận dạng vật thể trong hình ảnh',
+        sub: 'Mở bằng trình duyệt để xem',
+        file: 'https://thoaidev.store/ai',
+        version: '8/4/2024'
     }
 ]
 

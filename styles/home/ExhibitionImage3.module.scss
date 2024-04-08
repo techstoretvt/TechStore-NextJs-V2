@@ -1,13 +1,14 @@
 .ExhibitionImage3-container {
     .ExhibitionImage3-content {
         min-height: 200px;
-        margin: 100px 10px 0;
+        margin: 50px 10px 0;
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+        justify-content: center;
 
         .ExhibitionImage3-img {
-            width: calc(50% - 10px);
+            width: calc(40% - 10px);
             aspect-ratio: 2/1;
             background-size: cover;
             border-radius: 4px;

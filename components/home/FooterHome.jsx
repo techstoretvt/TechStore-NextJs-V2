@@ -115,7 +115,7 @@ const FooterHome = ({ unShow }) => {
                         <div className={styles['title']}>Liên kết</div>
                         <ul>
                             <li>
-                                <Link href={'/'} aria-label={`Liên kết`}>Sản phẩm khuyến mãi</Link>
+                                <Link href={'/search?promotion=true'} aria-label={`Liên kết`}>Sản phẩm khuyến mãi</Link>
                             </li>
                             <li>
                                 <Link

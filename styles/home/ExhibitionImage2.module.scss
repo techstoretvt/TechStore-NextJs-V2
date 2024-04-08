@@ -1,12 +1,13 @@
 .ExhibitionImage2-container {
     .ExhibitionImage2-content {
         min-height: 200px;
-        margin: 100px 10px 0px;
+        margin: 50px 10px 0px;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
 
         .ExhibitionImage2-img {
-            width: calc(25% - 20px);
+            width: calc(20% - 20px);
             margin: 0 10px 10px;
             aspect-ratio: 1/1;
             background-color: aqua;
