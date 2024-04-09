@@ -361,7 +361,7 @@ const ListComments = ({
                       ref={textareaEdit}
                       onChange={(e) => handleChangeEditCommemt(e.target.value)}
                       onKeyDown={handleEditComment}
-                      // autoFocus
+                    // autoFocus
                     ></textarea>
                     <div className={styles.footer}>
                       <div className={styles.left}>
@@ -473,13 +473,13 @@ const ListComments = ({
                   setIsFocusTextarea(true);
                 }, 1000)
               }
-              // onBlur={() => {
-              //     setOpenEmoji(false);
-              //     setTimeout(() => {
-              //         setIsFocusTextarea(false)
-              //     }, 1000)
-              // }
-              // }
+            // onBlur={() => {
+            //     setOpenEmoji(false);
+            //     setTimeout(() => {
+            //         setIsFocusTextarea(false)
+            //     }, 1000)
+            // }
+            // }
             ></textarea>
             <div className={styles.count}>
               {150 - valueComment.length + "/150"}
@@ -1268,7 +1268,7 @@ const AllShortVideo = ({
                       >
                         <source
                           src={
-                            process.env.RACT_APP_LNK_VIDEO_DRIVE +
+                            // process.env.RACT_APP_LNK_VIDEO_DRIVE +
                             item.idDriveVideo
                           }
                         />
@@ -1283,7 +1283,7 @@ const AllShortVideo = ({
                       >
                         <source
                           src={
-                            process.env.RACT_APP_LNK_VIDEO_DRIVE +
+                            // process.env.RACT_APP_LNK_VIDEO_DRIVE +
                             item.idDriveVideo
                           }
                         />
