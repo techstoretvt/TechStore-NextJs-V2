@@ -63,8 +63,10 @@ const BlogDefault = ({ blog }) => {
                     style={renderAvatarUser(blog?.User)}
                 ></Link>
                 <div className={styles.right}>
-                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}>
+                    <Link href={`/blogs/blog-user/${blog?.User?.id}`} className={styles.name}
                         aria-label={`Xem bài viết của user: ${blog?.User?.firstName}`}
+                    >
+
                         {blog?.User?.firstName + ' ' + blog?.User?.lastName}
                     </Link>
                     <div className={styles.time}>
