@@ -151,6 +151,7 @@ export default function Home({
         Với đội ngũ chuyên gia tận tâm và sự cam kết mang lại trải nghiệm mua sắm tuyệt vời nhất cho khách hàng, ${nameWeb} không chỉ đem đến những sản phẩm chất lượng hàng đầu mà còn là nguồn cảm hứng không ngừng cho sự sáng tạo và tiên phong trong lĩnh vực công nghệ.`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={progress.env.REACT_APP_FRONTEND_URL}></link>
         <meta charset="UTF-8"></meta>
       </Head>
       <LoadingBar
