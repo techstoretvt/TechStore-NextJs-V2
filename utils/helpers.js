@@ -42,7 +42,7 @@ const IgnoreUrl = (url) => {
 
     let check = false;
     ignore.forEach((item) => {
-        if (url.indexOf(item) >= 0) check = true;
+        if (item.indexOf(url) >= 0) check = true;
     });
 
     return check;

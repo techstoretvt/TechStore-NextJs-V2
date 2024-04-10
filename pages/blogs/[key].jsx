@@ -69,7 +69,7 @@ const NewBlog = () => {
     const [isShowTimePost, setIsShowTimePost] = useState(false);
     const [typeVideo, setTypeVideo] = useState('iframe');
     const [isLoading, setIsLoading] = useState(false);
-    const [bgColor, setBgColor] = useState('transparent');
+    const [bgColor, setBgColor] = useState('#fff');
     const [progress, setProgress] = useState(100);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [titleBlog, setTitleBlog] = useState('');
@@ -517,7 +517,7 @@ const NewBlog = () => {
             <HeaderBottom hideSearch={false} />
 
             <div className={styles.NewBlog_container + ' NewBlog_container'}>
-                <div className={styles.NewBlog_content}>
+                <div className={styles.NewBlog_content} >
                     <div className={styles.header}>
                         <div
                             className={styles['glitch']}
@@ -553,12 +553,13 @@ const NewBlog = () => {
                     </div>
                     <div
                         className={styles.wrap_content}
-                        style={{ backgroundColor: bgColor }}
+
                     >
                         <div
                             className={classNames(styles.content, {
                                 [styles.Fullscreen]: isFullscreen,
                             })}
+                            style={{ backgroundColor: bgColor }}
                         >
                             <div className={styles.iconFullScreen}>
                                 <i
@@ -1038,6 +1039,11 @@ const NewBlog = () => {
                                                         ></div>
                                                     );
                                                 })}
+                                                - Chọn màu<input type='color' value={bgColor} title='Chọn màu'
+                                                    onChange={(e) => setBgColor(
+                                                        e.target.value
+                                                    )}
+                                                />
                                             </div>
                                         </div>
 

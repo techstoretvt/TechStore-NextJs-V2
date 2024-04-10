@@ -130,7 +130,7 @@ const BlogUser = () => {
       accessToken,
       page: page || "1",
     });
-    console.log(res.data);
+    console.log('res: ', res.data);
     if (res && res.errCode === 0) {
       setListBlog(res.data);
       let count = (Math.floor((res.count - 1) / 10) + 1) * 10;
