@@ -59,7 +59,8 @@
 
                         >.right {
                             >.name {
-                                font-weight: 500;
+                                color: palevioletred;
+                                font-weight: 800;
                                 font-size: 1.4rem;
                             }
 
@@ -77,6 +78,7 @@
                             display: none;
 
                             ~.wrap_content {
+                                color: #000;
                                 -webkit-line-clamp: unset;
                                 max-height: unset;
                             }

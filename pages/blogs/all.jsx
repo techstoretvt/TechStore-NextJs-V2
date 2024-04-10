@@ -303,7 +303,7 @@ const AllBlog = () => {
                     <div
                       key={item.id}
                       className={styles.wrap_blog}
-                      style={{ backgroundColor: item.backgroundColor }}
+                    // style={{ backgroundColor: item.backgroundColor }}
                     >
                       <div className={styles.left}>
                         <div className={styles.header}>
