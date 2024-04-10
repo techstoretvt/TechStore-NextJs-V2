@@ -15,7 +15,6 @@ import {
   getBlogById,
   getCommentBlogByIdBlog,
   increateViewBlogById,
-  getAllIdBlog
 } from '../../../services/appService';
 import {
   saveBlogCollection,

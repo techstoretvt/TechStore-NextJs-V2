@@ -18,7 +18,9 @@
         >.right {
             >.name {
                 width: fit-content;
+                color: #000;
                 font-size: 1.2rem;
+                font-weight: bold;
             }
 
             >.time {
@@ -32,6 +34,7 @@
         margin-top: 10px;
         border-bottom: 1px solid #fff;
         font-size: 1.2rem;
+        color: #000;
     }
 
     >.media {
