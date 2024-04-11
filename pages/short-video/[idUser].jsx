@@ -36,8 +36,8 @@ const VideoUser = () => {
   const router = useRouter();
   const { page, idUser, nav, ft, preview = false } = router.query;
   const accessToken = useSelector((state) => state.user.accessToken);
-  // const currentUser = useSelector((state) => state.user.currentUser);
-  const [currentUser, setCurrentUser] = useState({});
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const [currentUser2, setCurrentUser2] = useState({});
   const dispatch = useDispatch();
   const [listVideos, setListVideos] = useState([]);
   const [countPage, setCountPage] = useState(0);
@@ -105,7 +105,7 @@ const VideoUser = () => {
           //   type: actionTypes.GET_LOGIN_SUCCESS,
           //   data: res.data,
           // });
-          setCurrentUser(res.data)
+          setCurrentUser2(res.data)
         } else if (res?.errCode === 2) {
           router.push("/");
         }
@@ -363,9 +363,9 @@ const VideoUser = () => {
             >
               <div
                 className={styles.avatar}
-                style={renderAvatarUser(currentUser)}
+                style={renderAvatarUser(idUser !== "user" ? currentUser2 : currentUser)}
                 data-fancybox="gallery"
-                data-src={renderAvatarUser_url(currentUser)}
+                data-src={renderAvatarUser_url(idUser !== "user" ? currentUser2 : currentUser)}
                 data-width={10000}
                 data-height={10000}
               // data-thumb={item.imagebase64}
@@ -373,7 +373,7 @@ const VideoUser = () => {
             </Fancybox>
             <div className={styles.content}>
               <div className={styles.name}>
-                {currentUser?.firstName + " " + currentUser.lastName}
+                {(idUser !== "user" ? currentUser2 : currentUser)?.firstName + " " + (idUser !== "user" ? currentUser2 : currentUser).lastName}
               </div>
               <div className={styles.like}>
                 {formatNumber(totalLike)} lượt thích video

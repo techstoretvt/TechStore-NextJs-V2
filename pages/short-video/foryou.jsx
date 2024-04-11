@@ -540,6 +540,15 @@ const AllShortVideo = ({
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
+    if (!accessToken) {
+      dispatch({
+        type: actionTypes.UPDATE_REDIRECT_LOGIN,
+        data: router.asPath,
+      });
+
+      router.push("/account/login");
+      return;
+    }
     // setCurrentVideo(indexVideo)
     // setIsMuted(idMutedData)
     if (listVideoData.length > 0) setListVideo(listVideoData);
@@ -645,7 +654,7 @@ const AllShortVideo = ({
   }, [currentVideo]);
 
   const getListVideoFirst = async () => {
-    // console.log(_isv);
+    console.log("_isv: ", _isv);
     if (listVideoData.length !== 0) return;
 
     if (!_isv) {

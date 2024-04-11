@@ -256,7 +256,7 @@ const HeaderBottom = (props) => {
     const isScreen700 = useMediaQuery({ query: '(max-width: 700px)' });
     const isScreen500 = useMediaQuery({ query: '(max-width: 500px)' });
     const [listItemMenu, setListItemMenu] = useState([
-        getItem('Tài khoảng', 'sub1', <i className="fa-solid fa-bars"></i>, [
+        getItem('Tài khoản', 'sub1', <i className="fa-solid fa-bars"></i>, [
             getItem(<Link aria-label={`Đăng nhập`} href={'/account/login'}>Đăng nhập</Link>, 'sub5-1'),
             getItem(<Link aria-label={`Xem Blog`} href={'/blogs/all'}>Trang bài viết</Link>, 'sub5-2'),
             getItem(
