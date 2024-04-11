@@ -155,6 +155,7 @@ const DetailPromotion = ({ eventPromotionData }) => {
     <>
       <Head>
         <title>{eventPromotion?.title ? eventPromotion?.title : "Sự kiện khuyến mãi"} | {nameWeb}</title>
+        <meta name="description" content={`Sự kiện khuyến mãi tại ${nameWeb}`} />
       </Head>
       <HeaderBottom />
       <div

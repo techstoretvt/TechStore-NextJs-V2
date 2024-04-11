@@ -146,7 +146,7 @@ export default function Home({
     <>
       <Head>
         <title>Trang chủ | {nameWeb}</title>
-        <meta name="description" content={`Chào mừng bạn đến với ${nameWeb} - nơi thỏa mãn mọi đam mê công nghệ và khao khát sáng tạo!\n
+        <meta name="description" content={`Chào mừng bạn đến với trang chủ ${nameWeb} - nơi thỏa mãn mọi đam mê công nghệ và khao khát sáng tạo!\n
         ${nameWeb} không chỉ là một cửa hàng trực tuyến thông thường, mà còn là điểm đến lý tưởng cho những ai đang tìm kiếm sự kết nối với thế giới điện tử đầy thú vị. Chúng tôi tự hào là ngôi nhà của những tín đồ công nghệ, nơi bạn có thể khám phá hàng trăm sản phẩm mới nhất và nhận những ưu đãi hấp dẫn hàng ngày.\n
         Với đội ngũ chuyên gia tận tâm và sự cam kết mang lại trải nghiệm mua sắm tuyệt vời nhất cho khách hàng, ${nameWeb} không chỉ đem đến những sản phẩm chất lượng hàng đầu mà còn là nguồn cảm hứng không ngừng cho sự sáng tạo và tiên phong trong lĩnh vực công nghệ.`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

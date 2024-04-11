@@ -1230,6 +1230,7 @@ const AllShortVideo = ({
     <>
       <Head>
         <title>Video ngắn | {nameWeb}</title>
+        <meta name="description" content={`Chào mừng bạn đến với ${nameWeb} - điểm đến hàng đầu cho những video ngắn trực tuyến! Tại ${nameWeb}, chúng tôi tự hào mang đến cho bạn một thư viện video đa dạng và phong phú, từ những câu chuyện động lực đầy cảm hứng đến những video hài hước làm bạn cười thả ga. Với sự cam kết của chúng tôi đối với chất lượng và sự đa dạng, ${nameWeb} sẽ là nơi lý tưởng cho bạn tìm kiếm sự giải trí và cảm hứng mỗi ngày. Hãy đồng hành cùng chúng tôi và khám phá thế giới tuyệt vời của video ngắn ngay hôm nay!`} />
         {urlImage && <meta property="image" content={urlImage} />}
       </Head>
       <LoadingBar
