@@ -32,7 +32,7 @@ export default function DetailPurchase() {
   useEffect(() => {
     checkLogin(accessToken, refreshToken, dispatch).then((res) => {
       if (!res) {
-        router.push("/home");
+        router.push("/");
       }
     });
   }, []);
@@ -478,10 +478,10 @@ export default function DetailPurchase() {
                 <div className={styles.CountryAndDistrict}>
                   {bill &&
                     provinces[+bill.addressUser.country].name +
-                      " - " +
-                      provinces[+bill.addressUser.country].districts[
-                        +bill.addressUser.district
-                      ].name}
+                    " - " +
+                    provinces[+bill.addressUser.country].districts[
+                      +bill.addressUser.district
+                    ].name}
                 </div>
               </div>
             </div>

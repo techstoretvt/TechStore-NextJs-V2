@@ -36,7 +36,8 @@ const VideoUser = () => {
   const router = useRouter();
   const { page, idUser, nav, ft, preview = false } = router.query;
   const accessToken = useSelector((state) => state.user.accessToken);
-  const currentUser = useSelector((state) => state.user.currentUser);
+  // const currentUser = useSelector((state) => state.user.currentUser);
+  const [currentUser, setCurrentUser] = useState({});
   const dispatch = useDispatch();
   const [listVideos, setListVideos] = useState([]);
   const [countPage, setCountPage] = useState(0);
@@ -48,7 +49,7 @@ const VideoUser = () => {
   // const isScreen600 = useMediaQuery({ query: '(max-width: 600px)' });
 
   useEffect(() => {
-    if (idUser === "user" && !accessToken) router.push("/home");
+    if (idUser === "user" && !accessToken) router.push("/");
   }, [idUser]);
 
   useEffect(() => {
@@ -100,12 +101,13 @@ const VideoUser = () => {
           idUser,
         });
         if (res?.errCode === 0) {
-          dispatch({
-            type: actionTypes.GET_LOGIN_SUCCESS,
-            data: res.data,
-          });
+          // dispatch({
+          //   type: actionTypes.GET_LOGIN_SUCCESS,
+          //   data: res.data,
+          // });
+          setCurrentUser(res.data)
         } else if (res?.errCode === 2) {
-          router.push("/home");
+          router.push("/");
         }
       }
     };
@@ -366,7 +368,7 @@ const VideoUser = () => {
                 data-src={renderAvatarUser_url(currentUser)}
                 data-width={10000}
                 data-height={10000}
-                // data-thumb={item.imagebase64}
+              // data-thumb={item.imagebase64}
               ></div>
             </Fancybox>
             <div className={styles.content}>
@@ -414,8 +416,8 @@ const VideoUser = () => {
               {!nav || nav === "video"
                 ? "Video"
                 : nav === "save"
-                ? "Đã lưu"
-                : "Yêu thích"}
+                  ? "Đã lưu"
+                  : "Yêu thích"}
             </div>
             <div className={styles.fillter}>
               <div

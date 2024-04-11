@@ -61,7 +61,7 @@ const EditShortVideo = () => {
       setUrlImage(video.urlImage);
       setUrlVideo(linkVideoDrive + video.idDriveVideo);
     } else if (res && res.errCode === 3) {
-      router.push("/home");
+      router.push("/");
     }
   };
 

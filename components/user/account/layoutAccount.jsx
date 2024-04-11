@@ -121,7 +121,7 @@ const LayoutAccount = ({ children, sub, defaultOpen }) => {
   useEffect(() => {
     checkLogin(accessToken, refreshToken, dispatch).then((res) => {
       if (!res) {
-        router.push("/home");
+        router.push("/");
       }
     });
   }, []);
@@ -154,22 +154,22 @@ const LayoutAccount = ({ children, sub, defaultOpen }) => {
     console.log(e.key);
     // return
     switch (
-      e.key
-      // case 'profile':
-      //     router.push(`/user/account/profile?sub=profile`)
-      //     break
-      // case 'address':
-      //     router.push(`/user/account/address?sub=address`)
-      //     break
-      // case 'changepass':
-      //     router.push(`/user/account/changepass?sub=changepass`)
-      //     break
-      // case 'blog':
-      //     router.push(`/blogs/blog-user`)
-      //     break
-      // case 'createBlog':
-      //     router.push(`/blogs/new`)
-      //     break
+    e.key
+    // case 'profile':
+    //     router.push(`/user/account/profile?sub=profile`)
+    //     break
+    // case 'address':
+    //     router.push(`/user/account/address?sub=address`)
+    //     break
+    // case 'changepass':
+    //     router.push(`/user/account/changepass?sub=changepass`)
+    //     break
+    // case 'blog':
+    //     router.push(`/blogs/blog-user`)
+    //     break
+    // case 'createBlog':
+    //     router.push(`/blogs/new`)
+    //     break
     ) {
     }
   };

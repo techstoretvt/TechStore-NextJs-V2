@@ -680,7 +680,7 @@ const AllShortVideo = ({
           setProgress(100);
         }
       } else {
-        router.push("/home");
+        router.push("/");
       }
     }
   };

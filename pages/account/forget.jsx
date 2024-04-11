@@ -42,7 +42,7 @@ const Forgetpass = () => {
   useEffect(() => {
     checkLogin(accessToken, refreshToken, dispatch).then((res) => {
       if (res) {
-        router.push("/home");
+        router.push("/");
       }
     });
   }, [accessToken, refreshToken, dispatch, router]);

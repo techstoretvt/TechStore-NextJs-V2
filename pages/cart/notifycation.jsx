@@ -45,7 +45,7 @@ const Notifycation = () => {
                   fill="currentColor"
                 />
               </svg>
-              <Link href={"/home"}>Trang chủ</Link>
+              <Link href={"/"}>Trang chủ</Link>
             </div>
             <div className={styles["item"] + " " + styles["item--post"]}>
               <svg

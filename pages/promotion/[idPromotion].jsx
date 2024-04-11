@@ -29,7 +29,7 @@ export async function getStaticProps(context) {
     if (!eventPromotionRes || eventPromotionRes?.errCode === 2) {
       return {
         redirect: {
-          destination: "/home", // Đích redirect
+          destination: "/", // Đích redirect
           permanent: false, // Đặt thành true nếu redirect là vĩnh viễn
         },
       };
@@ -104,7 +104,7 @@ const DetailPromotion = ({ eventPromotionData }) => {
   const renderCountDown = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      router.push("/home");
+      router.push("/");
       return <span>Sự kiện đã kết thúc</span>;
     } else {
       // Render a countdown
@@ -138,7 +138,7 @@ const DetailPromotion = ({ eventPromotionData }) => {
       setCountPage(size);
       setEventPromotion(res.data);
     } else if (res?.errCode === 2) {
-      router.push("/home");
+      router.push("/");
     }
   };
 

@@ -331,7 +331,7 @@ const DetailProduct = ({
         // nav1?.slickGoTo(0)
         setProgress(100);
       } else {
-        router.push("/home");
+        router.push("/");
       }
     }
   };

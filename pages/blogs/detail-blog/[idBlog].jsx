@@ -176,9 +176,9 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
         // setCheckCollection(res.checkCollection)
 
         setProgress(100);
-      } else router.push("/home");
+      } else router.push("/");
     } else if (res && res.errCode === 2) {
-      router.push("/home");
+      router.push("/");
     }
   };
 

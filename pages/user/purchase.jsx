@@ -55,7 +55,7 @@ const PurchasePage = () => {
   useEffect(() => {
     checkLogin(accessToken, refreshToken, dispatch).then((res) => {
       if (!res) {
-        router.push("/home");
+        router.push("/");
       }
     });
   }, []);
@@ -439,8 +439,8 @@ const PurchasePage = () => {
                                           {item2.classifyProduct
                                             .nameClassifyProduct !== "default"
                                             ? " " +
-                                              item2.classifyProduct
-                                                .nameClassifyProduct
+                                            item2.classifyProduct
+                                              .nameClassifyProduct
                                             : " Không có "}
                                         </div>
                                         <div>x{item2.amount}</div>
