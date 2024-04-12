@@ -536,7 +536,7 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
   return (
     <>
       <Head>
-        <title>{blog?.title} | {nameWeb}</title>
+        <title>{`${blog?.title} | ${nameWeb}`}</title>
         <meta name="description" content={blog?.contentHTML} />
         <meta charset="UTF-8"></meta>
       </Head>

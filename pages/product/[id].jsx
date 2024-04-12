@@ -103,7 +103,7 @@ export async function getStaticProps(context) {
         amountImageData: evaluateRes?.amountImage ?? null,
         amountVideoData: evaluateRes?.amountVideo ?? null,
         AmountPageData: amountPage,
-        mayLikeData: mayLikeRes?.data ?? [],
+        mayLikeData: mayLikeRes?.data ?? []
       },
       revalidate: 60,
     };
@@ -151,18 +151,18 @@ const DetailProduct = ({
   amountImageData = null,
   amountVideoData = null,
   AmountPageData = 0,
-  mayLikeData = null,
+  mayLikeData = null
 }) => {
   const router = useRouter();
   const { id, name, classify } = router.query;
+  const [product, setProduct] = useState(productProps);
   const title =
-    router && name
-      ? name?.charAt(0).toUpperCase() + name?.slice(1) + ` | ${nameWeb}`
+    product?.nameProduct
+      ? product?.nameProduct?.charAt(0).toUpperCase() + product?.nameProduct?.slice(1) + ` | ${nameWeb}`
       : `${nameWeb}`;
 
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
-  const [product, setProduct] = useState(productProps);
   const [indexClassify, setIndexClassify] = useState(0);
   const [countProduct, setCountProduct] = useState(1);
   const inputCountProduct = useRef();
@@ -806,7 +806,7 @@ const DetailProduct = ({
       <Head>
         <title>{title}</title>
         <meta property="title" content={title} />
-        <meta name="description" content={`Sản phẩm: ${name} tại cửa hàng trực tuyến ${nameWeb} đã được kiểm duyệt chặt chẽ và bảo hành trên toàn quốc.`} />
+        <meta name="description" content={`Sản phẩm: ${product?.nameProduct} tại cửa hàng trực tuyến ${nameWeb} đã được kiểm duyệt chặt chẽ và bảo hành trên toàn quốc.`} />
         {product && <meta property="image" content={metaImage} />}
         <meta charset="UTF-8"></meta>
       </Head>

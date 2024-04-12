@@ -27,6 +27,7 @@ import { decode_token } from '../../services/common';
 import { toast } from 'react-toastify';
 import { initNotifications, notify } from '@mycv/f8-notification';
 import { useMediaQuery } from 'react-responsive';
+import { convertStringToUrl } from '../../services/common'
 // import dynamic from 'next/dynamic';
 // const FacebookChat = dynamic(
 //     () => import('./ChatFacebook'),
@@ -963,7 +964,7 @@ const HeaderBottom = (props) => {
                                                                 }}
                                                                 onClick={() => {
                                                                     router.push(
-                                                                        `/product/${item.product.id}?name=${item.product.nameProduct}`
+                                                                        `/product/${item.product.id}?name=${convertStringToUrl(item.product.nameProduct)}`
                                                                     );
                                                                 }}
                                                             ></div>
@@ -978,7 +979,7 @@ const HeaderBottom = (props) => {
                                                                     }
                                                                     onClick={() => {
                                                                         router.push(
-                                                                            `/product/${item.product.id}?name=${item.product.nameProduct}`
+                                                                            `/product/${item.product.id}?name=${convertStringToUrl(item.product.nameProduct)}`
                                                                         );
                                                                     }}
                                                                 >

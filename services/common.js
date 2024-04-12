@@ -201,6 +201,12 @@ function formatDate(dateTimeString) {
     return formattedDateTime;
 }
 
+const convertStringToUrl = (str) => {
+    str = str.replace(/\s+/g, ' ');
+    str = str.replaceAll(" ", '-');
+    return str;
+}
+
 
 export {
     checkWord,
@@ -211,5 +217,6 @@ export {
     renderAvatarUser,
     renderAvatarUser_url,
     decode_token,
-    formatDate
+    formatDate,
+    convertStringToUrl
 }

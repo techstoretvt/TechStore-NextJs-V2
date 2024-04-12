@@ -67,7 +67,7 @@ export async function getStaticPaths() {
   return { paths, fallback: true };
 }
 
-const DetailPromotion = ({ eventPromotionData }) => {
+const DetailPromotion = ({ eventPromotionData = null }) => {
   const router = useRouter();
   const { idPromotion } = router.query;
   const [eventPromotion, setEventPromotion] = useState(eventPromotionData);
@@ -154,7 +154,7 @@ const DetailPromotion = ({ eventPromotionData }) => {
   return (
     <>
       <Head>
-        <title>{eventPromotion?.title ? eventPromotion?.title : "Sự kiện khuyến mãi"} | {nameWeb}</title>
+        <title>{`${eventPromotion?.nameEvent ? eventPromotion?.nameEvent : "Sự kiện khuyến mãi"} | ${nameWeb}`}</title>
         <meta name="description" content={`Sự kiện khuyến mãi tại ${nameWeb}`} />
       </Head>
       <HeaderBottom />

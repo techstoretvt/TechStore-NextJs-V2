@@ -8,6 +8,7 @@ import styles from "../../styles/home/CardProduct.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import actionTypes from "../../store/actions/actionTypes";
+import { convertStringToUrl } from '../../services/common'
 
 const CardProduct = ({ product, handleOpenModalPreview }) => {
   const accessToken = useSelector((state) => state.user.accessToken);
@@ -81,7 +82,7 @@ const CardProduct = ({ product, handleOpenModalPreview }) => {
     return (
       (product &&
         product.id &&
-        `/product/${product.id}?name=${product.nameProduct}`) ||
+        `/product/${product.id}?name=${convertStringToUrl(product.nameProduct)}`) ||
       "/home"
     );
   }, [product]);

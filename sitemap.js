@@ -20,19 +20,23 @@ export default async function sitemap({ id }) {
   let allIdProduct = await getAllIdProduct();
   let dataIdProduct = allIdProduct.data.map(idProduct => ({
     url: domain + '/product/' + idProduct.id,
-    lastModified: idProduct.createdAt,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }))
 
   //get idBlog
   let allIdBlog = await getAllIdBlog();
   let dataIdBlog = allIdBlog.data.map(idBog => ({
     url: domain + '/blogs/detail-blog/' + idBog.id,
-    lastModified: idBog.createdAt,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 1,
   }))
 
   return [
     {
-      url: domain,
+      url: domain + "/",
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
@@ -44,13 +48,13 @@ export default async function sitemap({ id }) {
       priority: 0.5,
     },
     {
-      url: domain + '/images',
+      url: domain + '/images/',
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.5,
+      priority: 0.8,
     },
     {
-      url: domain + '/portal',
+      url: domain + '/portal/',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
@@ -77,20 +81,15 @@ export default async function sitemap({ id }) {
       url: domain + '/account/register',
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 0.5,
+      priority: 0.8,
     },
     {
-      url: domain + '/search',
+      url: domain + '/search/',
       lastModified: new Date(),
       changeFrequency: 'monthly',
     },
     {
-      url: domain + '/short-video',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-    },
-    {
-      url: domain + '/short-video/foryou',
+      url: domain + '/short-video/',
       lastModified: new Date(),
       changeFrequency: 'weekly',
     },
@@ -100,9 +99,10 @@ export default async function sitemap({ id }) {
       changeFrequency: 'weekly',
     },
     {
-      url: domain + '/product',
+      url: domain + '/product/',
       lastModified: new Date(),
       changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: domain + '/blogs/all',
@@ -111,15 +111,16 @@ export default async function sitemap({ id }) {
       priority: 0.5,
     },
     {
-      url: domain + '/blogs/detail-blog',
+      url: domain + '/blogs/detail-blog/',
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.5,
+      priority: 0.8,
     },
     {
-      url: domain + '/promotion',
+      url: domain + '/promotion/',
       lastModified: new Date(),
       changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: domain + '/short-video/foryou',
