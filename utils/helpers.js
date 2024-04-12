@@ -26,6 +26,7 @@ const IgnoreUrl = (url) => {
         '/api/v1/get-list-event-promotion-home',
         '/api/v1/get-content-event-promotin-by-id',
         '/api/get-all-type-product',
+        '/api/vi/get-new-collection-product',
 
         //user
         '/api/create-user',
@@ -44,7 +45,9 @@ const IgnoreUrl = (url) => {
 
     let check = false;
     ignore.forEach((item) => {
-        if (url === item) check = true;
+        if (url === item || url.indexOf("?") !== -1 && url.indexOf(item) !== -1) {
+            check = true;
+        }
     });
 
     return check;
