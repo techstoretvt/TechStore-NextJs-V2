@@ -40,7 +40,10 @@ import TopSearch from "../components/home/TopSearch";
 import FooterHome from "../components/home/FooterHome";
 import BannerHome from "../components/home/BannerHome";
 import ShortVideo from "../components/home/ShortVideo";
-// import FacebookChat from "../components/home/ChatFacebook";
+// const FacebookChat = dynamic(
+//   () => import('../components/home/ChatFacebook'),
+//   { loading: () => <p>Loading...</p> }
+// );
 import Background from "../components/background";
 
 // import IphonePage from '../components/home/IphonePage'

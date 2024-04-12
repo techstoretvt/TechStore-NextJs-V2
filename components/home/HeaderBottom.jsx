@@ -27,7 +27,10 @@ import { decode_token } from '../../services/common';
 import { toast } from 'react-toastify';
 import { initNotifications, notify } from '@mycv/f8-notification';
 import { useMediaQuery } from 'react-responsive';
-// import FacebookChat from "./ChatFacebook";
+const FacebookChat = dynamic(
+    () => import('../components/home/ChatFacebook'),
+    { loading: () => <p>Loading...</p> }
+);
 
 var io = require('socket.io-client');
 
@@ -1296,6 +1299,7 @@ const HeaderBottom = (props) => {
                     </div>
                 )}
             </div>
+            <FacebookChat />
         </>
     );
 };

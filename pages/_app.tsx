@@ -24,10 +24,10 @@ import initializeAOS from '../utils/aos'
 import { ParallaxProvider } from 'react-scroll-parallax';
 // import { FacebookProvider, CustomChat } from 'react-facebook';
 import dynamic from 'next/dynamic';
-const FacebookChat = dynamic(
-  () => import('../components/home/ChatFacebook'),
-  { loading: () => <p>Loading...</p> }
-);
+// const FacebookChat = dynamic(
+//   () => import('../components/home/ChatFacebook'),
+//   { loading: () => <p>Loading...</p> }
+// );
 // import FacebookChat from '../components/home/ChatFacebook'
 
 
@@ -97,7 +97,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 
 
-          <FacebookChat />
+          {/* <FacebookChat /> */}
           <Script src="https://kit.fontawesome.com/a19bb8670a.js" />
         </ApolloProvider>
       </Provider>
