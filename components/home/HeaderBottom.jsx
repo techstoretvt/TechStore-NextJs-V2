@@ -28,7 +28,7 @@ import { toast } from 'react-toastify';
 import { initNotifications, notify } from '@mycv/f8-notification';
 import { useMediaQuery } from 'react-responsive';
 const FacebookChat = dynamic(
-    () => import('../components/home/ChatFacebook'),
+    () => import('./ChatFacebook'),
     { loading: () => <p>Loading...</p> }
 );
 
