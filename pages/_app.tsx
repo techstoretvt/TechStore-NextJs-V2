@@ -23,7 +23,7 @@ import { useMediaQuery } from 'react-responsive';
 import initializeAOS from '../utils/aos'
 import { ParallaxProvider } from 'react-scroll-parallax';
 // import { FacebookProvider, CustomChat } from 'react-facebook';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 // const FacebookChat = dynamic(
 //   () => import('../components/home/ChatFacebook'),
 //   { loading: () => <p>Loading...</p> }
