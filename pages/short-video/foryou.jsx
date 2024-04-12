@@ -540,6 +540,15 @@ const AllShortVideo = ({
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
+    document.getElementById("fb-root").style.display = 'none'
+
+    return () => {
+      document.getElementById("fb-root").style.display = 'block'
+    }
+
+  }, [])
+
+  useEffect(() => {
     if (!accessToken) {
       dispatch({
         type: actionTypes.UPDATE_REDIRECT_LOGIN,
