@@ -80,8 +80,8 @@ export default function App({ Component, pageProps }: AppProps) {
             !isScreen500 &&
             <ScrollToTop style={{ backgroundColor: 'transparent', boxShadow: 'none' }} smooth top={400} component={<ButtonToTop />} />
           }
-          <div id="fb-customer-chat" className="fb-customerchat">
-          </div>
+          {/* <div id="fb-customer-chat" className="fb-customerchat">
+          </div> */}
           <ToastContainer
             position="top-right"
             autoClose={5000}

@@ -1300,6 +1300,8 @@ const HeaderBottom = (props) => {
                     </div>
                 )}
             </div>
+            <div id="fb-customer-chat" className="fb-customerchat">
+            </div>
             <FacebookChat />
         </>
     );
