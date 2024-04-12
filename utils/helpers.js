@@ -38,6 +38,8 @@ const IgnoreUrl = (url) => {
         '/api/v1/update-video-evaluate',
         '/apit/v1/upload-images-evaluate-product',
         '/api/verify-create-user',
+        '/api/v1/get-user-by-id',
+        '/api/v1/get-list-video-by-id-user'
     ];
 
     let check = false;
