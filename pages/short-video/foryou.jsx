@@ -540,10 +540,16 @@ const AllShortVideo = ({
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    document.getElementById("fb-root").style.display = 'none'
+    let fbRoot = document.getElementById("fb-root")
+    if (fbRoot) {
+      fbRoot.style.display = 'none'
+    }
 
     return () => {
-      document.getElementById("fb-root").style.display = 'block'
+      let fbRoot = document.getElementById("fb-root")
+      if (fbRoot) {
+        fbRoot.style.display = 'block'
+      }
     }
 
   }, [])
@@ -1280,7 +1286,7 @@ const AllShortVideo = ({
                       <video
                         loop
                         ref={firstVideo}
-                        preload={index !== 0 && "none"}
+                        preload={true}
                         onClick={(event) => togglePlayVideo(event)}
                         muted={idMutedData}
                         poster={item?.urlImage}
@@ -1295,7 +1301,7 @@ const AllShortVideo = ({
                     ) : (
                       <video
                         loop
-                        preload={index !== 0 && "none"}
+                        preload={true}
                         onClick={(event) => togglePlayVideo(event)}
                         muted={idMutedData}
                         poster={item?.urlImage}
