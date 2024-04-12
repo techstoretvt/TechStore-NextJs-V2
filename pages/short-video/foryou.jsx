@@ -555,15 +555,15 @@ const AllShortVideo = ({
   }, [])
 
   useEffect(() => {
-    if (!accessToken) {
-      dispatch({
-        type: actionTypes.UPDATE_REDIRECT_LOGIN,
-        data: router.asPath,
-      });
+    // if (!accessToken) {
+    //   dispatch({
+    //     type: actionTypes.UPDATE_REDIRECT_LOGIN,
+    //     data: router.asPath,
+    //   });
 
-      router.push("/account/login");
-      return;
-    }
+    //   router.push("/account/login");
+    //   return;
+    // }
     // setCurrentVideo(indexVideo)
     // setIsMuted(idMutedData)
     if (listVideoData.length > 0) setListVideo(listVideoData);
