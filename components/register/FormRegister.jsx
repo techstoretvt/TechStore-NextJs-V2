@@ -162,6 +162,7 @@ const FormRegister = () => {
                                 router.push('/');
                             }
                         );
+                        setIsOpenModel(true);
 
                         //login desktop
                         if (router?.query?.key) {
@@ -178,7 +179,7 @@ const FormRegister = () => {
                         );
 
 
-                        setIsOpenModel(true);
+
                     } else if (res && res.errCode === 2) {
                         updateTokensFaild(dispatch);
                         errmess = 'Tài khoản đã tồn tại!';
