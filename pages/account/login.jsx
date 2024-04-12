@@ -26,6 +26,8 @@ const Login = () => {
   useEffect(() => {
     checkLogin(accessToken, refreshToken, dispatch).then((res) => {
       if (res) {
+        if (router?.query?.key)
+          return
         router.push("/");
       }
     });

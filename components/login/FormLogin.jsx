@@ -58,7 +58,6 @@ const FormLogin = ({ params, props }) => {
     const router = useRouter();
 
     useEffect(() => {
-        console.log("test param", router.query);
         socket = io.connect(`${process.env.REACT_APP_BACKEND_URL}`, {
             reconnect: true,
         });
