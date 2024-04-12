@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeaderLogin from "../../components/login/HeaderLogin";
 import FormRegister from "../../components/register/FormRegister";
-import { checkLogin } from "../../services/common";
+// import { checkLogin } from "../../services/common";
 import LoadingBar from "react-top-loading-bar";
 import { useState } from "react";
 
@@ -16,11 +16,11 @@ const RegisterPage = () => {
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    checkLogin(accessToken, refreshToken, dispatch).then((res) => {
-      if (res) {
-        router.push("/");
-      }
-    });
+    // checkLogin(accessToken, refreshToken, dispatch).then((res) => {
+    //   if (res) {
+    //     router.push("/");
+    //   }
+    // });
   }, []);
 
   return (

@@ -24,14 +24,17 @@ const Login = () => {
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    checkLogin(accessToken, refreshToken, dispatch).then((res) => {
-      if (res) {
-        if (router?.query?.key)
-          return
-        router.push("/");
-      }
-    });
-  }, []);
+    if (router && router.isReady) {
+      checkLogin(accessToken, refreshToken, dispatch).then((res) => {
+        if (res) {
+          if (router?.query?.key)
+            return
+          router.push("/");
+        }
+      });
+
+    }
+  }, [router]);
 
   return (
     <div>

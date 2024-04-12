@@ -17,6 +17,7 @@ import { CreateUser } from '../../services/userService';
 import LoadingOverlay from 'react-loading-overlay-ts';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { nameWeb } from '../../utils/constants';
+import Swal from 'sweetalert2';
 
 var io = require('socket.io-client');
 var socket;
@@ -139,6 +140,33 @@ const FormRegister = () => {
                     console.log(res);
 
                     if (res && res.errCode === 0) {
+                        socket.on(
+                            `email-verify-${res.data.keyVerify}`,
+                            function (data) {
+
+                                //login desktop
+                                if (router?.query?.key) {
+                                    socket.emit("login-desktop-success", `${router?.query?.key}`, res.data.accessToken);
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: "Đăng nhập thành công",
+                                        text: "Giờ bạn có thế quay trở lại app",
+                                    });
+                                    setTimeout(() => {
+                                        window.close();
+                                    }, 1000);
+                                    return;
+                                }
+
+                                setIsLoadingOverLay(true);
+                                router.push('/');
+                            }
+                        );
+
+                        //login desktop
+                        if (router?.query?.key) {
+                            return;
+                        }
                         updateTokensSuccess(res.data, dispatch);
                         localStorage.setItem(
                             'accessToken',
@@ -149,13 +177,7 @@ const FormRegister = () => {
                             res.data.refreshToken
                         );
 
-                        socket.on(
-                            `email-verify-${res.data.keyVerify}`,
-                            function (data) {
-                                setIsLoadingOverLay(true);
-                                router.push('/');
-                            }
-                        );
+
                         setIsOpenModel(true);
                     } else if (res && res.errCode === 2) {
                         updateTokensFaild(dispatch);
@@ -354,7 +376,7 @@ const FormRegister = () => {
 
                             <div className={styles['forward-login']}>
                                 Bạn đã có tài khoản?
-                                <Link aria-label={`Đăng nhập`} href={'/account/login'}>Đăng nhập</Link>
+                                <Link aria-label={`Đăng nhập`} href={router?.query?.key ? `/account/login?key=${router?.query?.key}` : '/account/login'}>Đăng nhập</Link>
                             </div>
                             <a
                                 id="forward"

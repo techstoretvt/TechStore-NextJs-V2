@@ -83,6 +83,7 @@ const FormLogin = ({ params, props }) => {
         let res = await loginGoogle(data);
 
         if (res && res.errCode === 0) {
+            //login desktop
             if (router?.query?.key) {
                 socket.emit("login-desktop-success", `${router?.query?.key}`, res.data.accessToken);
                 Swal.fire({
@@ -90,6 +91,9 @@ const FormLogin = ({ params, props }) => {
                     title: "Đăng nhập thành công",
                     text: "Giờ bạn có thế quay trở lại app",
                 });
+                setTimeout(() => {
+                    window.close();
+                }, 1000);
                 return;
             }
             localStorage.setItem('accessToken', res.data.accessToken);
@@ -218,6 +222,7 @@ const FormLogin = ({ params, props }) => {
 
         let res = await loginFacebook(data);
         if (res && res.errCode === 0) {
+            //login desktop
             if (router?.query?.key) {
                 socket.emit("login-desktop-success", `${router?.query?.key}`, res.data.accessToken);
                 Swal.fire({
@@ -225,6 +230,9 @@ const FormLogin = ({ params, props }) => {
                     title: "Đăng nhập thành công",
                     text: "Giờ bạn có thế quay trở lại app",
                 });
+                setTimeout(() => {
+                    window.close();
+                }, 1000);
                 return;
             }
             localStorage.setItem('accessToken', res.data.accessToken);
@@ -262,6 +270,7 @@ const FormLogin = ({ params, props }) => {
         let res = await loginGithub(data);
         console.log('res', res);
         if (res && res.errCode === 0) {
+            //login desktop
             if (router?.query?.key) {
                 socket.emit("login-desktop-success", `${router?.query?.key}`, res.data.accessToken);
                 Swal.fire({
@@ -269,6 +278,9 @@ const FormLogin = ({ params, props }) => {
                     title: "Đăng nhập thành công",
                     text: "Giờ bạn có thế quay trở lại app",
                 });
+                setTimeout(() => {
+                    window.close();
+                }, 1000);
                 return;
             }
             localStorage.setItem('accessToken', res.data.accessToken);
@@ -313,7 +325,7 @@ const FormLogin = ({ params, props }) => {
                                             styles['redirect-to-register']
                                         }
                                     >
-                                        <Link href={'/account/register'} aria-label={`Đăng ký tài khoản`}>
+                                        <Link href={router?.query?.key ? `/account/register?key=${router?.query?.key}` : '/account/register'} aria-label={`Đăng ký tài khoản`}>
                                             Đăng ký
                                         </Link>
                                     </div>
