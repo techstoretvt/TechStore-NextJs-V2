@@ -27,11 +27,11 @@ import { decode_token } from '../../services/common';
 import { toast } from 'react-toastify';
 import { initNotifications, notify } from '@mycv/f8-notification';
 import { useMediaQuery } from 'react-responsive';
-import dynamic from 'next/dynamic';
-const FacebookChat = dynamic(
-    () => import('./ChatFacebook'),
-    { loading: () => <p>Loading...</p> }
-);
+// import dynamic from 'next/dynamic';
+// const FacebookChat = dynamic(
+//     () => import('./ChatFacebook'),
+//     { loading: () => <p>Loading...</p> }
+// );
 
 var io = require('socket.io-client');
 
@@ -1302,7 +1302,7 @@ const HeaderBottom = (props) => {
             </div>
             <div id="fb-customer-chat" className="fb-customerchat">
             </div>
-            <FacebookChat />
+            {/* <FacebookChat /> */}
         </>
     );
 };

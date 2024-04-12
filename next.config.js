@@ -13,6 +13,11 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/home',
+        destination: '/',
+        permanent: false
+      },
+      {
         source: '/admin',
         destination: process.env.REACT_APP_ADMIN_URL,
         permanent: false
