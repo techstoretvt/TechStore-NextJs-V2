@@ -1295,7 +1295,7 @@ const AllShortVideo = ({
                         <source
                           src={
                             currentVideo > index - 2 && currentVideo < index + 2 ?
-                              item.idDriveVideo : ""
+                              item.idDriveVideo.replace('http', 'https') : ""
                           }
                         />
                       </video>
@@ -1310,7 +1310,7 @@ const AllShortVideo = ({
                         <source
                           src={
                             currentVideo > index - 2 && currentVideo < index + 2 ?
-                              item.idDriveVideo : ""
+                              item.idDriveVideo.replace('http', 'https') : ""
                           }
                         />
                       </video>
