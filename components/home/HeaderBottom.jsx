@@ -224,7 +224,7 @@ const itemsNavbar = [
                 Khuyến mãi
             </Link>
         ),
-        key: 'Blog',
+        key: 'KhuyenMai',
     },
     {
         label: (
@@ -232,7 +232,7 @@ const itemsNavbar = [
                 Liên hệ
             </Link>
         ),
-        key: 'Blog',
+        key: 'Lienhe',
     },
     {
         label: (
@@ -240,7 +240,15 @@ const itemsNavbar = [
                 Ứng dụng
             </Link>
         ),
-        key: 'Blog',
+        key: 'UngDung',
+    },
+    {
+        label: (
+            <Link href="#TopSellingProduct-container" rel="noopener noreferrer" aria-label={`Top bán chạy`}>
+                Bán chạy
+            </Link>
+        ),
+        key: 'Banchay',
     },
 
 ];

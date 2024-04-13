@@ -64,6 +64,9 @@
                 display: flex;
                 gap: 10px;
                 z-index: 1;
+                background: #000;
+                padding: 4px 20px;
+                border-radius: 10px;
 
                 >.toggle_play {
                     >i {
@@ -195,6 +198,9 @@
                 min-height: 30px;
                 display: flex;
                 gap: 10px;
+                background: #000;
+                padding: 4px 20px;
+                border-radius: 10px;
 
                 >.left {
                     width: 40px;
@@ -231,6 +237,7 @@
                 bottom: 6px;
                 left: 0;
                 padding: 4px 10px;
+                // background-color: #000000bf;
 
                 >.wrap_content {
                     display: -webkit-box;
@@ -239,7 +246,7 @@
                     overflow: hidden;
                     font-size: 12px;
                     text-align: start;
-                    text-shadow: 0 0 .8em #000;
+                    text-shadow: 2px 1px 10px #000;
                 }
 
                 >.hashTag {
@@ -251,13 +258,14 @@
                         font-size: 11px;
                         cursor: pointer;
                         font-weight: 700;
-                        color: #fff;
+                        // color: #fff;
                         text-shadow: 0 0 .8em #000;
                         max-width: 50%;
                         overflow: hidden;
                         line-height: 16px;
                         max-height: 16px;
                         word-break: break-all;
+                        color: #b3b3b3;
 
                         &:hover {
                             text-decoration: underline;
@@ -641,6 +649,7 @@
                             font-size: 12px;
                             cursor: pointer;
                             font-weight: 600;
+                            color: #919191;
 
                             &:hover {
                                 text-decoration: underline;

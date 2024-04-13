@@ -84,6 +84,7 @@ const TopSellingProduct = ({ TopSellProducts }) => {
                 ' ' +
                 'TopSellingProduct-container'
             }
+            id='TopSellingProduct-container'
         >
             <div className={styles['TopSellingProduct-content']}>
                 <div className={styles['TopSellingProduct-top']}>

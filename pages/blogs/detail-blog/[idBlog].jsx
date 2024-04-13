@@ -121,6 +121,12 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
       if (decoded !== 0) setCurrentIdUser(decoded.id);
     }
     getListCommentBlog("1");
+
+    if (domloaded) {
+      getBlog()
+      // getListCommentBlog("1");
+    }
+
   }, [idBlog]);
 
   useEffect(() => {
@@ -536,7 +542,7 @@ const DetailBlog = ({ listBlogData, listCommentBlogData }) => {
   return (
     <>
       <Head>
-        <title>{`${blog?.title} | ${nameWeb}`}</title>
+        <title>{`${blog?.title ? blog?.title : "Bài viết"} | ${nameWeb}`}</title>
         <meta name="description" content={blog?.contentHTML} />
         <meta charset="UTF-8"></meta>
       </Head>
