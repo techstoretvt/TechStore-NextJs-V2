@@ -985,7 +985,7 @@ const AllShortVideo = ({
 
         videoNext1.muted = !isMuted;
         videoNext1.currentTime = "0";
-        videoNext1.load();
+        // videoNext1.load();
       }
 
       setCurrentVideo(currentVideo + 1);
@@ -1037,7 +1037,7 @@ const AllShortVideo = ({
 
         videoNext1.muted = !isMuted;
         videoNext1.currentTime = "0";
-        videoNext1.load();
+        // videoNext1.load();
       }
 
       setCurrentVideo(currentVideo - 1);
