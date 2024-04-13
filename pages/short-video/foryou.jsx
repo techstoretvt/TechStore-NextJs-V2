@@ -1287,30 +1287,30 @@ const AllShortVideo = ({
                       <video
                         loop
                         ref={firstVideo}
-                        preload={"metadata"}
+                        preload={currentVideo > index - 2 && currentVideo < index + 2 ? "metadata" : "none"}
                         onClick={(event) => togglePlayVideo(event)}
                         muted={idMutedData}
                         poster={item?.urlImage}
                       >
                         <source
                           src={
-                            // process.env.RACT_APP_LNK_VIDEO_DRIVE +
-                            item.idDriveVideo
+                            currentVideo > index - 2 && currentVideo < index + 2 ?
+                              item.idDriveVideo : ""
                           }
                         />
                       </video>
                     ) : (
                       <video
                         loop
-                        preload={"metadata"}
+                        preload={currentVideo > index - 2 && currentVideo < index + 2 ? "metadata" : "none"}
                         onClick={(event) => togglePlayVideo(event)}
                         muted={idMutedData}
                         poster={item?.urlImage}
                       >
                         <source
                           src={
-                            // process.env.RACT_APP_LNK_VIDEO_DRIVE +
-                            item.idDriveVideo
+                            currentVideo > index - 2 && currentVideo < index + 2 ?
+                              item.idDriveVideo : ""
                           }
                         />
                       </video>
