@@ -1287,7 +1287,7 @@ const AllShortVideo = ({
                       <video
                         loop
                         ref={firstVideo}
-                        preload={true}
+                        preload={"metadata"}
                         onClick={(event) => togglePlayVideo(event)}
                         muted={idMutedData}
                         poster={item?.urlImage}
@@ -1302,7 +1302,7 @@ const AllShortVideo = ({
                     ) : (
                       <video
                         loop
-                        preload={true}
+                        preload={"metadata"}
                         onClick={(event) => togglePlayVideo(event)}
                         muted={idMutedData}
                         poster={item?.urlImage}
