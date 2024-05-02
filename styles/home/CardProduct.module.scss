@@ -14,7 +14,7 @@
 
         .CardProduct-imgs {
             position: relative;
-            width: 100%;
+            min-width: 200%;
             aspect-ratio: 1/1;
             overflow: hidden;
             // border-radius: 6px;
@@ -22,7 +22,7 @@
 
             &:hover {
                 .imgs-wrap {
-                    transform: translateX(-100%);
+                    transform: translateX(-50%);
                 }
 
                 .preview {
@@ -274,19 +274,19 @@
                 transition: all .3s ease;
                 box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
                 color: hsl(0, 0%, 100%);
-               }
-               
-               button:hover {
+            }
+
+            button:hover {
                 box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
-               }
-               
-               button:active {
+            }
+
+            button:active {
                 background-color: rgb(255, 56, 86);
                 /*50, 168, 80*/
                 box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
                 transform: translateY(5px);
                 transition: 200ms;
-               }
+            }
         }
     }
 }
