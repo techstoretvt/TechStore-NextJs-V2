@@ -599,11 +599,11 @@ const DetailProduct = ({
       });
     } else {
       Swal.fire({
-        icon: "error",
-        title: "Xin lỗi",
+        icon: "Đăng nhập hết hạn",
+        title: "Vui lòng đăng nhập lại để thực hiện tính năng này",
         text: res.errMessage,
       });
-      window.location.reload();
+      // window.location.reload();
     }
   };
 
