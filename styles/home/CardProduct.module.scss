@@ -14,7 +14,6 @@
 
         .CardProduct-imgs {
             position: relative;
-            min-width: 200%;
             aspect-ratio: 1/1;
             overflow: hidden;
             // border-radius: 6px;
@@ -31,6 +30,7 @@
             }
 
             .imgs-wrap {
+                min-width: 200%;
                 display: flex;
                 width: 100%;
                 height: 100%;
