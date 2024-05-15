@@ -191,6 +191,7 @@ const NewBlog = () => {
     // }
 
     const handleCreateBlog = async () => {
+        // console.log('content: ', contentHtml)
         if (!accessToken) {
             Swal.fire({
                 icon: 'warning',

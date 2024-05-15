@@ -154,7 +154,7 @@ export default function Home({
         Với đội ngũ chuyên gia tận tâm và sự cam kết mang lại trải nghiệm mua sắm tuyệt vời nhất cho khách hàng, ${nameWeb} không chỉ đem đến những sản phẩm chất lượng hàng đầu mà còn là nguồn cảm hứng không ngừng cho sự sáng tạo và tiên phong trong lĩnh vực công nghệ.`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-
+        <meta name="google-site-verification" content="PJ-jVcs36q-yKgxLoEGU71olEjSayV8Xx8VDI7sZcP8" />
         <meta charset="UTF-8"></meta>
       </Head>
       <LoadingBar
