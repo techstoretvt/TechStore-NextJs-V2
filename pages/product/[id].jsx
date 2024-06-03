@@ -711,7 +711,7 @@ const DetailProduct = ({
   };
 
   const classifyEvaluate = (item) => {
-    if (item.detailBill.classifyProduct.nameClassifyProduct !== "default") {
+    if (item?.detailBill?.classifyProduct?.nameClassifyProduct !== "default") {
       let text = item.detailBill.classifyProduct.nameClassifyProduct;
       text = text.charAt(0).toUpperCase() + text.slice(1);
       return text;

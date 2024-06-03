@@ -67,6 +67,7 @@ const CartPage = () => {
   const Totals = useRef(0);
   const [isBuyStart, setIsBuyStart] = useState(false);
   const [payment, setPayment] = useState("hand");
+  const [vanChuyen, setVanChuyen] = useState(17500);
 
   const dispatch = useDispatch();
   const accessToken = useSelector((state) => state.user.accessToken);
@@ -813,10 +814,10 @@ const CartPage = () => {
         }
       }
     });
-    Totals.current = totals;
+    Totals.current = totals + vanChuyen;
 
-    return <>{new Intl.NumberFormat("ja-JP").format(totals)}₫</>;
-  }, [listCart]);
+    return <>{new Intl.NumberFormat("ja-JP").format(Totals.current)}₫</>;
+  }, [listCart, vanChuyen]);
 
   const handleBuys = async () => {
     if (!accessToken) {
@@ -989,7 +990,7 @@ const CartPage = () => {
       setIsBuyStart(true);
       let res = await buyProductByCard({
         accessToken: accToken,
-        totalsReq: Totals.current,
+        totalsReq: Totals.current + vanChuyen,
       });
       if (res && res.errCode === 0) {
         window.location.href = res.link;
@@ -1166,6 +1167,35 @@ const CartPage = () => {
                     onChange={(e) => setPayment("card")}
                   />
                   Thanh toán PayPal
+                </label>
+              </div>
+            </div>
+            <div className={styles.payment_methods}>
+              <div className={styles.header}>Vận chuyển</div>
+              <div className={styles.wrap_radio}>
+                <label>
+                  <input
+                    type="radio"
+                    name="van_chuyen"
+                    id=""
+                    checked={vanChuyen === 17500}
+                    onChange={(e) => {
+                      setVanChuyen(17500)
+                    }}
+                  />
+                  Tiết kiệm
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="van_chuyen"
+                    id=""
+                    checked={vanChuyen === 42000}
+                    onChange={(e) => {
+                      setVanChuyen(42000)
+                    }}
+                  />
+                  Hỏa tốc
                 </label>
               </div>
             </div>
