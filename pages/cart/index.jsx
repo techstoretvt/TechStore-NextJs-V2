@@ -337,7 +337,7 @@ const CartPage = () => {
 
   const renderContent = (index, item) => {
     let priceRoot;
-    if (item.classifyProduct.nameClassifyProduct === "default") {
+    if (item?.classifyProduct?.nameClassifyProduct === "default") {
       priceRoot = +item.product.priceProduct;
     } else {
       priceRoot = +item.classifyProduct.priceClassify;
@@ -361,7 +361,7 @@ const CartPage = () => {
             <div className={styles.classify}>
               {(item.product["classifyProduct-product"].length === 1 &&
                 item.product["classifyProduct-product"][0]
-                  .nameClassifyProduct !== "default") ||
+                  ?.nameClassifyProduct !== "default") ||
                 (item.product["classifyProduct-product"].length !== 1 && (
                   <>
                     <select
@@ -377,10 +377,10 @@ const CartPage = () => {
                         (item, index) => {
                           return (
                             <option key={item.id} value={item.id}>
-                              {item.nameClassifyProduct
+                              {item?.nameClassifyProduct
                                 .charAt(0)
                                 .toUpperCase() +
-                                item.nameClassifyProduct.slice(1)}
+                                item?.nameClassifyProduct.slice(1)}
                             </option>
                           );
                         }
@@ -443,7 +443,7 @@ const CartPage = () => {
             <div className={styles.classify}>
               {(item.product["classifyProduct-product"].length === 1 &&
                 item.product["classifyProduct-product"][0]
-                  .nameClassifyProduct !== "default") ||
+                  ?.nameClassifyProduct !== "default") ||
                 (item.product["classifyProduct-product"].length !== 1 && (
                   <>
                     <select
@@ -460,10 +460,10 @@ const CartPage = () => {
                           return (
                             <option key={item.id} value={item.id}>
                               {" "}
-                              {item.nameClassifyProduct
+                              {item?.nameClassifyProduct
                                 .charAt(0)
                                 .toUpperCase() +
-                                item.nameClassifyProduct.slice(1)}
+                                item?.nameClassifyProduct.slice(1)}
                             </option>
                           );
                         }
@@ -528,7 +528,7 @@ const CartPage = () => {
               <div className={styles.classify}>
                 {(item.product["classifyProduct-product"].length === 1 &&
                   item.product["classifyProduct-product"][0]
-                    .nameClassifyProduct !== "default") ||
+                    ?.nameClassifyProduct !== "default") ||
                   (item.product["classifyProduct-product"].length !== 1 && (
                     <>
                       <select
@@ -545,10 +545,10 @@ const CartPage = () => {
                             return (
                               <option key={item.id} value={item.id}>
                                 {" "}
-                                {item.nameClassifyProduct
+                                {item?.nameClassifyProduct
                                   .charAt(0)
                                   .toUpperCase() +
-                                  item.nameClassifyProduct.slice(1)}
+                                  item?.nameClassifyProduct.slice(1)}
                               </option>
                             );
                           }
@@ -611,7 +611,7 @@ const CartPage = () => {
               <div className={styles.classify}>
                 {(item.product["classifyProduct-product"].length === 1 &&
                   item.product["classifyProduct-product"][0]
-                    .nameClassifyProduct !== "default") ||
+                    ?.nameClassifyProduct !== "default") ||
                   (item.product["classifyProduct-product"].length !== 1 && (
                     <>
                       <select
@@ -628,10 +628,10 @@ const CartPage = () => {
                             return (
                               <option key={item.id} value={item.id}>
                                 {" "}
-                                {item.nameClassifyProduct
+                                {item?.nameClassifyProduct
                                   .charAt(0)
                                   .toUpperCase() +
-                                  item.nameClassifyProduct.slice(1)}
+                                  item?.nameClassifyProduct.slice(1)}
                               </option>
                             );
                           }
@@ -786,7 +786,7 @@ const CartPage = () => {
     listCart.forEach((item) => {
       if (item.isChoose === "true") {
         let priceRoot;
-        if (item.classifyProduct.nameClassifyProduct === "default") {
+        if (item.classifyProduct?.nameClassifyProduct === "default") {
           priceRoot = +item.product.priceProduct;
         } else {
           priceRoot = item.classifyProduct.priceClassify;
