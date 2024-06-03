@@ -245,7 +245,7 @@ const itemsNavbar = [
     },
     {
         label: (
-            <Link href="#TopSellingProduct-container" rel="noopener noreferrer" aria-label={`Top bán chạy`}>
+            <Link href="/#TopSellingProduct-container" rel="noopener noreferrer" aria-label={`Top bán chạy`}>
                 Bán chạy
             </Link>
         ),
@@ -1327,10 +1327,13 @@ const HeaderBottom = (props) => {
                 </div>
 
 
+                {
+                    props?.short_video !== true &&
+                    <div>
+                        <Menu mode="horizontal" items={itemsNavbar} theme="dark" />
+                    </div>
+                }
 
-                <div>
-                    <Menu mode="horizontal" items={itemsNavbar} theme="dark" />
-                </div>
             </div>
             <div id="fb-customer-chat" className="fb-customerchat">
             </div>
