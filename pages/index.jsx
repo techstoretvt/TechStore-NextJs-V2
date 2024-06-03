@@ -38,7 +38,7 @@ import GenuineFlycam from "../components/home/GenuineFlycam";
 import NewPost from "../components/home/NewPost";
 import TopSearch from "../components/home/TopSearch";
 import FooterHome from "../components/home/FooterHome";
-import BannerHome from "../components/home/BannerHome";
+// import BannerHome from "../components/home/BannerHome";
 import ShortVideo from "../components/home/ShortVideo";
 // const FacebookChat = dynamic(
 //   () => import('../components/home/ChatFacebook'),
@@ -164,7 +164,7 @@ export default function Home({
       />
       <div className={styles["homePage-container"] + " scoll-bar"}>
         <HeaderHome isTop={true} link_social={true} />
-        <BannerHome />
+        {/* <BannerHome /> */}
         <SliderImageHome listEventData={listEventData} />
 
         <LazyLoad offset={500}>
