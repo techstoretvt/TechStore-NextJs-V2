@@ -40,10 +40,10 @@ import TopSearch from "../components/home/TopSearch";
 import FooterHome from "../components/home/FooterHome";
 import BannerHome from "../components/home/BannerHome";
 import ShortVideo from "../components/home/ShortVideo";
-const FacebookChat = dynamic(
-  () => import('../components/home/ChatFacebook'),
-  { loading: () => <p>Loading...</p> }
-);
+// const FacebookChat = dynamic(
+//   () => import('../components/home/ChatFacebook'),
+//   { loading: () => <p>Loading...</p> }
+// );
 import Background from "../components/background";
 
 // import IphonePage from '../components/home/IphonePage'
@@ -188,7 +188,7 @@ export default function Home({
         <ShortVideo listShortVideoData={listShortVideoData} />
         <TopSearch />
         <FooterHome />
-        <FacebookChat />
+        {/* <FacebookChat /> */}
 
         <Background />
       </div>
