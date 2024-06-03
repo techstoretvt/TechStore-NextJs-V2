@@ -497,7 +497,7 @@ const DetailProduct = ({
                   className={styles.item + " " + styles.active}
                   onClick={() => handleClickClassify(index, item)}
                 >
-                  {item.nameClassifyProduct}
+                  {item?.nameClassifyProduct}
                 </div>
               );
             } else {
@@ -507,7 +507,7 @@ const DetailProduct = ({
                   className={styles.item}
                   onClick={() => handleClickClassify(index, item)}
                 >
-                  {item.nameClassifyProduct}
+                  {item?.nameClassifyProduct}
                 </div>
               );
             }
@@ -695,11 +695,11 @@ const DetailProduct = ({
       return item.User?.firstName + " " + item.User?.lastName;
     } else {
       let name = item?.User?.firstName + " " + item?.User?.lastName;
-      let first = name.charAt(0);
-      for (let i = 0; i < name.slice(1, name.length - 1).length; i++) {
+      let first = name?.charAt(0);
+      for (let i = 0; i < name?.slice(1, name.length - 1).length; i++) {
         first = first + "*";
       }
-      first = first + name.charAt(name.length - 1);
+      first = first + name?.charAt(name.length - 1);
       return first;
     }
   };
@@ -712,8 +712,8 @@ const DetailProduct = ({
 
   const classifyEvaluate = (item) => {
     if (item?.detailBill?.classifyProduct?.nameClassifyProduct !== "default") {
-      let text = item.detailBill.classifyProduct.nameClassifyProduct;
-      text = text.charAt(0).toUpperCase() + text.slice(1);
+      let text = item.detailBill.classifyProduct?.nameClassifyProduct;
+      text = text?.charAt(0).toUpperCase() + text?.slice(1);
       return text;
     }
     return "Không có";

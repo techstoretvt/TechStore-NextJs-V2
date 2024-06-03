@@ -360,8 +360,7 @@ const CartPage = () => {
             </Link>
             <div className={styles.classify}>
               {(item.product["classifyProduct-product"].length === 1 &&
-                item.product["classifyProduct-product"][0]
-                  ?.nameClassifyProduct !== "default") ||
+                item.product["classifyProduct-product"][0].nameClassifyProduct !== "default") ||
                 (item.product["classifyProduct-product"].length !== 1 && (
                   <>
                     <select
@@ -443,7 +442,7 @@ const CartPage = () => {
             <div className={styles.classify}>
               {(item.product["classifyProduct-product"].length === 1 &&
                 item.product["classifyProduct-product"][0]
-                  ?.nameClassifyProduct !== "default") ||
+                  .nameClassifyProduct !== "default") ||
                 (item.product["classifyProduct-product"].length !== 1 && (
                   <>
                     <select
@@ -528,7 +527,7 @@ const CartPage = () => {
               <div className={styles.classify}>
                 {(item.product["classifyProduct-product"].length === 1 &&
                   item.product["classifyProduct-product"][0]
-                    ?.nameClassifyProduct !== "default") ||
+                    .nameClassifyProduct !== "default") ||
                   (item.product["classifyProduct-product"].length !== 1 && (
                     <>
                       <select
@@ -611,7 +610,7 @@ const CartPage = () => {
               <div className={styles.classify}>
                 {(item.product["classifyProduct-product"].length === 1 &&
                   item.product["classifyProduct-product"][0]
-                    ?.nameClassifyProduct !== "default") ||
+                    .nameClassifyProduct !== "default") ||
                   (item.product["classifyProduct-product"].length !== 1 && (
                     <>
                       <select
