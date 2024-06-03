@@ -49,7 +49,6 @@ const SliderImageHome = ({ listEventData }) => {
         <>
             {listEventData?.length > 0 && (
                 <div
-                    data-aos="fade-up"
                     className={styles['slider-image-container']}
                     id="slider-image-container"
                 >

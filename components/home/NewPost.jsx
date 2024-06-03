@@ -22,7 +22,7 @@ const NewPost = ({ listBlogHomeData }) => {
     return (
         <div className={styles['NewPost-container']}>
             <div className={styles['NewPost-content']}>
-                <div data-aos="zoom-in-up" className={styles['NewPost-main']}>
+                <div className={styles['NewPost-main']}>
                     <div className={styles['top']}>
                         <div className={styles['title']}>Bài Viết Mới Nhất</div>
                         <Link href={'/blogs/all'} className={styles['more']} aria-label={`Bài viết`}>

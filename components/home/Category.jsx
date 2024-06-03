@@ -68,7 +68,7 @@ const Category = ({ listTypeProductData }) => {
                 <div className={styles['Category-top']}>
                     DANH MỤC NỔI BẬT
                 </div>
-                <div data-aos='fade-right' className={styles['Category-bottom']}>
+                <div className={styles['Category-bottom']}>
 
                     <Slider {...settings}>
                         {

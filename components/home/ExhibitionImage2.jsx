@@ -5,7 +5,7 @@ const ExhibitionImage2 = () => {
 
     return (
         <div className={styles['ExhibitionImage2-container']} >
-            <div data-aos="fade-up" className={styles['ExhibitionImage2-content']} data-aos-offset="300">
+            <div className={styles['ExhibitionImage2-content']}>
                 <Link href={'/search?keyword=tai nghe&brand=apple'}
                     aria-label={`Xem danh mục: tai nghe apple`}
                     className={styles['ExhibitionImage2-img'] + ' ' + styles['img-1'] + ' ' + 'light-effect light-effect-flash'}>

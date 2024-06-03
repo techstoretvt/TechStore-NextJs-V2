@@ -52,7 +52,6 @@ const NewCollection = ({ newCollectionData = [] }) => {
                         href={'/search?promotion=true'}
                         aria-label={`Sản phẩm khuyến mãi`}
                         className={styles['left']}
-                        data-aos="fade-right"
                     >
                         <div className={styles['left-img']}></div>
                     </Link>

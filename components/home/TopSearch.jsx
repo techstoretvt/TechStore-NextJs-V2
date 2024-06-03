@@ -24,7 +24,7 @@ const TopSearch = () => {
                         </Link>
                     </div>
                 </div>
-                <div data-aos="fade-left" className={styles['TopSearch-right']}>
+                <div className={styles['TopSearch-right']}>
                     <Link href={'/search?keyword=điện thoại'} aria-label={`tìm kiếm`} className={styles['TopSearch-item']}>
                         <Image
                             src={'/images/home/top-search/dienthoai.webp'}

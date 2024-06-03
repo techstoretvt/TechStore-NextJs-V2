@@ -116,7 +116,7 @@ export async function getStaticProps(context) {
         listShortVideoData: listShortVideoRes?.data ?? [],
         listEventData: listEventRes?.data ?? [],
       },
-      revalidate: 60,
+      revalidate: 3600 * 24,
     };
   } catch (e) {
     console.log("lỗi phải static", e);

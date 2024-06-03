@@ -45,11 +45,11 @@ const AdvanceProduct = ({ newCollectionData = [] }) => {
     return (
         <div className={styles['AdvanceProduct-container']}>
             <div className={styles['AdvanceProduct-content']}>
-                <div className={styles['AdvanceProduct-top']} data-aos="zoom-in-down">
+                <div className={styles['AdvanceProduct-top']} >
                     Sản phẩm cao cấp
                 </div>
                 <div className={styles['AdvanceProduct-bottom']}>
-                    <div className={styles['AdvanceProduct-category']} data-aos="zoom-in-up">
+                    <div className={styles['AdvanceProduct-category']} >
                         <div className={classNames(styles['category'],
                             { [styles.active]: typeProduct === 1 })}
                             onClick={() => setTypeProduct(1)}
