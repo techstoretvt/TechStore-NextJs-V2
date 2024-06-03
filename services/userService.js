@@ -245,6 +245,26 @@ const getListCartUser = async (accessToken) => {
     }
 };
 
+const getListCartUserOffline = async (data) => {
+    try {
+        return await axios.get('/api/v2/get-list-cart-offline',
+            {
+                params: {
+                    dataCart: data
+                }
+            }
+        );
+    } catch (error) {
+        console.log(
+            '🚀 ~ file: userService.js:184 ~ getListCartUserOffline ~ error:',
+            error?.response?.data
+        );
+        return {
+            errCode: -1,
+        };
+    }
+};
+
 const editAmountCart = async (data) => {
     try {
         return await axios.put(`/api/v1/edit-amount-cart-user`, data);
@@ -1256,6 +1276,20 @@ const createNewReportBlog = async (data) => {
     }
 };
 
+const taoTaiKhoanKhach = async (data) => {
+    try {
+        return await axios.post('/api/v2/tao-tai-khoan-khach', data);
+    } catch (error) {
+        console.log(
+            '🚀 ~ file: userService.js:239 ~ handlePurchase ~ error:',
+            error?.response?.data
+        );
+        return {
+            errCode: -1,
+        };
+    }
+};
+
 export {
     CreateUser,
     verifyCreateUser,
@@ -1342,4 +1376,6 @@ export {
     sendEmailfromContact,
     createNewReportVideo,
     createNewReportBlog,
+    getListCartUserOffline,
+    taoTaiKhoanKhach
 };

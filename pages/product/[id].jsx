@@ -16,12 +16,7 @@ import Background from "../../components/background";
 
 
 // import { getProductById } from '../../services/graphql'
-import {
-  addCartProduct,
-  addCartOrMoveCart,
-  getListCartUser,
-  shareProduct,
-} from "../../services/userService";
+import { addCartProduct, addCartOrMoveCart, getListCartUser, shareProduct, getListCartUserOffline } from '../../services/userService';
 import {
   getListProductMayLike,
   getEvaluateById,
@@ -305,13 +300,29 @@ const DetailProduct = ({
   };
 
   const getListCarts = async () => {
-    let res = await getListCartUser(accessToken);
-    if (res && res.errCode === 0) {
-      dispatch({
-        type: actionTypes.UPDATE_LIST_CART,
-        data: res.data,
-      });
+    if (accessToken) {
+      let res = await getListCartUser(accessToken);
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.UPDATE_LIST_CART,
+          data: res.data,
+        });
+      }
+
     }
+    else {
+      let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+      if (dataCart.length === 0) return
+
+      let res = await getListCartUserOffline(dataCart);
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.UPDATE_LIST_CART,
+          data: res.data,
+        });
+      }
+    }
+
   };
 
   const getProduct = async () => {
@@ -527,14 +538,62 @@ const DetailProduct = ({
 
   const handleAddcart = async () => {
     if (!accessToken) {
-      dispatch({
-        type: actionTypes.UPDATE_REDIRECT_LOGIN,
-        data: router.asPath,
+
+      let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+
+      if (product.isSell === 'false') {
+        Swal.fire({
+          icon: "warning",
+          title: "Oh no",
+          text: "Sản phẩm đã ngừng bán!",
+        });
+        return;
+      }
+
+      if (product["classifyProduct-product"][indexClassify].amount === 0) {
+        Swal.fire({
+          icon: "warning",
+          title: "Oh no",
+          text: "Sản phẩm đã hết hàng!",
+        });
+        return;
+      }
+
+      let checkExits = false
+      dataCart = dataCart.map(cart => {
+        if (cart.id === product.id) {
+          cart.amount += +countProduct
+          checkExits = true
+        }
+
+        return cart
+      })
+
+      if (!checkExits) {
+        dataCart.push({
+          id: product.id,
+          amount: +countProduct,
+          idClassifyProduct: product["classifyProduct-product"][indexClassify]?.id,
+        })
+      }
+
+      localStorage.setItem("cart", JSON.stringify(dataCart));
+
+      Swal.fire({
+        icon: "success",
+        title: "Thành công",
+        text: "Đã thêm sản phẩm vào giỏ hàng",
       });
 
-      router.push("/account/login");
+
+      getListCarts();
+
       return;
     }
+
+
+
+
     let listClassifyTam = [...product["classifyProduct-product"]];
     listClassifyTam.sort(compare);
     let amount = listClassifyTam[indexClassify].amount;

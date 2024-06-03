@@ -40,7 +40,10 @@ const IgnoreUrl = (url) => {
         '/apit/v1/upload-images-evaluate-product',
         '/api/verify-create-user',
         '/api/v1/get-user-by-id',
-        '/api/v1/get-list-video-by-id-user'
+        '/api/v1/get-list-video-by-id-user',
+        '/api/v2/get-list-cart-offline',
+        '/api/v2/tao-tai-khoan-khach',
+
     ];
 
     let check = false;

@@ -98,8 +98,8 @@ const PurchasePage = () => {
 
   const renderPrice = (item) => {
     let priceRoot;
-    if (item.classifyProduct.nameClassifyProduct !== "default") {
-      priceRoot = item.classifyProduct.priceClassify;
+    if (item.classifyProduct?.nameClassifyProduct !== "default") {
+      priceRoot = item.classifyProduct?.priceClassify;
     } else {
       priceRoot = +item.product.priceProduct;
     }
@@ -144,8 +144,8 @@ const PurchasePage = () => {
     let totals = 0;
     list.forEach((item) => {
       let priceRoot;
-      if (item.classifyProduct.nameClassifyProduct !== "default") {
-        priceRoot = item.classifyProduct.priceClassify;
+      if (item.classifyProduct?.nameClassifyProduct !== "default") {
+        priceRoot = item.classifyProduct?.priceClassify;
       } else {
         priceRoot = +item.product.priceProduct;
       }
@@ -300,7 +300,7 @@ const PurchasePage = () => {
         onLoaderFinished={() => setProgress(0)}
       />
       <div>
-        <HeaderBottom hideSearch={false} />
+        <HeaderBottom hideSearch={true} />
         <div className={styles.PurchasePage_container}>
           <div className={styles.PurchasePage_content}>
             <div className={styles.header}>
@@ -395,7 +395,7 @@ const PurchasePage = () => {
                                     (item3, index) => {
                                       if (
                                         item3.STTImage ===
-                                        item2.classifyProduct.STTImg
+                                        item2.classifyProduct?.STTImg
                                       ) {
                                         return (
                                           <Link
@@ -409,7 +409,7 @@ const PurchasePage = () => {
                                         );
                                       }
                                       if (
-                                        item2.classifyProduct.STTImg === -1 &&
+                                        item2.classifyProduct?.STTImg === -1 &&
                                         index === 0
                                       ) {
                                         return (
@@ -437,10 +437,10 @@ const PurchasePage = () => {
                                         <div>
                                           Phân loại hàng:
                                           {item2.classifyProduct
-                                            .nameClassifyProduct !== "default"
+                                            ?.nameClassifyProduct !== "default"
                                             ? " " +
                                             item2.classifyProduct
-                                              .nameClassifyProduct
+                                              ?.nameClassifyProduct
                                             : " Không có "}
                                         </div>
                                         <div>x{item2.amount}</div>

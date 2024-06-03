@@ -26,7 +26,7 @@ import HeaderHome from "../components/home/HeaderHome";
 
 import SliderImageHome from "../components/home/SliderImageHome";
 
-import ExhibitionImage from "../components/home/ExhibitionImage";
+// import ExhibitionImage from "../components/home/ExhibitionImage";
 // import PromotionProduct from '../components/home/PromotionProduct'
 import Category from "../components/home/Category";
 import TopSellingProduct from "../components/home/TopSellingProduct";
@@ -172,7 +172,7 @@ export default function Home({
         </LazyLoad>
         <PromotionProduct PromotionProducts={PromotionProducts} />
         <LazyLoad offset={500}>
-          <ExhibitionImage />
+          {/* <ExhibitionImage /> */}
         </LazyLoad>
         <TopSellingProduct TopSellProducts={TopSellProducts} />
         <LazyLoad offset={500}>

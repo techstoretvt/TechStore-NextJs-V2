@@ -26,8 +26,8 @@ const TopSellingProduct = ({ TopSellProducts }) => {
         infinite: false,
         speed: 1200,
         lazyLoad: 'ondemand',
-        slidesToShow: 7,
-        slidesToScroll: 7,
+        slidesToShow: 6,
+        slidesToScroll: 6,
         rows: 2,
         responsive: [
             {

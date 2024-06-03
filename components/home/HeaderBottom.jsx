@@ -15,6 +15,7 @@ import {
     GetUserLogin,
     getListNotifyAll,
     seenNotifyOfUser,
+    getListCartUserOffline
 } from '../../services/userService';
 import { Menu } from 'antd';
 import Autocomplete from 'react-autocomplete';
@@ -261,6 +262,7 @@ const HeaderBottom = (props) => {
     const accessToken = useSelector((state) => state.user.accessToken);
     const listCarts = useSelector((state) => state.user.listCarts);
     const [showMenuMobile, setShowMenuMobile] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const [valueInput, setValueInput] = useState('');
     const [dataKeyword, setDataKeyword] = useState([]);
     const listKeyword = useSelector((state) => state.app.listKeyword);
@@ -289,6 +291,7 @@ const HeaderBottom = (props) => {
         initNotifications({ cooldown: 3000 });
 
         if (accessToken) {
+            setIsLogin(true)
             let decoded = decode_token(accessToken);
 
             socket = io.connect(`${process.env.REACT_APP_BACKEND_URL}`, {
@@ -426,6 +429,9 @@ const HeaderBottom = (props) => {
                 },
             ]);
         }
+        else {
+            setIsLogin(false)
+        }
 
         return () => {
             if (accessToken) {
@@ -473,12 +479,27 @@ const HeaderBottom = (props) => {
 
     const getListCart = async () => {
         try {
-            let res = await getListCartUser(accessToken);
-            if (res && res.errCode === 0) {
-                dispatch({
-                    type: actionTypes.UPDATE_LIST_CART,
-                    data: res.data,
-                });
+            if (accessToken) {
+                let res = await getListCartUser(accessToken);
+                if (res && res.errCode === 0) {
+                    dispatch({
+                        type: actionTypes.UPDATE_LIST_CART,
+                        data: res.data,
+                    });
+                }
+            }
+            else {
+                let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+                if (dataCart.length === 0) return
+
+                let res = await getListCartUserOffline(dataCart);
+                if (res && res.errCode === 0) {
+                    dispatch({
+                        type: actionTypes.UPDATE_LIST_CART,
+                        data: res.data,
+                    });
+                }
+
             }
         } catch (error) {
             console.log('Error in HeaderBottom (get list car)');
@@ -527,7 +548,19 @@ const HeaderBottom = (props) => {
         }
     };
 
-    const handleDeleteProductInCart = async (id) => {
+    const handleDeleteProductInCart = async (id, item) => {
+        if (item?.type === 'offline') {
+
+            let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+            dataCart = dataCart.filter(card => card.id !== item.product.id)
+
+            localStorage.setItem("cart", JSON.stringify(dataCart));
+
+            getListCart();
+            return;
+        }
+
+
         let res = await deleteProductInCart({
             accessToken,
             id,
@@ -924,7 +957,8 @@ const HeaderBottom = (props) => {
                                 </div>
                             </button>
 
-                            {/* <div className={styles['header-icon-separate']}></div> */}
+                            <div className={styles['header-icon-separate']}></div>
+
                             <button
                                 ref={btnIconCart}
                                 className={classNames(styles['icon-cart'], {
@@ -940,10 +974,7 @@ const HeaderBottom = (props) => {
                                     </div>
                                 </div>
 
-                                {/* <div className={styles['right']}>
-                              <div className={styles.text}>Giỏ hàng</div>
 
-                           </div> */}
                                 <div className={styles.cartShow_container}>
                                     <div className={styles.cartShow_content}>
                                         <div className={styles.header}>
@@ -1048,7 +1079,7 @@ const HeaderBottom = (props) => {
                                                                     className="fa-solid fa-xmark"
                                                                     onClick={() =>
                                                                         handleDeleteProductInCart(
-                                                                            item.id
+                                                                            item.id, item
                                                                         )
                                                                     }
                                                                 ></i>
@@ -1059,20 +1090,33 @@ const HeaderBottom = (props) => {
                                                 : 'Không có sản phẩm nào trong giỏ hàng'}
                                         </div>
                                         <div className={styles.footer}>
-                                            <div
-                                                onClick={() => {
-                                                    if (accessToken)
+                                            {
+                                                isLogin &&
+                                                <div
+                                                    onClick={() => {
                                                         router.push(`/cart`);
-                                                    else {
+                                                    }}
+                                                    className={styles.footer_btn}
+                                                >
+                                                    Xem giỏ hàng
+                                                </div>
+
+                                            }
+
+                                            {
+                                                !isLogin &&
+                                                <div
+                                                    onClick={() => {
                                                         router.push(
-                                                            `/account/login`
+                                                            `/checkout`
                                                         );
-                                                    }
-                                                }}
-                                                className={styles.footer_btn}
-                                            >
-                                                Xem giỏ hàng
-                                            </div>
+                                                    }}
+                                                    className={styles.footer_btn + ' ' + styles.footer_btn2}
+                                                >
+                                                    Mua ngay
+                                                </div>
+                                            }
+
                                         </div>
                                     </div>
                                     <div className={styles.btnClose}>
@@ -1089,6 +1133,12 @@ const HeaderBottom = (props) => {
                                     onClick={() => btnIconCart.current.blur()}
                                 ></div>
                             </button>
+
+
+
+
+
+
                             <button className={styles.icon_virtual}></button>
                             <div
                                 className={styles['header-icon-separate']}
@@ -1275,6 +1325,8 @@ const HeaderBottom = (props) => {
                         </div>
                     </div>
                 </div>
+
+
                 {props.link_social && (
                     // <div className={styles.link_social}>
                     //     <Link

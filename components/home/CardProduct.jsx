@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useMemo } from "react";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import LazyLoad from "react-lazyload";
-import { addCartProduct, getListCartUser } from "../../services/userService";
+import { addCartProduct, getListCartUser, getListCartUserOffline } from '../../services/userService';
 
 import styles from "../../styles/home/CardProduct.module.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +36,10 @@ const CardProduct = ({ product, handleOpenModalPreview }) => {
         <>
           <div className={styles["price"]}>
             <div className={styles["price-number"] + " " + styles.active}>
-              {new Intl.NumberFormat("ja-JP").format(price)} VND
+              {new Intl.NumberFormat("ja-JP").format(product.gia_tu)}
+            </div>
+            <div className={styles["price-number"] + " " + styles.active}>
+              {new Intl.NumberFormat("ja-JP").format(product.gia_den)}
             </div>
           </div>
           <div className={styles["price-promotion"]}></div>
@@ -51,30 +54,59 @@ const CardProduct = ({ product, handleOpenModalPreview }) => {
       let persent = product.promotionProducts[0].numberPercent;
       let pricePromotion = parseInt(price - (price * persent) / 100);
 
-      return (
-        <>
-          <div className={styles["price-promotion"]}>
-            {new Intl.NumberFormat("ja-JP").format(pricePromotion)} VND
-          </div>
-          <div className={styles["price"]}>
-            <div className={styles["price-number"]}>
-              {new Intl.NumberFormat("ja-JP").format(price)} VND
+      if (+product.gia_tu === +product.gia_den)
+        return (
+          <>
+            <div className={styles["price-promotion"]}>
+              {new Intl.NumberFormat("ja-JP").format(pricePromotion)}
             </div>
-            <div className={styles["price-number-promotion"]}>{persent}%</div>
-          </div>
-        </>
-      );
+            <div className={styles["price"]}>
+              <div className={styles["price-number"]}>
+                {new Intl.NumberFormat("ja-JP").format(price)}
+              </div>
+              <div className={styles["price-number-promotion"]}>-{persent}%</div>
+            </div>
+          </>
+        );
+      else {
+        return (
+          <>
+            <div className={styles["price-promotion"]}>
+              {new Intl.NumberFormat("ja-JP").format(parseInt(+product.gia_tu - (+product.gia_tu * persent) / 100))} - {new Intl.NumberFormat("ja-JP").format(parseInt(+product.gia_den - (+product.gia_den * persent) / 100))}
+            </div>
+            <div className={styles["price"]}>
+              <div className={styles["price-number"]}>
+                {new Intl.NumberFormat("ja-JP").format(+product.gia_tu)} - {new Intl.NumberFormat("ja-JP").format(+product.gia_den)}
+              </div>
+              <div className={styles["price-number-promotion"]}>-{persent}%</div>
+            </div>
+          </>
+        );
+      }
     } else {
-      return (
-        <>
-          <div className={styles["price"]}>
-            <div className={styles["price-number"] + " " + styles.active}>
-              {new Intl.NumberFormat("ja-JP").format(price)} VND
+      if (+product.gia_tu === +product.gia_den)
+        return (
+          <>
+            <div className={styles["price"]}>
+              <div className={styles["price-number"] + " " + styles.active}>
+                {new Intl.NumberFormat("ja-JP").format(+product.gia_tu)}
+              </div>
             </div>
-          </div>
-          <div className={styles["price-promotion"]}></div>
-        </>
-      );
+            <div className={styles["price-promotion"]}></div>
+          </>
+        );
+      else {
+        return (
+          <>
+            <div className={styles["price"]}>
+              <div className={styles["price-number"] + " " + styles.active}>
+                {new Intl.NumberFormat("ja-JP").format(+product.gia_tu)} - {new Intl.NumberFormat("ja-JP").format(+product.gia_den)}
+              </div>
+            </div>
+            <div className={styles["price-promotion"]}></div>
+          </>
+        );
+      }
     }
   };
 
@@ -90,11 +122,57 @@ const CardProduct = ({ product, handleOpenModalPreview }) => {
   const handleAddCart = async () => {
     if (!product) return;
     if (!accessToken) {
+      let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+
+
+      if (product.isSell === 'false') {
+        Swal.fire({
+          icon: "warning",
+          title: "Oh no",
+          text: "Sản phẩm đã ngừng bán!",
+        });
+        return;
+      }
+
+      if (product["classifyProduct-product"][0].amount === 0) {
+        Swal.fire({
+          icon: "warning",
+          title: "Oh no",
+          text: "Sản phẩm đã hết hàng!",
+        });
+        return;
+      }
+
+
+      let checkExits = false
+      dataCart = dataCart.map(cart => {
+        if (cart.id === product.id) {
+          cart.amount += 1
+          checkExits = true
+        }
+
+        return cart
+      })
+
+      if (!checkExits) {
+        dataCart.push({
+          id: product.id,
+          amount: 1,
+          idClassifyProduct: product["classifyProduct-product"][0]?.id,
+        })
+      }
+
+      localStorage.setItem("cart", JSON.stringify(dataCart));
+
       Swal.fire({
-        icon: "warning",
-        title: "Chú ý",
-        text: "Đăng nhập để thực hiện",
+        icon: "success",
+        title: "Thành công",
+        text: "Đã thêm sản phẩm vào giỏ hàng",
       });
+
+      getListCarts();
+
+
       return;
     }
     // console.log(product);
@@ -130,12 +208,27 @@ const CardProduct = ({ product, handleOpenModalPreview }) => {
   };
 
   const getListCarts = async () => {
-    let res = await getListCartUser(accessToken);
-    if (res && res.errCode === 0) {
-      dispatch({
-        type: actionTypes.UPDATE_LIST_CART,
-        data: res.data,
-      });
+    if (accessToken) {
+
+      let res = await getListCartUser(accessToken);
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.UPDATE_LIST_CART,
+          data: res.data,
+        });
+      }
+    }
+    else {
+      let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+      if (dataCart.length === 0) return
+
+      let res = await getListCartUserOffline(dataCart);
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.UPDATE_LIST_CART,
+          data: res.data,
+        });
+      }
     }
   };
 
@@ -201,7 +294,6 @@ const CardProduct = ({ product, handleOpenModalPreview }) => {
             {renderPriceProduct()}
           </div>
           <div className={styles.btn}>
-            {/* onClick={handleAddCart */}
             <button onClick={handleAddCart}> Thêm vào giỏ</button>
           </div>
         </div>

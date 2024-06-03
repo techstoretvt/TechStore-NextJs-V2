@@ -15,7 +15,7 @@ instance.interceptors.request.use(
         if (IgnoreUrl(config.url)) return config;
 
         // Kiểm tra token hết hạn
-        const accessToken = localStorage.getItem('accessToken');
+        let accessToken = localStorage.getItem('accessToken') ?? localStorage.getItem('accessTokenKhach');
         if (!accessToken) {
             // Nếu không tồn tại accessToken, trả về một Promise.reject với giá trị { code: -1 }
             return Promise.reject({
@@ -91,9 +91,8 @@ instance.interceptors.request.use(
         }
         // Trả về config của yêu cầu nếu token chưa hết hạn
 
-        config.headers['Authorization'] = `Bearer ${localStorage.getItem(
-            'accessToken'
-        )}`;
+        accessToken = localStorage.getItem('accessToken') ?? localStorage.getItem('accessTokenKhach');
+        config.headers['Authorization'] = `Bearer ${accessToken}`;
         return config;
     },
     (error) => {

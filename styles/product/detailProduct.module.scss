@@ -15,7 +15,7 @@
         margin-top: 30px;
         flex-direction: row-reverse;
         padding: 10px;
-        // background-color: rgba(0, 0, 0, 0.633);
+        // background-color: #fff;
         gap: 10px 0;
         min-height: 200px;
 
@@ -164,9 +164,13 @@
             .infoProductWrap {
                 display: flex;
                 flex-wrap: wrap;
+                gap: 30px;
+
 
                 .infoProductWrap_left {
-                    width: 60%;
+                    width: 100%;
+                    background-color: #fff;
+                    padding: 10px;
 
                     .classifyProduct:not(:empty) {
                         display: flex;
@@ -179,14 +183,14 @@
                             min-width: 100px;
 
                             div:nth-child(1) {
-                                font-weight: 500;
-                                color: #fff;
-                                font-size: 1.4rem;
+                                font-weight: bold;
+                                color: #000;
+                                font-size: 1.5rem;
                             }
 
                             div:nth-child(2) {
-                                font-size: 1.2rem;
-                                color: #cfcfcf;
+                                font-size: 1.3rem;
+                                color: #000;
                             }
                         }
 
@@ -196,23 +200,25 @@
                             flex-wrap: wrap;
 
                             >.item {
-                                border: 1px solid #cfcfcf;
+                                border: 2px solid #000;
                                 padding: 4px 10px;
                                 border-radius: 4px;
                                 cursor: pointer;
                                 text-transform: capitalize;
-                                color: #cfcfcf;
+                                color: #000;
+                                font-weight: bold;
                                 font-size: 1.3rem;
 
 
+
                                 &.active {
-                                    border: 1px solid orange;
-                                    color: orange;
+                                    border: 2px solid red;
+                                    color: red;
                                 }
 
                                 &.disabled {
                                     border: 1px solid #ccc;
-                                    color: #fff;
+                                    color: #000;
                                     cursor: no-drop;
                                 }
                             }
@@ -225,9 +231,9 @@
                         padding: 10px;
 
                         .title {
-                            font-weight: 500;
-                            color: #fff;
-                            font-size: 1.4rem;
+                            font-weight: bold;
+                            color: #000;
+                            font-size: 1.5rem;
                         }
 
                         .wrapBtn {
@@ -569,7 +575,8 @@
                         align-items: center;
 
                         .title {
-                            color: #fff;
+                            color: #000;
+                            font-weight: bold;
                         }
 
                         .wrapIconSocial {

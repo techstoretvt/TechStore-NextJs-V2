@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import HeaderLogin from "../../components/login/HeaderLogin";
+import HeaderBottom from "../../components/home/HeaderBottom";
 // import FormLogin from "../../components/Login/FormLogin";
 
 import dynamic from "next/dynamic";
@@ -48,7 +49,7 @@ const Login = () => {
       />
       <div className={classNames("LoginPage-container")}>
         <div className="LoginPage-content">
-          <HeaderLogin />
+          <HeaderBottom link_social={true} />
           <FormLogin />
         </div>
       </div>

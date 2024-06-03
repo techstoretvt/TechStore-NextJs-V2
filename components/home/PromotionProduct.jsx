@@ -53,8 +53,8 @@ const PromotionProduct = ({ PromotionProducts = [] }) => {
         infinite: false,
         speed: 1300,
         lazyLoad: 'ondemand',
-        slidesToShow: 7,
-        slidesToScroll: 7,
+        slidesToShow: 6,
+        slidesToScroll: 6,
         dotsClass: styles['slick-dots'],
 
         responsive: [

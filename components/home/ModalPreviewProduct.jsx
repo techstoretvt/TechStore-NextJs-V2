@@ -14,7 +14,7 @@ import {
 } from 'react-share';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Swal from 'sweetalert2';
-import { addCartProduct, getListCartUser } from '../../services/userService';
+import { addCartProduct, getListCartUser, getListCartUserOffline } from '../../services/userService';
 import { useDispatch, useSelector } from 'react-redux';
 import actionTypes from '../../store/actions/actionTypes';
 import Fancybox from '../../components/product/Fancybox';
@@ -212,22 +212,83 @@ const ModalPreviewProduct = ({ product, isOpen, closeModal }) => {
     };
 
     const getListCarts = async () => {
-        let res = await getListCartUser(accessToken);
-        if (res && res.errCode === 0) {
-            dispatch({
-                type: actionTypes.UPDATE_LIST_CART,
-                data: res.data,
-            });
+        if (accessToken) {
+            let res = await getListCartUser(accessToken);
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.UPDATE_LIST_CART,
+                    data: res.data,
+                });
+            }
+        }
+        else {
+            let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+            if (dataCart.length === 0) return
+
+            let res = await getListCartUserOffline(dataCart);
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.UPDATE_LIST_CART,
+                    data: res.data,
+                });
+            }
         }
     };
 
     const handleAddCart = async () => {
         if (!accessToken) {
+
+            let dataCart = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+
+
+            if (product.isSell === 'false') {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Oh no",
+                    text: "Sản phẩm đã ngừng bán!",
+                });
+                return;
+            }
+
+            if (product["classifyProduct-product"][0].amount === 0) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Oh no",
+                    text: "Sản phẩm đã hết hàng!",
+                });
+                return;
+            }
+
+
+            let checkExits = false
+            dataCart = dataCart.map(cart => {
+                if (cart.id === product.id) {
+                    cart.amount += 1
+                    checkExits = true
+                }
+
+                return cart
+            })
+
+            if (!checkExits) {
+                dataCart.push({
+                    id: product.id,
+                    amount: 1,
+                    idClassifyProduct: product["classifyProduct-product"][0]?.id,
+                })
+            }
+
+            localStorage.setItem("cart", JSON.stringify(dataCart));
+
             Swal.fire({
-                icon: 'warning',
-                title: 'Chú ý',
-                text: 'Đăng nhập để thực hiện',
+                icon: "success",
+                title: "Thành công",
+                text: "Đã thêm sản phẩm vào giỏ hàng",
             });
+
+            getListCarts();
+
+
             return;
         }
         let data = {
