@@ -1327,39 +1327,10 @@ const HeaderBottom = (props) => {
                 </div>
 
 
-                {props.link_social && (
-                    // <div className={styles.link_social}>
-                    //     <Link
-                    //         aria-label={`Short video`}
-                    //         href={'/short-video/foryou'}
-                    //         className={styles.social_item}
-                    //     >
-                    //         <div className={styles.left}>
-                    //             <i
-                    //                 className="fa-solid fa-clapperboard"
-                    //                 style={{ color: '#93AEE9' }}
-                    //             ></i>
-                    //         </div>
-                    //         <div className={styles.right}>Short video</div>
-                    //     </Link>
-                    //     <Link
-                    //         href={'/blogs/all'}
-                    //         aria-label={`Bài viết`}
-                    //         className={styles.social_item}
-                    //     >
-                    //         <div className={styles.left}>
-                    //             <i
-                    //                 className="fa-solid fa-newspaper"
-                    //                 style={{ color: '#93AEE9' }}
-                    //             ></i>
-                    //         </div>
-                    //         <div className={styles.right}>Blog</div>
-                    //     </Link>
-                    // </div>
-                    <div>
-                        <Menu mode="horizontal" items={itemsNavbar} theme="dark" />
-                    </div>
-                )}
+
+                <div>
+                    <Menu mode="horizontal" items={itemsNavbar} theme="dark" />
+                </div>
             </div>
             <div id="fb-customer-chat" className="fb-customerchat">
             </div>
