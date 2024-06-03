@@ -166,11 +166,10 @@ export default function Home({
         <HeaderHome isTop={true} link_social={true} />
         <BannerHome />
         <ExhibitionImage2 />
-        <SliderImageHome listEventData={listEventData} />
 
-        <LazyLoad offset={500}>
-          <Category listTypeProductData={listTypeProductData} />
-        </LazyLoad>
+
+        <Category listTypeProductData={listTypeProductData} />
+        <SliderImageHome listEventData={listEventData} />
         <PromotionProduct PromotionProducts={PromotionProducts} />
         <LazyLoad offset={500}>
           {/* <ExhibitionImage /> */}
