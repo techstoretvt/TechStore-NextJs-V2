@@ -934,6 +934,17 @@ const CartPage = () => {
   };
 
   const onClickBtnBuy = async () => {
+
+    if (!dtKhach || !hoTenKhach || !diaChiKhach) {
+      Swal.fire({
+        icon: "warning",
+        title: "Oh no!",
+        text: "Vui lòng nhập địa chỉ",
+      });
+      return;
+    }
+
+
     await handleTaoTaiKhoanKhach();
 
     if (payment === "hand") {
