@@ -60,9 +60,6 @@ const HeaderHome = (props) => {
 
   return (
     <>
-      <Head>
-        {/* <link rel="stylesheet" href="/css/home/HeaderHome.css" /> */}
-      </Head>
       <div className={styles.wrap_headerHome}>
         <div
           className={

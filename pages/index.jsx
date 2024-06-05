@@ -171,15 +171,13 @@ export default function Home({
         <Category listTypeProductData={listTypeProductData} />
         <SliderImageHome listEventData={listEventData} />
         <PromotionProduct PromotionProducts={PromotionProducts} />
-        <LazyLoad offset={500}>
-          {/* <ExhibitionImage /> */}
-        </LazyLoad>
+        {/* <LazyLoad offset={500}>
+          <ExhibitionImage />
+        </LazyLoad> */}
         <TopSellingProduct TopSellProducts={TopSellProducts} />
 
         <NewCollection newCollectionData={newCollectionData} />
-        <LazyLoad offset={500}>
-          <ExhibitionImage3 />
-        </LazyLoad>
+        <ExhibitionImage3 />
         <AdvanceProduct newCollectionData={newCollectionData} />
         <GenuineFlycam ProductFlycams={ProductFlycams} />
         <NewPost listBlogHomeData={listBlogHomeData} />

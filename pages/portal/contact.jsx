@@ -50,7 +50,7 @@ const ContactPage = () => {
         <title>Liên hệ | {nameWeb}</title>
         <meta name="description" content={`Thông tin liên hệ tại cửa hàng trực tuyến ${nameWeb}, gửi những câu hỏi hoặc thắc mắc của bạn đến ngay với chúng tôi.`} />
       </Head>
-      <HeaderBottom hideSearch={false} />
+      <HeaderBottom hideSearch={true} />
       <div className={styles.ContactPage_container}>
         <div className={styles.ContactPage_content}>
           <div className={styles.left}>
